@@ -13,22 +13,26 @@ export const doctorSlice = createSlice({
   name: "doctors",
   initialState: {
     doctors: [],
-    status: null,
+    loading: false,
+    hasErrors: false,
   },
   reducers: {},
   extraReducers: {
-    [fetchDoctors.pending]: (state, action) => {
-      state.status = "loading";
+    [fetchDoctors.pending]: (state) => {
+      state.loading = true;
     },
-    [fetchDoctors.fulfilled]: (state, action) => {
-      state.status = "succeeded";
-      state.doctors = state.doctors.concat(action.payload);
+    [fetchDoctors.fulfilled]: (state, { payload }) => {
+      state.doctors = payload;
+      state.loading = false;
+      state.hasErrors = false;
     },
-    [fetchDoctors.rejected]: (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
-    }
-  }
+    [fetchDoctors.rejected]: (state) => {
+      state.loading = false;
+      state.hasErrors = true;
+    },
+  },
 });
+
+export const doctorSelector = (state) => state.doctors;
 
 export default doctorSlice.reducer;
