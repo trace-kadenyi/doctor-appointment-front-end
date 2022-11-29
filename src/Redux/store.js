@@ -1,5 +1,5 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { doctorSlice } from './doctorSlice';
+import doctorSlice from './doctorSlice';
 
 const rootReducer = combineReducers({
   doctor: doctorSlice,

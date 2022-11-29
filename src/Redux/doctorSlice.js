@@ -8,7 +8,7 @@ export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async () =>
   return response.data;
 });
 
-export const doctorSlice = createSlice({
+const doctorSlice = createSlice({
   name: 'doctors',
   initialState: {
     doctors: [],
