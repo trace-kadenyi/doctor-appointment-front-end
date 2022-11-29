@@ -26,8 +26,15 @@ export const fetchCreateUser = createAsyncThunk('user/signup', async (user) => f
 const options = {
   name: 'User',
   initialState: {
-    users: [],
+    users: [],  
     currentUser: {},
+    error: '',
+    pending: false,
+    rejected: false,
+    fulfilled: false,
+    createPending: false,
+    createRejected: false,
+    createFulfilled: false
   },
   reducers: {
     setCurrentUser(state, action) {
@@ -42,16 +49,31 @@ const options = {
     },
   },
   extraReducers: {
+    [fetchUsers.pending]: (state, action) => {
+      state.pending = true;
+    }, 
+    [fetchUsers.rejected]: (state, action) => {
+      // render the error
+      state.error = action.payload
+      state.rejected = true
+    },
     [fetchUsers.fulfilled]: (state, action) => {
       state.users = action.payload;
+      state.fulfilled = true;
       // this is just for testing purposes users shouldn't be public.
       localStorage.removeItem('users');
       localStorage.setItem('users', JSON.stringify(action.payload));
-    },
+    }, 
+    [fetchCreateUser.pending]: (state, action) => {
+      state.createpending = true;
+    }, 
     [fetchCreateUser.rejected]: (state, action) => {
       // render the error
+      state.createRejected = true;
+      state.error=action.payload;
     },
     [fetchCreateUser.fulfilled]: (state, action) => {
+      state.createFulfilled = true
       state.currentUser = action.payload;
       localStorage.setItem('currentUser', JSON.stringify(action.payload));
     },
@@ -63,4 +85,4 @@ export const { setCurrentUser, signOut } = UserSlice.actions;
 export default UserSlice.reducer;
 export const selectUsers = (state) => state.user.users;
 export const selectCurrentUser = (state) => state.user.currentUser;
-export const selectError = (state) => state.user.error;
+export const selectAll = (state) => state.user;
