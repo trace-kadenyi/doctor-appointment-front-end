@@ -1,8 +1,15 @@
 import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import DoctorsList from './components/Doctors/DoctorsList';
 
 function App() {
   return (
-    <div>App</div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<DoctorsList />} />
+      </Routes>
+    </Router>
   );
 }
 
