@@ -55,25 +55,29 @@ const options = {
     [fetchUsers.rejected]: (state, action) => {
       // render the error
       state.error = action.payload
+      state.pending = false
       state.rejected = true
     },
     [fetchUsers.fulfilled]: (state, action) => {
       state.users = action.payload;
       state.fulfilled = true;
+      state.pending= false;
       // this is just for testing purposes users shouldn't be public.
       localStorage.removeItem('users');
       localStorage.setItem('users', JSON.stringify(action.payload));
     }, 
     [fetchCreateUser.pending]: (state, action) => {
-      state.createpending = true;
+      state.createPending = true;
     }, 
     [fetchCreateUser.rejected]: (state, action) => {
       // render the error
       state.createRejected = true;
-      state.error=action.payload;
+      state.createPending = false;
+      state.error = action.payload;
     },
     [fetchCreateUser.fulfilled]: (state, action) => {
-      state.createFulfilled = true
+      state.createFulfilled = true;
+      state.createPending = false;
       state.currentUser = action.payload;
       localStorage.setItem('currentUser', JSON.stringify(action.payload));
     },
