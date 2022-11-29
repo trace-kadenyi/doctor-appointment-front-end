@@ -32,13 +32,11 @@
   overflow: hidden;
 }
 
-/* .scroll-images::-webkit-scrollbar {
+.scroll_content::-webkit-scrollbar {
   -webkit-appearance: none;
-} */
+}
 
 .doctors_img {
-    /* width: 350px;
-    height: 350px; */
     border-radius: 50%;
     width: 100%;
     height: 80%;
@@ -51,16 +49,6 @@
 .specialization {
   text-align: center;
 }
-
-.arrow_div {
-  border: 50%;
-}
-
-.bi_arrow {
-  border: 25px;
-}
-
-
 
 .arrow {
   color: white;
