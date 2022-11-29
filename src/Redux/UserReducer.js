@@ -26,7 +26,7 @@ export const fetchCreateUser = createAsyncThunk('user/signup', async (user) => f
 const options = {
   name: 'User',
   initialState: {
-    users: [],  
+    users: [],
     currentUser: {},
     error: '',
     pending: false,
@@ -34,51 +34,58 @@ const options = {
     fulfilled: false,
     createPending: false,
     createRejected: false,
-    createFulfilled: false
+    createFulfilled: false,
   },
   reducers: {
     setCurrentUser(state, action) {
-      state.currentUser = action.payload;
+      const currentUserState = state;
+      currentUserState.currentUser = action.payload;
     },
     signOut(state) {
       // notify the user that he was signed out
       // rerender the login page.
+      const currentUserState = state;
       console.log('signed out');
-      state.currentUser = {};
+      currentUserState.currentUser = {};
       localStorage.removeItem('currentUser');
     },
   },
   extraReducers: {
     [fetchUsers.pending]: (state, action) => {
       state.pending = true;
-    }, 
+    },
     [fetchUsers.rejected]: (state, action) => {
+      const rejectedState = state;
       // render the error
-      state.error = action.payload
-      state.pending = false
-      state.rejected = true
+      rejectedState.error = action.payload;
+      rejectedState.pending = false;
+      rejectedState.rejected = true;
     },
     [fetchUsers.fulfilled]: (state, action) => {
-      state.users = action.payload;
-      state.fulfilled = true;
-      state.pending= false;
+      const fulfilledState = state;
+      fulfilledState.users = action.payload;
+      fulfilledState.fulfilled = true;
+      fulfilledState.pending = false;
       // this is just for testing purposes users shouldn't be public.
       localStorage.removeItem('users');
       localStorage.setItem('users', JSON.stringify(action.payload));
-    }, 
+    },
     [fetchCreateUser.pending]: (state, action) => {
-      state.createPending = true;
-    }, 
+      const pendingState = state;
+      pendingState.createPending = true;
+    },
     [fetchCreateUser.rejected]: (state, action) => {
+      const rejectedState = state;
       // render the error
-      state.createRejected = true;
-      state.createPending = false;
-      state.error = action.payload;
+      rejectedState.createRejected = true;
+      rejectedState.createPending = false;
+      rejectedState.error = action.payload;
     },
     [fetchCreateUser.fulfilled]: (state, action) => {
-      state.createFulfilled = true;
-      state.createPending = false;
-      state.currentUser = action.payload;
+      const fulfilledState = state;
+      fulfilledState.createFulfilled = true;
+      fulfilledState.createPending = false;
+      fulfilledState.currentUser = action.payload;
       localStorage.setItem('currentUser', JSON.stringify(action.payload));
     },
   },
