@@ -51,8 +51,9 @@ const options = {
     },
   },
   extraReducers: {
-    [fetchUsers.pending]: (state, action) => {
-      state.pending = true;
+    [fetchUsers.pending]: (state) => {
+      const pendingState = state;
+      pendingState.pending = true;
     },
     [fetchUsers.rejected]: (state, action) => {
       const rejectedState = state;
@@ -70,7 +71,7 @@ const options = {
       localStorage.removeItem('users');
       localStorage.setItem('users', JSON.stringify(action.payload));
     },
-    [fetchCreateUser.pending]: (state, action) => {
+    [fetchCreateUser.pending]: (state) => {
       const pendingState = state;
       pendingState.createPending = true;
     },

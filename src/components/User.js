@@ -18,7 +18,7 @@ function User() {
 
   // log in the user
   const loginUser = (name) => {
-    const currentUser = users.filter((e) => e.name == name);
+    const currentUser = users.filter((e) => e.name === name);
     if (currentUser.length) {
       // user is logged in render the home page, notify the user.
       console.log('logged in');
@@ -33,7 +33,7 @@ function User() {
   // sign up the user
   const signUp = (name) => {
     // check locally if the name already exists to avoid errors
-    const currentUser = users.filter((e) => e.name == name);
+    const currentUser = users.filter((e) => e.name === name);
     if (currentUser.length) {
       // notify the message
       console.log('username already exists, chose another one');
@@ -53,8 +53,8 @@ function User() {
         <div>
           <input id="username-input" placeholder="enter your username" onChange={(e) => setUsername(e.target.value)} />
           <br />
-          <button onClick={(e) => { e.preventDefault(); loginUser(username); }}>log in</button>
-          <button onClick={(e) => { e.preventDefault(); signUp(username); }}>sign up</button>
+          <button type="submit" onClick={(e) => { e.preventDefault(); loginUser(username); }}>log in</button>
+          <button type="submit" onClick={(e) => { e.preventDefault(); signUp(username); }}>sign up</button>
         </div>
       </form>
     </section>

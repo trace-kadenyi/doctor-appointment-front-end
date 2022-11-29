@@ -15,7 +15,7 @@ const Home = () => {
             {currentUser.id}
           </div>
         )}
-      <button onClick={() => dispatch(signOut())}>sign out</button>
+      <button type="button" onClick={() => dispatch(signOut())}>sign out</button>
     </section>
   );
 };
