@@ -16,6 +16,19 @@ const DoctorsList = () => {
     dispatch(fetchDoctors());
   }, [dispatch]);
 
+  // scroll to the right
+  const scrollRight = () => {
+    const container = document.querySelector(".scroll_content");
+    container.scrollLeft += container.offsetWidth;
+  };
+
+  // scroll to the left
+  const scrollLeft = () => {
+    const container = document.querySelector(".scroll_content");
+    container.scrollLeft -= container.offsetWidth;
+  };
+
+
   return (
     <div className="doctors_sect">
       {/* loading main page */}
@@ -26,8 +39,9 @@ const DoctorsList = () => {
       )}
       {/* doctors list */}
       <div className="content_div">
+        {/* scroll left arrow */}
         <div className="arrow_div">
-          <button className="arrow left">
+          <button className="arrow left" onClick={scrollLeft}>
             <BiLeftArrow />
           </button>
         </div>
@@ -46,8 +60,9 @@ const DoctorsList = () => {
             ))}
           </div>
         </div>
+        {/* scroll right arrow */}
         <div>
-          <button className="arrow">
+          <button className="arrow" onClick={scrollRight}>
             <BiRightArrow />
           </button>
         </div>
