@@ -19,7 +19,9 @@
       currentUser: {}
     },
     reducers: {
-
+      setCurrentUser: function (state, action) {
+        state.currentUser = action.payload;
+      }
     },
     extraReducers: {
       [fetchUsers.fulfilled]: (state, action) => { 
