@@ -10,7 +10,20 @@
     return users;
   });
   
-  
+  // Create user on sign up params {name: ''}
+  export const fetchCreateUser = createAsyncThunk('user/signup', async (user) => {
+    return fetch(UserApi, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    }).then(async (res) => {
+      const data = res.json();
+      const user = await data;
+      return user;
+      });
+  });
 
   const options = {
     name: 'User',
