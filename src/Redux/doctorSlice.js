@@ -15,7 +15,12 @@ const doctorReducer = createSlice({
     loading: false,
     hasErrors: false,
   },
-  reducers: {},
+  reducers: {
+    deleteDoctor: (state, action) => {
+      const { id } = action.payload;
+      state.doctors = state.doctors.filter((doctor) => doctor.id !== id);
+    },
+  },
   extraReducers: {
     [fetchDoctors.pending]: (state) => {
       state.loading = true;

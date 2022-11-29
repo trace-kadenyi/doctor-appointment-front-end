@@ -3,8 +3,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
+import { Link } from 'react-router-dom';
 
 const DoctorsList = () => {
+  
   const dispatch = useDispatch();
   const doctors = useSelector(doctorSelector);
 
@@ -12,6 +14,12 @@ const DoctorsList = () => {
   useEffect(() => {
     dispatch(fetchDoctors());
   }, [dispatch]);
+
+  const handleDelete = (doctorId) => {
+    Promise.resolve(dispatch(deleteDoctor(doctorId))).then(() => 
+      dispatch(fetchDoctors(doctors.name))
+    );
+  };
 
   return (
     <div>
@@ -25,9 +33,11 @@ const DoctorsList = () => {
         <div key={doctor.id} className="doctors_div">
           <h2 className='doctors_name'>{doctor.name}</h2>
           <p className='specialization'>{doctor.specialization}</p>
-          </div>
+        </div>
       ))}
-      
+      <Link to='doctor/id'>Detail</Link>
+
+      <button id={doctors.id} onClick={(e) => { handleDelete(e.target.id); }} type="button">Delete</button>
     </div>
   );
 }
