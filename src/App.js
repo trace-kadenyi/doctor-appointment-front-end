@@ -9,7 +9,7 @@ function App() {
   const dispatch = useDispatch();
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   // if the user is logged in copy users data from the local storage to redux state.
-  if(currentUser) { console.log('bamo'); dispatch(setCurrentUser(currentUser))};
+  if(currentUser) { dispatch(setCurrentUser(currentUser))};
   return (
     <Router>
       <Routes>
