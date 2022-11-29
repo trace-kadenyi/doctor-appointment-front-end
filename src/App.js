@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<DoctorsList />} />
+        <Route exact path="/" element={<DoctorsList />} />
       </Routes>
     </Router>
   );
