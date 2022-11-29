@@ -34,6 +34,13 @@
     reducers: {
       setCurrentUser: function (state, action) {
         state.currentUser = action.payload;
+      },
+      signOut : function (state) {
+        // notify the user that he was signed out
+        // rerender the login page.
+        console.log('signed out')
+        state.currentUser = {};
+        localStorage.removeItem('currentUser');
       }
     },
     extraReducers: {
@@ -54,7 +61,7 @@
   };
 
   export const  UserSlice = createSlice(options);
-  export const {setCurrentUser} = UserSlice.actions;
+  export const { setCurrentUser, signOut } = UserSlice.actions;
   export default UserSlice.reducer;
   export const selectUsers = (state) => state.user.users;
   export const selectCurrentUser = (state) => state.user.currentUser;
