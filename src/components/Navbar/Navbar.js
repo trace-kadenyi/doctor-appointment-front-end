@@ -14,7 +14,7 @@ const Navbar = () => (
 
       <div className="navbar_right">
         <div className="header__links">
-          <NavLink to="/" className="header__link">
+          <NavLink to="/" className="header__link active">
             Doctors
           </NavLink>
           <NavLink to="/book-appointment" className="header__link">
