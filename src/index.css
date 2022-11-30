@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family:
     -apple-system,
@@ -24,4 +24,13 @@ code {
     Consolas,
     'Courier New',
     monospace;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Kumbh Sans', sans-serif;
 }

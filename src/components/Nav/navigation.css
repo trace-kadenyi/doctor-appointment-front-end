@@ -1,0 +1,156 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  /* background-color: #A4BE7B; */
+  background-color: #90A17D;
+  height: 80px;
+}
+
+.header__links {
+  font-weight: bolder;
+  font-size: 1rem;
+}
+
+.header__link {
+  padding-right: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.nav__logo {
+  /* padding-left: 1rem; */
+  display: flex;
+  gap: 10px;
+  height: 60px;
+  width: 200px;
+  padding-top: 5px;
+}
+
+.nav__logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.menu__button {
+  display: none;
+}
+
+.navbar_right #hidden {
+  display: flex;
+}
+
+@media only screen and (max-width: 960px) {
+  .header__link {
+    font-size: 0.9rem;
+  }
+
+  .menu__button {
+    display: flex;
+  }
+
+  .header__links {
+    display: none;
+  }
+
+  .navbar_right #hidden {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #90A17D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+  }
+
+  .navbar_right #hidden .header__link {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+
+}
+
+
+
+
+
+
+
+/* 
+.header__bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem 0 0.2rem;
+  font-size: 0.9rem;
+} */
+/* 
+
+
+.menu__button {
+  display: none;
+}
+
+.socials__nav {
+  display: none;
+}
+
+.header__bottom .header__main #hidden {
+  display: flex;
+}
+
+@media screen and (max-width: 1020px) {
+  .menu__button {
+    display: flex;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 15px;
+    padding-right: 0;
+    font-size: 2rem;
+  }
+
+  .header__top {
+    display: none;
+  }
+
+  .header__links {
+    display: none;
+  }
+
+  .socials__nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  .header__bottom .header__main #hidden {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 100%;
+    height: 92vh;
+    z-index: 200;
+    background-color: rgb(44, 62, 80, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .header__bottom .header__main #hidden .header__link {
+    padding-bottom: 1.7rem;
+    font-size: 1.1rem;
+  }
+
+  .social_nav-icon {
+    font-size: 2.3rem;
+    margin: 0.5rem;
+    text-align: center;
+  }
+} */
