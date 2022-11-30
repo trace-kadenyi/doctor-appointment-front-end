@@ -15,8 +15,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/home" element={<Home /> } />
-        { !currentUser && <Route path="/" element={ <User/> } /> }
+        <Route path="/home" element={<Home />} />
+        { !currentUser && <Route path="/" element={<User />} /> }
         <Route exact path="/" element={<DoctorsList />} />
       </Routes>
     </Router>
