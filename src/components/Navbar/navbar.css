@@ -1,7 +1,7 @@
 .navbar {
-  width: 30%;
+  width: 20%;
   height: 100vh;
-  background-color: #ddd;
+  box-shadow: 5px 5px 12px #ddd;
 }
 
 .header__links {
