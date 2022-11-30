@@ -55,7 +55,7 @@ const options = {
     [fetchUsers.rejected]: (state, action) => {
       const rejectedState = state;
       // render the error
-      rejectedState.error = action.payload;
+      rejectedState.error = action.error.message;
       rejectedState.pending = false;
       rejectedState.rejected = true;
     },
@@ -75,7 +75,7 @@ const options = {
       // render the error
       rejectedState.rejected = true;
       rejectedState.pending = false;
-      rejectedState.error = action.payload;
+      rejectedState.error = action.error.message;
     },
     [fetchCreateUser.fulfilled]: (state, action) => {
       const fulfilledState = state;
@@ -93,5 +93,4 @@ export const { setCurrentUser, signOut } = UserSlice.actions;
 export default UserSlice.reducer;
 export const selectUsers = (state) => state.user.users;
 export const selectCurrentUser = (state) => state.user.currentUser;
-export const selectPending = (state) => state.user.pending;
-export const selectRejected = (state) => state.user.rejected;
+export const selectAll = (state) => state.user
