@@ -19,7 +19,7 @@ function User() {
   const [username, setUsername] = useState('');
   // fetch users once.
   useEffect(() => {
-     dispatch(fetchUsers()); 
+    dispatch(fetchDoctors());
   }, [dispatch]);
 
   // log in the user
