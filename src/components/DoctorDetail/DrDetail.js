@@ -9,6 +9,7 @@ const DrDetail = () => {
   const dispatch = useDispatch();
   const { doctors } = useSelector(doctorSelector);
   const { id } = useParams();
+  const doctor = doctors.find((doc) => doc.id === parseInt(id, 10));
 
   useEffect(() => {
     dispatch(fetchDoctors());
@@ -24,12 +25,14 @@ const DrDetail = () => {
       </div>
       <div className="doctor-detail__container">
         <div className="doctor-detail__photo">
-          <img className="doctor_photo" src={doctors.photo} alt="doctor" />
+          <img className="doctor_photo" src={doctor.photo} alt="doctor" />
         </div>
-        <div className="doctor-detail__info">
-          <h2 className="doctor-detail__name">{doctors.name}</h2>
-          <p className="doctor-detail__specializations">{doctors.specializations}</p>
-          <Link to={`/doctors/${id}/appointments`}>Make an appointment</Link>
+        <div>
+          <ul className="doctor-detail__info">
+            <li><h2 className="doctor-detail__name">{doctor.name}</h2></li>
+            <li><p className="doctor-detail__specializations">{doctor.specializations}</p></li>
+            <li><Link to={`/doctors/${id}/appointments`}>Make an appointment</Link></li>
+          </ul>
         </div>
       </div>
       <div className="link_to_doctors">

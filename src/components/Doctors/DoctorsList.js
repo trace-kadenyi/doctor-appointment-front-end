@@ -75,7 +75,7 @@ const DoctorsList = () => {
                 <div key={doctor.id} className="doctors_div">
                   <img
                     className="doctors_img"
-                    src={doctors.photo}
+                    src={doctor.photo}
                     alt={doctor.name}
                   />
                   <h2 className="doctors_name">{doctor.name}</h2>
