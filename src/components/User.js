@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  fetchCreateUser, fetchUsers, selectUsers, setCurrentUser,
+  fetchCreateUser, fetchUsers, selectPending, selectRejected, selectUsers, setCurrentUser,
 } from '../Redux/UserReducer';
-
 function User() {
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
@@ -32,22 +31,28 @@ function User() {
   };
   // sign up the user
   const signUp = (name) => {
-    // check locally if the name already exists to avoid errors
+    // check locally if the name already exists to avoid useless api call.
     const currentUser = users.filter((e) => e.name === name);
     if (currentUser.length) {
       // notify the message
-      console.log('username already exists, chose another one');
+      console.log('username already exists, chose another one or login');
       document.getElementById('username-input').value = '';
     } else {
       // user is signed up
       // render the home page and notify the user.
-      console.log(`signed up${name}`);
+      console.log(`signed up ${name}`);
       dispatch(fetchCreateUser({ name }));
     }
   };
 
   return (
     <section className="login-section">
+      { useSelector(selectPending) && (
+        'loading'
+      )}
+       { useSelector(selectRejected) && (
+        'something went wrong, check your internet again. '
+      )}
       <form>
         <p>Enter your username , You can chose to either login or sign up, no password required.</p>
         <div>
