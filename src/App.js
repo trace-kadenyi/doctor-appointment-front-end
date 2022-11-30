@@ -1,9 +1,11 @@
 import './App.css';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Home from './components/Home';
 import User from './components/User';
 import { setCurrentUser } from './Redux/UserReducer';
+import DoctorsList from './components/Doctors/DoctorsList';
 
 function App() {
   const dispatch = useDispatch();
@@ -14,7 +16,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/home" element={<Home /> } />
-        <Route path="/" element={<User />} /> 
+        { !currentUser && <Route path="/" element={ <User/> } /> }
+        <Route exact path="/" element={<DoctorsList />} />
       </Routes>
     </Router>
   );
