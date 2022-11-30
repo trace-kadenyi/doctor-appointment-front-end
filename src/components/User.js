@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  fetchCreateUser, fetchUsers, selectPending, selectRejected, selectUsers, setCurrentUser,
+  fetchCreateUser, fetchUsers, selectAll,  selectUsers, setCurrentUser,
 } from '../Redux/UserReducer';
+import ClipLoader from "react-spinners/ClipLoader";
 
 function User() {
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
-
+  const userSelector = useSelector(selectAll);
+  const loading = userSelector.pending;
   // get the input value
   const [username, setUsername] = useState('');
   // fetch users once.
@@ -48,12 +50,8 @@ function User() {
 
   return (
     <section className="login-section">
-      { useSelector(selectPending) && (
-        'loading'
-      )}
-      { useSelector(selectRejected) && (
-        'something went wrong, check your internet again. '
-      )}
+      { loading && <ClipLoader /> }
+      { userSelector.fulfilled && 
       <form>
         <p>Enter your username , You can chose to either login or sign up, no password required.</p>
         <div>
@@ -63,6 +61,8 @@ function User() {
           <button type="submit" onClick={(e) => { e.preventDefault(); signUp(username); }}>sign up</button>
         </div>
       </form>
+      }
+      { userSelector.rejected && <div className='error'>{userSelector.error} </div> }
     </section>
   );
 }
