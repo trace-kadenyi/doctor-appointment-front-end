@@ -33,11 +33,13 @@ const DoctorsList = () => {
         <div key={doctor.id} className="doctors_div">
           <h2 className='doctors_name'>{doctor.name}</h2>
           <p className='specialization'>{doctor.specialization}</p>
+          <Link to='doctor/1'>Detail</Link>
+          <button id={doctors.id} onClick={(e) => { handleDelete(e.target.id); }} type="button">Delete</button>
         </div>
       ))}
-      <Link to='doctors/1'>Detail</Link>
+      
 
-      <button id={doctors.id} onClick={(e) => { handleDelete(e.target.id); }} type="button">Delete</button>
+      
     </div>
   );
 }

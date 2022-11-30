@@ -1,13 +1,10 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import doctorReducer from './doctorSlice';
 
-const rootReducer = combineReducers({
-  doctor: doctorReducer,
-  doctor_show: doctorReducer,
-});
-
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    doctor: doctorReducer,
+  },
 });
 
 export default store;

@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 import { FaAngleLeft } from 'react-icons/fa';
 
 const DrDetail = () => {
-  const { index } = useParams();
-  const { doctors } = useSelector((state) => state.index === index);
+  const { show } = useParams();
+  const { doctors } = useSelector((state) => state.show === show);
   const {
     id, name, specializations, photo,
-  } = doctors[parseInt((index - 1), 10)];
+  } = doctors[parseInt((show - 1), 10)];
 
   return (
     <section className="doctor-detail">
