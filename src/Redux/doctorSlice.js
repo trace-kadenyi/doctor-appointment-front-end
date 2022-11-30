@@ -15,7 +15,9 @@ const doctorReducer = createSlice({
     loading: false,
     hasErrors: false,
   },
-  reducers: {},
+  reducers: {
+
+  },
   extraReducers: {
     [fetchDoctors.pending]: (state) => {
       state.loading = true;
