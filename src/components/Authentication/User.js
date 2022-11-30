@@ -28,12 +28,11 @@ function User() {
     if (currentUser.length) {
       notify('user logged in!');
       // user is logged in render the home page, notify the user.
-      console.log('logged in');
       dispatch(setCurrentUser(currentUser[0]));
       localStorage.setItem('currentUser', JSON.stringify(currentUser[0]));
     } else {
       // notify the message
-      console.log('username does not exists');
+      notify('username does not exists');
       document.getElementById('username-input').value = '';
     }
   };

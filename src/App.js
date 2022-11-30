@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import Home from './components/Home';
 import User from './components/Authentication/User';
