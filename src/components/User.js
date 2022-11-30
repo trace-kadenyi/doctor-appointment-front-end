@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchCreateUser, fetchUsers, selectPending, selectRejected, selectUsers, setCurrentUser,
 } from '../Redux/UserReducer';
+
 function User() {
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
@@ -50,7 +51,7 @@ function User() {
       { useSelector(selectPending) && (
         'loading'
       )}
-       { useSelector(selectRejected) && (
+      { useSelector(selectRejected) && (
         'something went wrong, check your internet again. '
       )}
       <form>
