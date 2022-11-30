@@ -1,11 +1,9 @@
-/* eslint-disable */
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
+import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
 
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { BiRightArrow, BiLeftArrow } from "react-icons/bi";
-import { fetchDoctors, doctorSelector } from "../../Redux/doctorSlice";
-
-import "./doctors.css";
+import './doctors.css';
 
 const DoctorsList = () => {
   const dispatch = useDispatch();
@@ -18,16 +16,27 @@ const DoctorsList = () => {
 
   // scroll to the right
   const scrollRight = () => {
-    const container = document.querySelector(".scroll_content");
+    const container = document.querySelector('.scroll_content');
     container.scrollLeft += container.offsetWidth;
+    // if inactive disable the button
+    if (container.scrollLeft >= container.scrollWidth - container.offsetWidth) {
+      document.querySelector('.right').classList.add('disable');
+    } else {
+      document.querySelector('.right').classList.remove('disable');
+    }
   };
 
   // scroll to the left
   const scrollLeft = () => {
-    const container = document.querySelector(".scroll_content");
+    const container = document.querySelector('.scroll_content');
     container.scrollLeft -= container.offsetWidth;
+    // if inactive add disable attribute
+    if (container.scrollLeft === 0) {
+      document.querySelector('.left').classList.add('disable');
+    } else {
+      document.querySelector('.left').classList.remove('disable');
+    }
   };
-
 
   return (
     <div className="doctors_sect">
@@ -41,7 +50,7 @@ const DoctorsList = () => {
       <div className="content_div">
         {/* scroll left arrow */}
         <div className="arrow_div">
-          <button className="arrow left" onClick={scrollLeft}>
+          <button type="button" className="arrow left" onClick={scrollLeft}>
             <BiLeftArrow />
           </button>
         </div>
@@ -62,7 +71,7 @@ const DoctorsList = () => {
         </div>
         {/* scroll right arrow */}
         <div>
-          <button className="arrow" onClick={scrollRight}>
+          <button type="button" className="arrow right" onClick={scrollRight}>
             <BiRightArrow />
           </button>
         </div>
