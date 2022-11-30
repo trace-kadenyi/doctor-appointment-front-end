@@ -1,4 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+
+const notify = (e) => toast(e);
 
 const UserApi = 'http://localhost:3000/api/v1/users';
 
@@ -39,12 +42,13 @@ const options = {
       currentUserState.currentUser = action.payload;
     },
     signOut(state) {
-      // notify the user that he was signed out
       // rerender the login page.
+      // remove current user.
       const currentUserState = state;
-      console.log('signed out');
       currentUserState.currentUser = {};
       localStorage.removeItem('currentUser');
+      // notify the user that he was signed out
+      notify('signed out');
     },
   },
   extraReducers: {
