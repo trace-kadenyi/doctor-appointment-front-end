@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
+import './navbar.css';
 
 const Navbar = () => (
-  <div className="Navbar">
-    <nav className="navbar">
+  <div className="navbar">
+    <nav className="navbar_main">
       <div className="navbar_left">
         <NavLink className="nav__logo" to="/">
           <img src={logo} alt="logo" />
@@ -30,7 +31,6 @@ const Navbar = () => (
           </NavLink>
         </div>
       </div>
-
     </nav>
   </div>
 );

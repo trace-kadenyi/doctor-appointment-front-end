@@ -1,0 +1,26 @@
+.navbar {
+  width: 30%;
+  height: 100vh;
+  background-color: #ddd;
+}
+
+.header__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav__logo {
+  width: 200px;
+  height: 200px;
+}
+
+.nav__logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.header__link {
+  padding-top: 2rem;
+  text-decoration: none;
+}
