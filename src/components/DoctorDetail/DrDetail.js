@@ -2,6 +2,11 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaAngleLeft } from 'react-icons/fa';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
+import Table from 'react-bootstrap/Table';
+import Container from 'react-bootstrap/Container';
 
 import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
 
@@ -16,14 +21,14 @@ const DrDetail = () => {
   }, [dispatch]);
 
   return (
-    <section className="doctor-detail">
+    <Container>
       <div className="doctor-detail__container">
-        <div className="link_to_doctors">
+        <Row className="mx-2">
           <Link to="/">
             <FaAngleLeft />
             Back to doctors
           </Link>
-        </div>
+        </Row>
         <div className="doctor-detail__photo">
           <div className="photo">
             <img className="doctor_photo" src={doctor.photo} alt="doctor" />
@@ -43,7 +48,7 @@ const DrDetail = () => {
           </Link>
         </div>
       </div>
-    </section>
+    </Container>
   );
 };
 
