@@ -5,27 +5,34 @@
 
 .doctor-detail {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: #f5f5f5;
+  margin-top: 3rem;
 }
 
-.doctor-detail__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  background-color: #f5f5f5;
+.doctor-detail__photo {
+  margin-right: 2rem;
+  max-width: 50%;
 }
 
 .doctor_photo {
-  display: block;
-  margin: auto;
-  width: 50% !important;
+  margin-top: 3rem;
+  max-width: 60%;
+}
+
+.photo {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info__list {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .doctor-detail__name {
