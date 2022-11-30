@@ -19,7 +19,7 @@ function User() {
   const [username, setUsername] = useState('');
   // fetch users once.
   useEffect(() => {
-    if (!users.length) { dispatch(fetchUsers()); }
+     dispatch(fetchUsers()); 
   }, [dispatch]);
 
   // log in the user
