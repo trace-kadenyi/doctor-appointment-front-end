@@ -1,15 +1,16 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Home from './components/Home';
 import User from './components/User';
-import { setCurrentUser } from './Redux/UserReducer';
+import { selectCurrentUser, setCurrentUser } from './Redux/UserReducer';
 import DoctorsList from './components/Doctors/DoctorsList';
 
 function App() {
   const dispatch = useDispatch();
-  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  // check if a current user exists in local storage or in the redux store.
+  const currentUser = JSON.parse(localStorage.getItem('currentUser')) || useSelector(selectCurrentUser)
   // if the user is logged in copy users data from the local storage to redux state.
   if (currentUser) { dispatch(setCurrentUser(currentUser)); }
   return (
