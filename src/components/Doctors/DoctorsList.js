@@ -15,9 +15,9 @@ const DoctorsList = () => {
     dispatch(fetchDoctors());
   }, [dispatch]);
 
-  const handleDelete = (doctorId) => {
-    Promise.resolve(dispatch(deleteDoctor(doctorId))).then(() => 
-      dispatch(fetchDoctors(doctors.name))
+  const handleDelete = (doctor) => {
+    Promise.resolve(dispatch(deleteDoctor(doctor.id))).then(() => 
+      dispatch(fetchDoctors(doctors))
     );
   };
 
@@ -35,7 +35,7 @@ const DoctorsList = () => {
           <p className='specialization'>{doctor.specialization}</p>
         </div>
       ))}
-      <Link to='doctor/id'>Detail</Link>
+      <Link to='doctors/1'>Detail</Link>
 
       <button id={doctors.id} onClick={(e) => { handleDelete(e.target.id); }} type="button">Delete</button>
     </div>

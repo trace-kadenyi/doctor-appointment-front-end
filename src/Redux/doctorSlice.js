@@ -8,6 +8,14 @@ export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async () =>
   return response.data;
 });
 
+export const doctorsDelete = createAsyncThunk(
+  'doctors/delete',
+  async (id) => {
+    const response = await axios.delete(`${BASE_URL}/${id}`);
+    return response.data;
+  },
+);
+
 const doctorReducer = createSlice({
   name: 'doctors',
   initialState: {
@@ -16,9 +24,8 @@ const doctorReducer = createSlice({
     hasErrors: false,
   },
   reducers: {
-    deleteDoctor: (state, action) => {
-      const { id } = action.payload;
-      state.doctors = state.doctors.filter((doctor) => doctor.id !== id);
+    showDoctor: (state, action) => {
+      state.doctors = action.payload;
     },
   },
   extraReducers: {

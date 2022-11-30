@@ -3,6 +3,7 @@ import doctorReducer from './doctorSlice';
 
 const rootReducer = combineReducers({
   doctor: doctorReducer,
+  doctor_show: doctorReducer,
 });
 
 const store = configureStore({
