@@ -13,8 +13,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        { currentUser && <Route path="/home" element={<Home />} />}
-        { !currentUser && <Route path="/" element={<User />} /> }
+        <Route path="/home" element={<Home /> } />
+        <Route path="/" element={<User />} /> 
       </Routes>
     </Router>
   );
