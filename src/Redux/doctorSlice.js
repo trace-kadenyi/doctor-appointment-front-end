@@ -8,14 +8,6 @@ export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async () =>
   return response.data;
 });
 
-export const doctorsDelete = createAsyncThunk(
-  'doctors/delete',
-  async (id) => {
-    const response = await axios.delete(`${BASE_URL}/${id}`);
-    return response.data;
-  },
-);
-
 const doctorReducer = createSlice({
   name: 'doctors',
   initialState: {

@@ -52,7 +52,7 @@ const DoctorsList = () => {
         <div key={doctor.id} className="doctors_div">
           <h2 className="doctors_name">{doctor.name}</h2>
           <p className="specialization">{doctor.specialization}</p>
-          <Link to={`/doctors/${doctor.id}`}>Details</Link>
+          <Link to={`/doctors/${doctor.index}`}>Details</Link>
         </div>
       ))}
 
