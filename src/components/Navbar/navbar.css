@@ -21,8 +21,14 @@
 }
 
 .header__link {
-  padding-top: 2rem;
+  margin-top: 2rem;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bolder;
+  padding: 10px;
+  width: 100%;
+}
+
+.active {
+  background-color: #82CD47;
 }
