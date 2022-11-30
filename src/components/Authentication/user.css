@@ -1,5 +1,5 @@
 :root {
-  --green: #96bf01
+  --green: #96bf01;
 }
 
 .login-section {
@@ -19,7 +19,7 @@
   flex-direction: column;
 }
 
-.login-form >  h1 {
+.login-form > h1 {
   text-align: center;
 }
 
@@ -36,6 +36,7 @@
   justify-content: space-evenly;
   gap: 10%;
 }
+
 .login-form-buttons > * {
   border: 1px solid white;
   border-radius: 20px;
@@ -46,6 +47,7 @@
   padding: 7px;
   cursor: pointer;
 }
+
 .login-form-buttons > button:hover {
   opacity: 1.5;
   background-color: var(--green);
