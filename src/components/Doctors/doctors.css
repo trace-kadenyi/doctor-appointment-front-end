@@ -1,6 +1,7 @@
 * {
   overflow-x: hidden;
 }
+
 .content_div {
   width: 90vw;
   height: 100%;
@@ -131,7 +132,7 @@
   .doctors_div {
     min-width: 200px;
     height: 350px;
-  } 
+  }
 
   .doctors_img {
     height: 70%;
@@ -149,4 +150,3 @@
     left: 25%;
   }
 }
-

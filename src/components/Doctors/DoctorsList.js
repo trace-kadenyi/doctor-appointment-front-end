@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
@@ -20,7 +18,7 @@ const DoctorsList = () => {
   // scroll to the right
   const scrollRight = () => {
     const container = document.querySelector('.scroll_content');
-    container.scrollLeft += container.offsetWidth/2;
+    container.scrollLeft += container.offsetWidth / 2;
     // if inactive disable the button
     if (container.scrollLeft >= container.scrollWidth - container.offsetWidth) {
       document.querySelector('.right').classList.add('disable');
@@ -43,7 +41,7 @@ const DoctorsList = () => {
 
   return (
     <div className="doctors_sect">
-       {/* page title */}
+      {/* page title */}
       <div>
         <p className="page_title">
           <span className="available_docs">AVAILABLE DOCTORS</span>
@@ -53,47 +51,47 @@ const DoctorsList = () => {
       {/* loading main page */}
       {doctors.loading && (
       <div className="loading">
-        <img src={preloader} alt="loading" className="preloader"/>
+        <img src={preloader} alt="loading" className="preloader" />
       </div>
       )}
       {/* error main page */}
       {doctors.hasErrors && (
         <div className="error">Unable to display doctors. Please check your server.</div>
       )}
-     
+
       {/* doctors' list */}
       {!doctors.loading && !doctors.hasErrors && (
         <div className="content_div">
-        {/* scroll left arrow */}
-        <div className="arrow_div">
-          <button type="button" className="arrow left" onClick={scrollLeft}>
-            <BiLeftArrow className="left_arrow"/>
-          </button>
-        </div>
-        <div className="cover_div">
-          <div className="scroll_content">
-            {doctors.doctors.map((doctor) => (
-              <div key={doctor.id} className="doctors_div">
-                <img
-                  className="doctors_img"
-                  src={doctor.photo}
-                  alt={doctor.name}
-                />
-                <h2 className="doctors_name">{doctor.name}</h2>
-                <p className="specialization">{doctor.specialization}</p>
-              </div>
-            ))}
+          {/* scroll left arrow */}
+          <div className="arrow_div">
+            <button type="button" className="arrow left" onClick={scrollLeft}>
+              <BiLeftArrow className="left_arrow" />
+            </button>
+          </div>
+          <div className="cover_div">
+            <div className="scroll_content">
+              {doctors.doctors.map((doctor) => (
+                <div key={doctor.id} className="doctors_div">
+                  <img
+                    className="doctors_img"
+                    src={doctor.photo}
+                    alt={doctor.name}
+                  />
+                  <h2 className="doctors_name">{doctor.name}</h2>
+                  <p className="specialization">{doctor.specialization}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* scroll right arrow */}
+          <div>
+            <button type="button" className="arrow right" onClick={scrollRight}>
+              <BiRightArrow />
+            </button>
           </div>
         </div>
-        {/* scroll right arrow */}
-        <div>
-          <button type="button" className="arrow right" onClick={scrollRight}>
-            <BiRightArrow />
-          </button>
-        </div>
-      </div>
-        )}
-      
+      )}
+
     </div>
   );
 };
