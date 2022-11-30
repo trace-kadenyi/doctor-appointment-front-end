@@ -1,8 +1,37 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import logo from '../../assets/images/logo.png';
 
 const Navbar = () => (
-  <div className='Navbar'>
-    
+  <div className="Navbar">
+    <nav className="navbar">
+      <div className="navbar_left">
+        <NavLink className="nav__logo" to="/">
+          <img src={logo} alt="logo" />
+        </NavLink>
+      </div>
+
+      <div className="navbar_right">
+        <div className="header__links">
+          <NavLink to="/" className="header__link">
+            Doctors
+          </NavLink>
+          <NavLink to="/book-appointment" className="header__link">
+            Book Appointment
+          </NavLink>
+          <NavLink to="/appointments" className="header__link">
+            Appointments
+          </NavLink>
+          <NavLink to="/add-new-doctor" className="header__link">
+            Add Doctor
+          </NavLink>
+          <NavLink to="/delete-doctor" className="header__link">
+            Delete Doctor
+          </NavLink>
+        </div>
+      </div>
+
+    </nav>
   </div>
 );
 
