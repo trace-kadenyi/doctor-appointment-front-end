@@ -4,6 +4,7 @@ import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
 
+import preloader from '../../assets/images/preloader.gif';
 import './doctors.css';
 
 const DoctorsList = () => {
@@ -18,7 +19,7 @@ const DoctorsList = () => {
   // scroll to the right
   const scrollRight = () => {
     const container = document.querySelector('.scroll_content');
-    container.scrollLeft += container.offsetWidth;
+    container.scrollLeft += container.offsetWidth / 2;
     // if inactive disable the button
     if (container.scrollLeft >= container.scrollWidth - container.offsetWidth) {
       document.querySelector('.right').classList.add('disable');
@@ -30,7 +31,7 @@ const DoctorsList = () => {
   // scroll to the left
   const scrollLeft = () => {
     const container = document.querySelector('.scroll_content');
-    container.scrollLeft -= container.offsetWidth;
+    container.scrollLeft -= container.offsetWidth / 2;
     // if inactive add disable attribute
     if (container.scrollLeft === 0) {
       document.querySelector('.left').classList.add('disable');
@@ -41,50 +42,58 @@ const DoctorsList = () => {
 
   return (
     <div className="doctors_sect">
+      {/* page title */}
+      <div>
+        <p className="page_title">
+          <span className="available_docs">AVAILABLE DOCTORS</span>
+          <span className="select">Please select a doctor</span>
+        </p>
+      </div>
       {/* loading main page */}
-      {doctors.loading && <div className="loading">Loading...</div>}
+      {doctors.loading && (
+      <div className="loading">
+        <img src={preloader} alt="loading" className="preloader" />
+      </div>
+      )}
       {/* error main page */}
       {doctors.hasErrors && (
-        <div className="error">Unable to display doctors.</div>
+        <div className="error">Unable to display doctors. Please check your server.</div>
       )}
-      {/* doctors list */}
-      {doctors.doctors.map((doctor) => (
-        <div key={doctor.id} className="doctors_div">
-          <h2 className="doctors_name">{doctor.name}</h2>
-          <p className="specialization">{doctor.specialization}</p>
-          <Link to={`/doctors/${doctor.index}`}>Details</Link>
-        </div>
-      ))}
 
-      <div className="content_div">
-        {/* scroll left arrow */}
-        <div className="arrow_div">
-          <button type="button" className="arrow left" onClick={scrollLeft}>
-            <BiLeftArrow />
-          </button>
-        </div>
-        <div className="cover_div">
-          <div className="scroll_content">
-            {doctors.doctors.map((doctor) => (
-              <div key={doctor.id} className="doctors_div">
-                <img
-                  className="doctors_img"
-                  src={doctor.photo}
-                  alt={doctor.name}
-                />
-                <h2 className="doctors_name">{doctor.name}</h2>
-                <p className="specialization">{doctor.specialization}</p>
-              </div>
-            ))}
+      {/* doctors' list */}
+      {!doctors.loading && !doctors.hasErrors && (
+        <div className="content_div">
+          {/* scroll left arrow */}
+          <div className="arrow_div">
+            <button type="button" className="arrow left" onClick={scrollLeft}>
+              <BiLeftArrow className="left_arrow" />
+            </button>
+          </div>
+          <div className="cover_div">
+            <div className="scroll_content">
+              {doctors.doctors.map((doctor) => (
+                <div key={doctor.id} className="doctors_div">
+                  <img
+                    className="doctors_img"
+                    src={doctor.photo}
+                    alt={doctor.name}
+                  />
+                  <h2 className="doctors_name">{doctor.name}</h2>
+                  <p className="specialization">{doctor.specialization}</p>
+                  <Link to={`/doctors/${doctor.id}`}>Details</Link>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* scroll right arrow */}
+          <div>
+            <button type="button" className="arrow right" onClick={scrollRight}>
+              <BiRightArrow />
+            </button>
           </div>
         </div>
-        {/* scroll right arrow */}
-        <div>
-          <button type="button" className="arrow right" onClick={scrollRight}>
-            <BiRightArrow />
-          </button>
-        </div>
-      </div>
+      )}
+
     </div>
   );
 };

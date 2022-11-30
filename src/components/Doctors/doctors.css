@@ -1,10 +1,14 @@
+* {
+  overflow-x: hidden;
+}
+
 .content_div {
-  width: 90%;
+  width: 90vw;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 50px auto 0;
+  margin: 50px auto;
 }
 
 .cover_div {
@@ -32,6 +36,7 @@
   cursor: pointer;
   border: 2px solid #fff;
   overflow: hidden;
+  gap: 5px;
 }
 
 .scroll_content::-webkit-scrollbar {
@@ -67,6 +72,7 @@
 
 .left {
   border-radius: 0 50% 50% 0;
+  margin-right: 5px;
 }
 
 .arrow:focus {
@@ -76,4 +82,71 @@
 .disable {
   background-color: #f0e9e9;
   cursor: not-allowed;
+}
+
+.page_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.available_docs {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.select {
+  color: grey;
+}
+
+.preloader {
+  position: absolute;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 40%;
+  top: 30%;
+  transition: 2.3s linear;
+}
+
+.loading {
+  position: relative;
+  height: 50vh;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 200px auto;
+  font-size: 1.8rem;
+  text-align: center;
+  color: red;
+}
+
+@media screen and (max-width: 750px) {
+  .doctors_div {
+    min-width: 200px;
+    height: 350px;
+  }
+
+  .doctors_img {
+    height: 70%;
+  }
+
+  .scroll_content {
+    gap: 2px;
+  }
+
+  .arrow {
+    width: 50px;
+  }
+
+  .preloader {
+    left: 25%;
+  }
 }
