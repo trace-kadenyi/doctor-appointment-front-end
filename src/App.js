@@ -9,8 +9,10 @@ import DoctorsList from './components/Doctors/DoctorsList';
 
 function App() {
   const dispatch = useDispatch();
+  const currentUserRedux = useSelector(selectCurrentUser);
+  const currentUserLStorage = JSON.parse(localStorage.getItem('currentUser'));
   // check if a current user exists in local storage or in the redux store.
-  const currentUser = JSON.parse(localStorage.getItem('currentUser')) || useSelector(selectCurrentUser)
+  const currentUser = currentUserLStorage || currentUserRedux;
   // if the user is logged in copy users data from the local storage to redux state.
   if (currentUser) { dispatch(setCurrentUser(currentUser)); }
   return (
