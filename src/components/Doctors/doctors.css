@@ -1,1 +1,152 @@
-/* doctors css */
+* {
+  overflow-x: hidden;
+}
+
+.content_div {
+  width: 90vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+.cover_div {
+  position: relative;
+  width: 90%;
+  height: 50%;
+}
+
+.scroll_content {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  overflow: auto;
+  position: relative;
+  scroll-behavior: smooth;
+  gap: 20px;
+}
+
+.doctors_div {
+  min-width: 350px;
+  height: 450px;
+  margin: 1px 10px;
+  cursor: pointer;
+  border: 2px solid #fff;
+  overflow: hidden;
+  gap: 5px;
+}
+
+.scroll_content::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.doctors_img {
+  border-radius: 50%;
+  width: 100%;
+  height: 80%;
+}
+
+.doctors_name {
+  text-align: center;
+}
+
+.specialization {
+  text-align: center;
+}
+
+.arrow {
+  color: white;
+  font-size: 20px;
+  width: 90px;
+  height: 80px;
+  outline: none;
+  border: none;
+  background-color: rgb(147, 236, 12);
+  padding: 25px;
+  cursor: pointer;
+  border-radius: 50% 0 0 50%;
+}
+
+.left {
+  border-radius: 0 50% 50% 0;
+  margin-right: 5px;
+}
+
+.arrow:focus {
+  background-color: #93ec0c;
+}
+
+.disable {
+  background-color: #f0e9e9;
+  cursor: not-allowed;
+}
+
+.page_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.available_docs {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.select {
+  color: grey;
+}
+
+.preloader {
+  position: absolute;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 40%;
+  top: 30%;
+  transition: 2.3s linear;
+}
+
+.loading {
+  position: relative;
+  height: 50vh;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 200px auto;
+  font-size: 1.8rem;
+  text-align: center;
+  color: red;
+}
+
+@media screen and (max-width: 750px) {
+  .doctors_div {
+    min-width: 200px;
+    height: 350px;
+  }
+
+  .doctors_img {
+    height: 70%;
+  }
+
+  .scroll_content {
+    gap: 2px;
+  }
+
+  .arrow {
+    width: 50px;
+  }
+
+  .preloader {
+    left: 25%;
+  }
+}
