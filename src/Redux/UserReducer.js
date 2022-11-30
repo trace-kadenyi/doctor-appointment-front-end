@@ -32,9 +32,6 @@ const options = {
     pending: false,
     rejected: false,
     fulfilled: false,
-    createPending: false,
-    createRejected: false,
-    createFulfilled: false,
   },
   reducers: {
     setCurrentUser(state, action) {
@@ -73,19 +70,19 @@ const options = {
     },
     [fetchCreateUser.pending]: (state) => {
       const pendingState = state;
-      pendingState.createPending = true;
+      pendingState.pending = true;
     },
     [fetchCreateUser.rejected]: (state, action) => {
       const rejectedState = state;
       // render the error
-      rejectedState.createRejected = true;
-      rejectedState.createPending = false;
+      rejectedState.rejected = true;
+      rejectedState.pending = false;
       rejectedState.error = action.payload;
     },
     [fetchCreateUser.fulfilled]: (state, action) => {
       const fulfilledState = state;
-      fulfilledState.createFulfilled = true;
-      fulfilledState.createPending = false;
+      fulfilledState.fulfilled = true;
+      fulfilledState.pending = false;
       fulfilledState.currentUser = action.payload;
       localStorage.setItem('currentUser', JSON.stringify(action.payload));
     },
