@@ -22,6 +22,7 @@
   overflow: auto;
   position: relative;
   scroll-behavior: smooth;
+  gap: 20px;
 }
 .doctors_div {
   min-width: 350px;
@@ -57,7 +58,7 @@
   height: 80px;
   outline: none;
   border: none;
-  background-color: #f0e9e9;
+  background-color: rgb(147, 236, 12);
   padding: 25px;
   cursor: pointer;
   border-radius: 50% 0 0 50%;
@@ -67,6 +68,11 @@
   border-radius: 0 50% 50% 0;
 }
 
-.arrow:hover {
-  background-color: rgb(147, 236, 12);
+.arrow:enabled {
+    background-color: #93ec0c;
+}
+
+.disable {
+  background-color: #f0e9e9;
+  cursor: not-allowed;
 }
