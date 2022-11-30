@@ -23,11 +23,7 @@ const doctorReducer = createSlice({
     loading: false,
     hasErrors: false,
   },
-  reducers: {
-    showDoctor: (state, action) => {
-      state.doctors = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: {
     [fetchDoctors.pending]: (state) => {
       state.loading = true;

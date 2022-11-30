@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
-import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
 import { Link } from 'react-router-dom';
+import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
 
 import './doctors.css';
 
 const DoctorsList = () => {
-  
   const dispatch = useDispatch();
   const doctors = useSelector(doctorSelector);
 
@@ -16,10 +15,6 @@ const DoctorsList = () => {
     dispatch(fetchDoctors());
   }, [dispatch]);
 
-  const handleDelete = (doctor) => {
-    Promise.resolve(dispatch(deleteDoctor(doctor.id))).then(() => 
-      dispatch(fetchDoctors(doctors))
-    );
   // scroll to the right
   const scrollRight = () => {
     const container = document.querySelector('.scroll_content');
@@ -55,15 +50,12 @@ const DoctorsList = () => {
       {/* doctors list */}
       {doctors.doctors.map((doctor) => (
         <div key={doctor.id} className="doctors_div">
-          <h2 className='doctors_name'>{doctor.name}</h2>
-          <p className='specialization'>{doctor.specialization}</p>
-          <Link to='doctor/1'>Detail</Link>
-          <button id={doctors.id} onClick={(e) => { handleDelete(e.target.id); }} type="button">Delete</button>
+          <h2 className="doctors_name">{doctor.name}</h2>
+          <p className="specialization">{doctor.specialization}</p>
+          <Link to="doctors/:id">Detail</Link>
         </div>
       ))}
-      
 
-      
       <div className="content_div">
         {/* scroll left arrow */}
         <div className="arrow_div">
