@@ -24,6 +24,7 @@
   scroll-behavior: smooth;
   gap: 20px;
 }
+
 .doctors_div {
   min-width: 350px;
   height: 450px;
@@ -38,9 +39,9 @@
 }
 
 .doctors_img {
-    border-radius: 50%;
-    width: 100%;
-    height: 80%;
+  border-radius: 50%;
+  width: 100%;
+  height: 80%;
 }
 
 .doctors_name {
@@ -68,8 +69,8 @@
   border-radius: 0 50% 50% 0;
 }
 
-.arrow:enabled {
-    background-color: #93ec0c;
+.arrow:focus {
+  background-color: #93ec0c;
 }
 
 .disable {
