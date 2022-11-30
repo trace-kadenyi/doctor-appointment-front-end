@@ -97,4 +97,4 @@ export const { setCurrentUser, signOut } = UserSlice.actions;
 export default UserSlice.reducer;
 export const selectUsers = (state) => state.user.users;
 export const selectCurrentUser = (state) => state.user.currentUser;
-export const selectAll = (state) => state.user
+export const selectAll = (state) => state.user;

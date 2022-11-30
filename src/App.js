@@ -1,12 +1,12 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import Home from './components/Home';
 import User from './components/Authentication/User';
 import { setCurrentUser } from './Redux/UserReducer';
 import DoctorsList from './components/Doctors/DoctorsList';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {

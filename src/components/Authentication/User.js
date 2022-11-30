@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  fetchCreateUser, fetchUsers, selectAll,  selectUsers, setCurrentUser,
-} from '../../Redux/UserReducer';
-import ClipLoader from "react-spinners/ClipLoader";
+import ClipLoader from 'react-spinners/ClipLoader';
 import { toast } from 'react-toastify';
-import './user.css'
+import {
+  fetchCreateUser, fetchUsers, selectAll, selectUsers, setCurrentUser,
+} from '../../Redux/UserReducer';
+import './user.css';
 
 function User() {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ function User() {
   const loginUser = (name) => {
     const currentUser = users.filter((e) => e.name === name);
     if (currentUser.length) {
-      notify('user logged in!')
+      notify('user logged in!');
       // user is logged in render the home page, notify the user.
       console.log('logged in');
       dispatch(setCurrentUser(currentUser[0]));
@@ -48,26 +48,32 @@ function User() {
     } else {
       // user is signed up
       // render the home page and notify the user.
-      notify('user signed up!')
+      notify('user signed up!');
       dispatch(fetchCreateUser({ name }));
     }
   };
 
   return (
     <section className="login-section">
-      { loading && <ClipLoader size={150}  /> }
-      { userSelector.fulfilled && 
-      <form className='login-form'>
+      { loading && <ClipLoader size={150} /> }
+      { userSelector.fulfilled
+      && (
+      <form className="login-form">
         <h1>Welcome, Either log in or sign up.</h1>
         <input id="username-input" placeholder="enter your username" onChange={(e) => setUsername(e.target.value)} />
         <br />
-        <div className='login-form-buttons'>
+        <div className="login-form-buttons">
           <button type="submit" onClick={(e) => { e.preventDefault(); loginUser(username); }}>log in</button>
           <button type="submit" onClick={(e) => { e.preventDefault(); signUp(username); }}>sign up</button>
         </div>
       </form>
-      }
-      { userSelector.rejected && <div className='error'>{userSelector.error} </div> }
+      )}
+      { userSelector.rejected && (
+      <div className="error">
+        {userSelector.error}
+        {' '}
+      </div>
+      ) }
     </section>
   );
 }
