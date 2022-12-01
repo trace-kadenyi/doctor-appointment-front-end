@@ -8,6 +8,7 @@ import User from './components/Authentication/User';
 import { setCurrentUser } from './Redux/UserReducer';
 import DoctorsList from './components/Doctors/DoctorsList';
 import 'react-toastify/dist/ReactToastify.css';
+import ProtectRoutes from './components/ProtectRoutes';
 
 function App() {
   const dispatch = useDispatch();
@@ -18,9 +19,11 @@ function App() {
     <Router>
       <ToastContainer />
       <Routes>
-        <Route path="/home" element={<Home />} />
-        { !currentUser ? <Route path="/" element={<User />} /> : <Route exact path="/" element={<DoctorsList />} /> }
-
+        <Route path="/authentication" element={<User />} /> 
+        <Route element={<ProtectRoutes />} >
+          <Route exact path="/" element={<DoctorsList />} /> 
+          <Route path="/signout" element={<Home />} />
+        </Route>
       </Routes>
     </Router>
   );
