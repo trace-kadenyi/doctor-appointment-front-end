@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate} from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { toast } from 'react-toastify';
 import {
-  fetchCreateUser, fetchUsers, selectAll, selectUsers, setCurrentUser,
+  fetchCreateUser, fetchUsers, selectAll, selectUsers, setCurrentUser, selectCurrentUser,
 } from '../../Redux/UserReducer';
 import './user.css';
 
@@ -12,6 +13,8 @@ function User() {
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
   const userSelector = useSelector(selectAll);
+  const currentUser = useSelector(selectCurrentUser);
+  const navigate = useNavigate();
   const loading = userSelector.pending;
   // notificaitons
   const notify = (e) => toast(e);
@@ -31,6 +34,8 @@ function User() {
       // user is logged in render the home page, notify the user.
       dispatch(setCurrentUser(currentUser));
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
+      // navigate to doctors page.
+      navigate('/');
     } else {
       // notify the message
       notify('username does not exists');
@@ -52,7 +57,7 @@ function User() {
   return (
     <section className="login-section">
       { loading && <ClipLoader size={150} /> }
-      { userSelector.fulfilled
+      { (userSelector.fulfilled && !currentUser.id)
       && (
       <form className="login-form">
         <h1>Welcome, Either log in or sign up.</h1>
@@ -70,6 +75,7 @@ function User() {
         {' '}
       </div>
       ) }
+      { (currentUser.id) && navigate('/') }
     </section>
   );
 }
