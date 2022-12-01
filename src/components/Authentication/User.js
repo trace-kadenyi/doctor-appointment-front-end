@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { toast } from 'react-toastify';
 import {

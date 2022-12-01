@@ -19,9 +19,9 @@ function App() {
     <Router>
       <ToastContainer />
       <Routes>
-        <Route path="/authentication" element={<User />} /> 
-        <Route element={<ProtectRoutes />} >
-          <Route exact path="/" element={<DoctorsList />} /> 
+        <Route path="/authentication" element={<User />} />
+        <Route element={<ProtectRoutes />}>
+          <Route exact path="/" element={<DoctorsList />} />
           <Route path="/signout" element={<Home />} />
         </Route>
       </Routes>
