@@ -12,6 +12,7 @@
 }
 
 .login-section > form {
+  margin-top: 50px;
   width: 90%;
   max-width: 500px;
   margin: 0 auto;
