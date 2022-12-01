@@ -62,9 +62,11 @@
 .navbar #hideshadow {
   box-shadow: none;
 }
+
 #d-none {
   display: none;
 }
+
 /* .navbar_main#hideNav {
   display: none;
 } */
@@ -75,17 +77,20 @@
   }
 }
 
-@media screen and (max-width:700px) {
+@media screen and (max-width: 700px) {
   .navbar {
     width: 100%;
   }
+
   .nav_items {
     display: none;
     padding: 5px;
   }
+
   .navbar {
     height: auto;
   }
+
   .header__links {
     margin-top: unset;
   }
