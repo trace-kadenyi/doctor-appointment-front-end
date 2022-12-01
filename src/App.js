@@ -8,6 +8,7 @@ import User from './components/Authentication/User';
 import { setCurrentUser } from './Redux/UserReducer';
 import DoctorsList from './components/Doctors/DoctorsList';
 import Navbar from './components/Navbar/Navbar';
+import DrDetail from './components/DoctorDetail/DrDetail';
 import 'react-toastify/dist/ReactToastify.css';
 import ProtectRoutes from './components/ProtectRoutes';
 
