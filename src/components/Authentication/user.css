@@ -1,0 +1,56 @@
+:root {
+  --green: #96bf01;
+}
+
+.login-section {
+  height: 500px;
+  background: var(--green);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+}
+
+.login-form > h1 {
+  text-align: center;
+}
+
+.login-form > input {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding-inline-start: 15px;
+}
+
+.login-form-buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10%;
+}
+
+.login-form-buttons > * {
+  border: 1px solid white;
+  border-radius: 20px;
+  background-color: white;
+  color: var(--green);
+  width: 50%;
+  height: 50px;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.login-form-buttons > button:hover {
+  opacity: 1.5;
+  background-color: var(--green);
+  color: white;
+}
