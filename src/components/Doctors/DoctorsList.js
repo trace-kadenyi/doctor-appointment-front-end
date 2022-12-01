@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
 
 import preloader from '../../assets/images/preloader.gif';
@@ -72,11 +73,13 @@ const DoctorsList = () => {
             <div className="scroll_content">
               {doctors.doctors.map((doctor) => (
                 <div key={doctor.id} className="doctors_div">
-                  <img
-                    className="doctors_img"
-                    src={doctor.photo}
-                    alt={doctor.name}
-                  />
+                  <Link to={`/doctors/${doctor.id}`}>
+                    <img
+                      className="doctors_img"
+                      src={doctor.photo}
+                      alt={doctor.name}
+                    />
+                  </Link>
                   <h2 className="doctors_name">{doctor.name}</h2>
                   <p className="specialization">{doctor.specialization}</p>
                 </div>
