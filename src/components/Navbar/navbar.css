@@ -43,6 +43,10 @@
   display: none;
 }
 
+/* .navbar_right #hidden {
+  display: flex;
+} */
+
 @media screen and (max-width: 960px){
   .menu__button {
     display: flex;

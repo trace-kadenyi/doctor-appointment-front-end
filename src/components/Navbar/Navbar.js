@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -6,7 +7,7 @@ import humburgerMenu from '../../assets/images/humburger-menu.svg';
 import './navbar.css';
 
 const Navbar = () => {
-  const [showLinks, setShowlinks] = useState(false);
+  const [showLinks, setShowlinks] = useState(true);
 
   return (
     <div>
