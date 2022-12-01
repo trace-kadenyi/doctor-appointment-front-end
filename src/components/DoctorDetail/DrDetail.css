@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;1,300&family=Playfair+Display:ital,wght@1,600;1,800&family=Roboto:wght@300;400;500;700&display=swap');
 
 * {
-  overflow: hidden;
   font-family: 'Montserrat', 'Playfair Display', 'Roboto', sans-serif, serif;
+  margin: 0%;
+  padding: 0%;
+}
+
+.container-md,
+.container-sm {
+  max-width: 85% !important;
+  margin: 0 auto;
 }
 
 .btn,
@@ -10,4 +17,67 @@
   background-color: #96be0e;
   border: 1px solid #96be0e;
   border-radius: 8px;
+}
+
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  border-radius: 30px;
+  margin: auto;
+  display: block;
+  width: 50% !important;
+  padding: 10px;
+}
+
+.col-md-5,
+.col-12 {
+  margin: auto;
+}
+
+.mb-4 {
+  margin-bottom: 1rem !important;
+}
+
+.p-3 {
+  padding: 1.5rem !important;
+}
+
+.d-flex {
+  display: flex !important;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.left {
+  border-radius: 0 50% 50% 0;
+  margin-right: 5px;
+}
+
+.card-body {
+  padding: 5.5rem 5.25rem;
+}
+
+.doctor-detail__info,
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title h5 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+tbody {
+  width: 500px;
+}
+
+tr {
+  border: 1px solid #e9ecef;
+  height: 40px;
+}
+
+.mt-4 {
+  margin-top: 1.5rem !important;
 }

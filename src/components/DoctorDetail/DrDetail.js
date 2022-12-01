@@ -22,13 +22,7 @@ const DrDetail = () => {
 
   return (
     <Container>
-      <Row className="mx-2">
-        <Link to="/">
-          <FaAngleLeft />
-          Back to doctors
-        </Link>
-      </Row>
-      <Row className="d-flex">
+      <Row className="d-flex md-5">
         <Col xs={12} md={5}>
           <Card className="mb-4 p-3">
             <Card.Img variant="top" src={doctor.photo} alt="doctor" />
@@ -37,8 +31,8 @@ const DrDetail = () => {
 
         <Col xs={12} md={4}>
           <Card.Body className="doctor-detail__info">
-            <Card.Title>{doctor.name}</Card.Title>
-            <Table className="mt-4" striped bordered hover size="sm">
+            <Card.Title><h5>{doctor.name}</h5></Card.Title>
+            <Table striped bordered hover>
               <tbody>
                 <tr>
                   <th>Specialization</th>
@@ -52,13 +46,12 @@ const DrDetail = () => {
             </Table>
           </Card.Body>
         </Col>
-        <div className="link_to_doctors">
-          <Link className="left" to="/">
-            <FaAngleLeft />
-            Back to doctors
-          </Link>
-        </div>
       </Row>
+      <button type="button" className="arrow left">
+        <Link className="back" to="/">
+          <FaAngleLeft />
+        </Link>
+      </button>
     </Container>
   );
 };
