@@ -19,10 +19,10 @@ function App() {
   return (
     <Router>
       <ToastContainer />
+      <Navbar />
       <Routes>
         <Route path="/authentication" element={<User />} />
         <Route element={<ProtectRoutes />}>
-          <Navbar />
           <Route exact path="/" element={<DoctorsList />} />
           <Route path="/signout" element={<Home />} />
         </Route>
