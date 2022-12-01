@@ -9,6 +9,7 @@ import { setCurrentUser } from './Redux/UserReducer';
 import DoctorsList from './components/Doctors/DoctorsList';
 import 'react-toastify/dist/ReactToastify.css';
 import ProtectRoutes from './components/ProtectRoutes';
+import Appointments from './components/Appointments/Appointments';
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function App() {
         <Route element={<ProtectRoutes />}>
           <Route exact path="/" element={<DoctorsList />} />
           <Route path="/signout" element={<Home />} />
+          <Route path="/appointments" element={<Appointments />} />
         </Route>
       </Routes>
     </Router>
