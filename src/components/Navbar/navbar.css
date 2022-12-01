@@ -2,7 +2,7 @@
   width: 300px;
   height: 100vh;
   box-shadow: 5px 5px 12px #ddd;
-  position: relative;
+  /* position: relative; */
 }
 
 .navbar_main {
@@ -44,3 +44,14 @@
   padding-top: 1.5rem;
 }
 
+.menu__button {
+  display: none;
+}
+
+#hideNav {
+  display: none;
+}
+
+.navbar #hideshadow {
+  box-shadow: none;
+}
