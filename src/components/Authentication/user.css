@@ -11,13 +11,13 @@
   align-items: center;
 }
 
-.login-section > form {
-  margin-top: 50px;
+.login-form {
   width: 90%;
   max-width: 500px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  margin-top: 70px;
 }
 
 .login-form > h1 {
