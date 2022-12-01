@@ -3,8 +3,8 @@
 }
 
 .content_div {
-  width: 90vw;
-  height: 100%;
+  max-width: 70vw;
+  height: max-content;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,14 +26,12 @@
   overflow: auto;
   position: relative;
   scroll-behavior: smooth;
-  gap: 20px;
 }
 
 .doctors_div {
   min-width: 350px;
   height: 450px;
   margin: 1px 10px;
-  cursor: pointer;
   border: 2px solid #fff;
   overflow: hidden;
   gap: 5px;
@@ -45,22 +43,26 @@
 
 .doctors_img {
   border-radius: 50%;
-  width: 100%;
-  height: 80%;
+  width: 90%;
+  height: 70%;
+  cursor: pointer;
 }
 
 .doctors_name {
   text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .specialization {
   text-align: center;
+  font-style: italic;
 }
 
 .arrow {
   color: white;
   font-size: 20px;
-  width: 90px;
+  width: 50px;
   height: 80px;
   outline: none;
   border: none;
@@ -81,7 +83,7 @@
 
 .disable {
   background-color: #f0e9e9;
-  cursor: not-allowed;
+  cursor: not-allowed !important;
 }
 
 .page_title {
@@ -149,4 +151,9 @@
   .preloader {
     left: 25%;
   }
+
+  .content_div {
+  width: 90vw;
+  height: 100%;
+}
 }
