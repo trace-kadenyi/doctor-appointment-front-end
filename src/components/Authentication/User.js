@@ -75,7 +75,7 @@ function User() {
         {' '}
       </div>
       ) }
-      { (currentUser.id) && <Navigate to='/' /> }
+      { (currentUser.id) && <Navigate to="/" /> }
     </section>
   );
 }
