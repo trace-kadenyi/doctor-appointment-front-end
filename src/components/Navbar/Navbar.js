@@ -17,28 +17,28 @@ const Navbar = () => {
             <img src={humburgerMenu} alt="Menu Icon" />
           </button>
 
-          <div className="nav_items" id={showLinks ? 'hideNav' : ''}>
-            <div className="navbar_left">
-              <NavLink className="nav__logo" to="/">
+          <div className="nav_items" id={showLinks ? 'showNav' : ''}>
+            <div className="navbar_left" id={showLinks ? 'd-none' : ''}>
+              <NavLink className="nav__logo" to="/" onClick={() => setShowlinks(!showLinks)}>
                 <img src={logo} alt="logo" />
               </NavLink>
             </div>
 
-            <div className="navbar_right">
+            <div className="navbar_right"  id={showLinks ? 'showNav' : ''}>
               <div className="header__links">
-                <NavLink to="/" className="header__link">
+                <NavLink to="/" className="header__link" onClick={() => setShowlinks(!showLinks)}>
                   Doctors
                 </NavLink>
-                <NavLink to="/book-appointment" className="header__link">
+                <NavLink to="/book-appointment" className="header__link" onClick={() => setShowlinks(!showLinks)}>
                   Book Appointment
                 </NavLink>
-                <NavLink to="/appointments" className="header__link">
+                <NavLink to="/appointments" className="header__link" onClick={() => setShowlinks(!showLinks)}>
                   Appointments
                 </NavLink>
-                <NavLink to="/add-new-doctor" className="header__link">
+                <NavLink to="/add-new-doctor" className="header__link" onClick={() => setShowlinks(!showLinks)}>
                   Add Doctor
                 </NavLink>
-                <NavLink to="/delete-doctor" className="header__link">
+                <NavLink to="/delete-doctor" className="header__link" onClick={() => setShowlinks(!showLinks)}>
                   Delete Doctor
                 </NavLink>
               </div>
