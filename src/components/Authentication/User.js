@@ -56,7 +56,7 @@ function User() {
       && (
       <form className="login-form">
         <h1>Welcome, Either log in or sign up.</h1>
-        <input mi id="username-input" placeholder="enter your username" onChange={(e) => setUsername(e.target.value)} />
+        <input maxLength={15} minLength={3} id="username-input" placeholder="enter your username" onChange={(e) => setUsername(e.target.value)} />
         <br />
         <div className="login-form-buttons">
           <button type="submit" onClick={(e) => { e.preventDefault(); loginUser(username); }}>log in</button>
