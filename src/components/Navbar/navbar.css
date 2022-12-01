@@ -27,7 +27,7 @@
 }
 
 .header__link {
-  margin-top: 2rem;
+  margin-top: 1rem;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bolder;
@@ -37,5 +37,10 @@
 
 .active {
   background-color: #82CD47;
+}
+
+.nav_items {
+  padding-left: 3rem;
+  padding-top: 1.5rem;
 }
 
