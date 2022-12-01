@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import humburgerMenu from '../../assets/images/humburger-menu.svg';
+import closeMenu from '../../assets/images/close-icon.svg';
 import './navbar.css';
 
 const Navbar = () => {
@@ -13,6 +14,10 @@ const Navbar = () => {
     <div>
       <div className="navbar">
         <nav className="navbar_main">
+          <button className="menu__button" type="button">
+            <img src={humburgerMenu} alt="Menu Icon" />
+          </button>
+
           <div className="navbar_left">
             <NavLink className="nav__logo" to="/">
               <img src={logo} alt="logo" />
@@ -41,10 +46,6 @@ const Navbar = () => {
                 Delete Doctor
               </NavLink>
             </div>
-
-            <button className="menu__button" type="button">
-              <img src={humburgerMenu} alt="Menu Icon" />
-            </button>
           </div>
         </nav>
       </div>

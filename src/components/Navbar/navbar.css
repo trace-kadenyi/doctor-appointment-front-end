@@ -39,29 +39,3 @@
   background-color: #82CD47;
 }
 
-.menu__button {
-  display: none;
-}
-
-/* .navbar_right #hidden {
-  display: flex;
-} */
-
-@media screen and (max-width: 960px){
-  .menu__button {
-    display: flex;
-  }
-
-  .header__links {
-    display: none;
-  }
-
-  .nav__logo {
-    display: none;
-  }
-
-  .navbar {
-    box-shadow: none;
-  }
-
-}

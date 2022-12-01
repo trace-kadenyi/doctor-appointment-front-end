@@ -38,9 +38,6 @@
   display: none;
 }
 
-.navbar_right #hidden {
-  display: flex;
-}
 
 @media only screen and (max-width: 960px) {
   .header__link {
