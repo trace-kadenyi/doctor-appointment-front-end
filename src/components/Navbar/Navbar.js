@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar" id={showLinks ? 'hide-shadow' : ''}>
+      <div className="navbar" id={!showLinks ? 'hide-shadow' : ''}>
         <nav className="navbar_main">
           <button className="menu__button" type="button" onClick={() => setShowlinks(!showLinks)}>
             <img src={humburgerMenu} alt="Menu Icon" />

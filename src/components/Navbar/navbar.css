@@ -2,7 +2,6 @@
   width: 300px;
   height: 100vh;
   box-shadow: 5px 5px 12px #ddd;
-  /* position: relative; */
 }
 
 .navbar_main {
@@ -24,10 +23,14 @@
 .nav__logo img {
   width: 100%;
   height: 100%;
+  background-color: #82CD47;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .header__link {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bolder;
@@ -37,13 +40,16 @@
 
 .active {
   background-color: #82CD47;
+  border: none;
+  border-radius: 5px;
 }
 
 .nav_items {
-  padding-left: 3rem;
+  padding-left: 1.5rem;
   padding-top: 1.5rem;
 }
 
+/* Humbuger menu */
 .menu__button {
   display: none;
 }
@@ -54,4 +60,17 @@
 
 .navbar #hideshadow {
   box-shadow: none;
+}
+
+/* .navbar_main#hideNav {
+  display: none;
+} */
+
+@media only screen and (max-width: 960px) {
+  .menu__button {
+    display: flex;
+  }
+
+ 
+
 }
