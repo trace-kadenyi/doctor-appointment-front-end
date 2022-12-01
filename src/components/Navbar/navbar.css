@@ -55,4 +55,9 @@
   .nav__logo {
     display: none;
   }
+
+  .navbar {
+    box-shadow: none;
+  }
+
 }
