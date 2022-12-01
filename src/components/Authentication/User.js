@@ -5,7 +5,8 @@ import { Navigate } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { toast } from 'react-toastify';
 import {
-  fetchCreateUser, fetchUsers, selectAll, selectUsers, setCurrentUser, selectCurrentUser, setLoginUser,
+  fetchCreateUser, fetchUsers, selectAll, selectUsers, setCurrentUser, selectCurrentUser,
+  setLoginUser,
 } from '../../Redux/UserReducer';
 import './user.css';
 
