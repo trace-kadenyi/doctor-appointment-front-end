@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { toast } from 'react-toastify';
 import {
-  fetchCreateUser, fetchUsers, selectAll, selectUsers, setCurrentUser,
+  fetchCreateUser, fetchUsers, selectAll, selectUsers, setCurrentUser 
 } from '../../Redux/UserReducer';
 import './user.css';
 
@@ -24,32 +24,29 @@ function User() {
 
   // log in the user
   const loginUser = (name) => {
-    const currentUser = users.filter((e) => e.name === name);
-    if (currentUser.length) {
+    // find the user by filtering the users array.
+    const currentUser = users.find((e) => e.name === name);
+    if (currentUser) {
       notify('user logged in!');
       // user is logged in render the home page, notify the user.
-      dispatch(setCurrentUser(currentUser[0]));
-      localStorage.setItem('currentUser', JSON.stringify(currentUser[0]));
+      dispatch(setCurrentUser(currentUser));
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
     } else {
       // notify the message
       notify('username does not exists');
+      setUsername('')
       document.getElementById('username-input').value = '';
     }
   };
   // sign up the user
   const signUp = (name) => {
+    // check if the name meets api requirments
+    if(name.length < 3) return notify('username must be longer than 3 characters.')
     // check locally if the name already exists to avoid useless api call.
-    const currentUser = users.filter((e) => e.name === name);
-    if (currentUser.length) {
-      // notify the message
-      notify('username already exists, chose another one or login');
-      document.getElementById('username-input').value = '';
-    } else {
-      // user is signed up
-      // render the home page and notify the user.
-      notify('user signed up!');
-      dispatch(fetchCreateUser({ name }));
-    }
+    const userExists = users.find((e) => e.name === name);
+    if(userExists) return notify('username already exists');
+    // call the api
+    dispatch(fetchCreateUser({ name }));
   };
 
   return (
@@ -59,7 +56,7 @@ function User() {
       && (
       <form className="login-form">
         <h1>Welcome, Either log in or sign up.</h1>
-        <input id="username-input" placeholder="enter your username" onChange={(e) => setUsername(e.target.value)} />
+        <input mi id="username-input" placeholder="enter your username" onChange={(e) => setUsername(e.target.value)} />
         <br />
         <div className="login-form-buttons">
           <button type="submit" onClick={(e) => { e.preventDefault(); loginUser(username); }}>log in</button>
