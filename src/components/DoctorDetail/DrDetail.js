@@ -30,23 +30,26 @@ const DrDetail = () => {
           </Link>
         </Row>
         <Row className="d-flex">
-          <Card className="mb-5 p-3">
-            <Card.Img variant="top" src={doctor.photo} alt="doctor" />
-          </Card>
+          <Col xs={12} md={4}>
+            <Card className="mb-5 p-3">
+              <Card.Img variant="top" src={doctor.photo} alt="doctor" />
+            </Card>
+          </Col>
+        
+          <Col xs={12} md={4}>
+            <Card.Body className="doctor-detail__info">
+              <Card.Title>{doctor.name}</Card.Title>
+              <li><p className="doctor-detail__specializations">{doctor.specialization}</p></li>
+              <li><Link to={`/doctors/${id}/appointments`}>Make an appointment</Link></li>
+            </Card.Body>
+          </Col>
+          <div className="link_to_doctors">
+            <Link to="/">
+              <FaAngleLeft />
+              Back to doctors
+            </Link>
+          </div>
         </Row>
-        <div className="info__list">
-          <ul className="doctor-detail__info">
-            <li><h2 className="doctor-detail__name">{doctor.name}</h2></li>
-            <li><p className="doctor-detail__specializations">{doctor.specialization}</p></li>
-            <li><Link to={`/doctors/${id}/appointments`}>Make an appointment</Link></li>
-          </ul>
-        </div>
-        <div className="link_to_doctors">
-          <Link to="/">
-            <FaAngleLeft />
-            Back to doctors
-          </Link>
-        </div>
       </div>
     </Container>
   );
