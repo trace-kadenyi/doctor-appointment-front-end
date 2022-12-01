@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { toast } from 'react-toastify';
 import {
-  fetchCreateUser, fetchUsers, selectAll, selectUsers, setCurrentUser 
+  fetchCreateUser, fetchUsers, selectAll, selectUsers, setCurrentUser,
 } from '../../Redux/UserReducer';
 import './user.css';
 
@@ -34,19 +34,19 @@ function User() {
     } else {
       // notify the message
       notify('username does not exists');
-      setUsername('')
+      setUsername('');
       document.getElementById('username-input').value = '';
     }
   };
   // sign up the user
   const signUp = (name) => {
     // check if the name meets api requirments
-    if(name.length < 3) return notify('username must be longer than 3 characters.')
+    if (name.length < 3) return notify('username must be longer than 3 characters.');
     // check locally if the name already exists to avoid useless api call.
     const userExists = users.find((e) => e.name === name);
-    if(userExists) return notify('username already exists');
+    if (userExists) return notify('username already exists');
     // call the api
-    dispatch(fetchCreateUser({ name }));
+    return dispatch(fetchCreateUser({ name }));
   };
 
   return (
