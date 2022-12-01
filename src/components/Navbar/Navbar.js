@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
+import humburgerMenu from '../../assets/images/humburger-menu.svg';
 import './navbar.css';
 
 const Navbar = () => (
@@ -30,6 +31,10 @@ const Navbar = () => (
             Delete Doctor
           </NavLink>
         </div>
+
+        <button className="menu__button" type="button">
+          <img src={humburgerMenu} alt="Menu Icon" />
+        </button>
       </div>
     </nav>
   </div>
