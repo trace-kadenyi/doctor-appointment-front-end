@@ -1,28 +1,40 @@
-.btn,
-.btn-primary {
-  background-color: #93ec0c;
-  border-color: #93ec0c;
-  color: #000;
-  border-radius: 5px;
-  font-size: 10px;
-  font-weight: 600;
-  padding: 10px 20px;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  margin: 0 auto;
+  display: block;
+  width: 60% !important;
 }
 
-.table > tbody {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 100rem;
+.btn,
+.btn-primary {
+  background-color: #97c010 !important;
+  border-color: #97c010 !important;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+td {
+  width: 70%;
+}
+
+th {
+  width: 30%;
 }
 
 .d-flex,
-.md-5,
-.row {
-  margin: 0;
+.justify-content-end {
   display: flex !important;
-  justify-content: space-between;
+  width: 100%;
+}
+
+.arrow {
+  color: white;
+  font-size: 20px;
+}
+
+a {
+  color: white;
 }

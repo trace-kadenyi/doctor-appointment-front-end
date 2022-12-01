@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { FaAngleLeft } from 'react-icons/fa';
+import { BiLeftArrow } from 'react-icons/bi';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
@@ -22,34 +22,40 @@ const DrDetail = () => {
 
   return (
     <Container>
-      <Row className="d-flex md-5">
+      <Row className="d-flex">
         <Col xs={12} md={5}>
           <Card className="mb-4 p-3">
             <Card.Img variant="top" src={doctor.photo} alt="doctor" />
           </Card>
         </Col>
 
-        <Col xs={12} md={4}>
-          <Card.Body className="doctor-detail__info">
+        <Col xs={12} md={5}>
+          <Card.Body>
             <Card.Title><h5>{doctor.name}</h5></Card.Title>
-            <Table striped bordered hover>
-              <tbody>
-                <tr>
-                  <th>Specialization</th>
-                  <td>{doctor.specialization}</td>
-                </tr>
-                <tr>
-                  <th>Make an appointment</th>
-                  <td className="d-flex justify-content-end"><Link to={`/doctors/${id}/appointments`} className="btn btn-primary">Book Appointment</Link></td>
-                </tr>
-              </tbody>
-            </Table>
+            <div>
+              <Table striped bordered hover responsive="sm">
+                <tbody>
+                  <tr>
+                    <th>Specialization</th>
+                    <td>{doctor.specialization}</td>
+                  </tr>
+                  <tr>
+                    <th>Bio</th>
+                    <td>{}</td>
+                  </tr>
+                  <tr>
+                    <th>Appointment</th>
+                    <td className="d-flex justify-content-end"><Link to={`/doctors/${id}/appointments`} className="btn btn-primary">Book Appointment</Link></td>
+                  </tr>
+                </tbody>
+              </Table>
+            </div>
           </Card.Body>
         </Col>
       </Row>
       <button type="button" className="arrow left">
         <Link className="back" to="/">
-          <FaAngleLeft />
+          <BiLeftArrow />
         </Link>
       </button>
     </Container>
