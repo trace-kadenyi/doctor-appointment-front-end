@@ -55,6 +55,7 @@ const options = {
     [fetchUsers.pending]: (state) => {
       const pendingState = state;
       pendingState.pending = true;
+      pendingState.fulfilled = false;
     },
     [fetchUsers.rejected]: (state, action) => {
       const rejectedState = state;
@@ -73,6 +74,7 @@ const options = {
     [fetchCreateUser.pending]: (state) => {
       const pendingState = state;
       pendingState.pending = true;
+      pendingState.fulfilled = false;
     },
     [fetchCreateUser.rejected]: (state, action) => {
       const rejectedState = state;
