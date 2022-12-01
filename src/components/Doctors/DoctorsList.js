@@ -73,14 +73,15 @@ const DoctorsList = () => {
             <div className="scroll_content">
               {doctors.doctors.map((doctor) => (
                 <div key={doctor.id} className="doctors_div">
+                  <Link to={`/doctors/${doctor.id}`}>
                   <img
                     className="doctors_img"
                     src={doctor.photo}
                     alt={doctor.name}
-                  />
+                    />
+                    </Link>
                   <h2 className="doctors_name">{doctor.name}</h2>
                   <p className="specialization">{doctor.specialization}</p>
-                  <Link to={`/doctors/${doctor.id}`}>Details</Link>
                 </div>
               ))}
             </div>

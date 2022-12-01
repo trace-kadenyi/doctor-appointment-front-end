@@ -39,8 +39,20 @@ const DrDetail = () => {
           <Col xs={12} md={4}>
             <Card.Body className="doctor-detail__info">
               <Card.Title>{doctor.name}</Card.Title>
+              <Table className="mt-4" striped bordered hover size="sm">
+                <tbody>
+                  <tr>
+                    <th>Specialization</th>
+                    <td>{doctor.specialization}</td>
+                  </tr>
+                  <tr>
+                    <th>Make an appointment</th>
+                    <td><Link to={`/doctors/${id}/appointments`}></Link></td>
+                  </tr>
+                </tbody>
+              </Table>
               <li><p className="doctor-detail__specializations">{doctor.specialization}</p></li>
-              <li><Link to={`/doctors/${id}/appointments`}>Make an appointment</Link></li>
+              <li></li>
             </Card.Body>
           </Col>
           <div className="link_to_doctors">
