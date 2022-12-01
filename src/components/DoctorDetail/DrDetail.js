@@ -22,47 +22,43 @@ const DrDetail = () => {
 
   return (
     <Container>
-      <div className="doctor-detail__container">
-        <Row className="mx-2">
-          <Link to="/">
+      <Row className="mx-2">
+        <Link to="/">
+          <FaAngleLeft />
+          Back to doctors
+        </Link>
+      </Row>
+      <Row className="d-flex">
+        <Col xs={12} md={5}>
+          <Card className="mb-4 p-3">
+            <Card.Img variant="top" src={doctor.photo} alt="doctor" />
+          </Card>
+        </Col>
+
+        <Col xs={12} md={4}>
+          <Card.Body className="doctor-detail__info">
+            <Card.Title>{doctor.name}</Card.Title>
+            <Table className="mt-4" striped bordered hover size="sm">
+              <tbody>
+                <tr>
+                  <th>Specialization</th>
+                  <td>{doctor.specialization}</td>
+                </tr>
+                <tr>
+                  <th>Make an appointment</th>
+                  <td className="d-flex justify-content-end"><Link to={`/doctors/${id}/appointments`} className="btn btn-primary">Book Appointment</Link></td>
+                </tr>
+              </tbody>
+            </Table>
+          </Card.Body>
+        </Col>
+        <div className="link_to_doctors">
+          <Link className="left" to="/">
             <FaAngleLeft />
             Back to doctors
           </Link>
-        </Row>
-        <Row className="d-flex">
-          <Col xs={12} md={4}>
-            <Card className="mb-5 p-3">
-              <Card.Img variant="top" src={doctor.photo} alt="doctor" />
-            </Card>
-          </Col>
-        
-          <Col xs={12} md={4}>
-            <Card.Body className="doctor-detail__info">
-              <Card.Title>{doctor.name}</Card.Title>
-              <Table className="mt-4" striped bordered hover size="sm">
-                <tbody>
-                  <tr>
-                    <th>Specialization</th>
-                    <td>{doctor.specialization}</td>
-                  </tr>
-                  <tr>
-                    <th>Make an appointment</th>
-                    <td><Link to={`/doctors/${id}/appointments`}></Link></td>
-                  </tr>
-                </tbody>
-              </Table>
-              <li><p className="doctor-detail__specializations">{doctor.specialization}</p></li>
-              <li></li>
-            </Card.Body>
-          </Col>
-          <div className="link_to_doctors">
-            <Link to="/">
-              <FaAngleLeft />
-              Back to doctors
-            </Link>
-          </div>
-        </Row>
-      </div>
+        </div>
+      </Row>
     </Container>
   );
 };
