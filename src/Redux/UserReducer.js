@@ -85,9 +85,15 @@ const options = {
       const fulfilledState = state;
       fulfilledState.fulfilled = true;
       fulfilledState.pending = false;
-      fulfilledState.currentUser = action.payload;
-      // after user is created we set it in the local storage.
-      localStorage.setItem('currentUser', JSON.stringify(action.payload));
+      if (action.payload.id) {
+        fulfilledState.currentUser = action.payload;
+        // after user is created we set it in the local storage.
+        localStorage.setItem('currentUser', JSON.stringify(action.payload));
+        // notify user is signed up
+        notify('user signed up');
+      } else {
+        fulfilledState.error = action.payload.error;
+      }
     },
   },
 };
