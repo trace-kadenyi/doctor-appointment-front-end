@@ -29,11 +29,11 @@ const DrDetail = () => {
             Back to doctors
           </Link>
         </Row>
-        <div className="doctor-detail__photo">
-          <div className="photo">
-            <img className="doctor_photo" src={doctor.photo} alt="doctor" />
-          </div>
-        </div>
+        <Row className="d-flex">
+          <Card className="mb-5 p-3">
+            <Card.Img variant="top" src={doctor.photo} alt="doctor" />
+          </Card>
+        </Row>
         <div className="info__list">
           <ul className="doctor-detail__info">
             <li><h2 className="doctor-detail__name">{doctor.name}</h2></li>
