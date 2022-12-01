@@ -18,11 +18,11 @@ function App() {
   if (currentUser) { dispatch(setCurrentUser(currentUser)); }
   return (
     <Router>
-      <Navbar />
       <ToastContainer />
       <Routes>
         <Route path="/authentication" element={<User />} />
         <Route element={<ProtectRoutes />}>
+          <Navbar />
           <Route exact path="/" element={<DoctorsList />} />
           <Route path="/signout" element={<Home />} />
         </Route>
