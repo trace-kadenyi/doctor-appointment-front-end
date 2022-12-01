@@ -6,8 +6,3 @@
   box-sizing: border-box;
   font-family: 'Kumbh Sans', sans-serif;
 }
-
-#root {
-  display: flex;
-  gap: 2rem;
-}
