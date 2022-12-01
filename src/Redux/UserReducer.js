@@ -49,6 +49,8 @@ const options = {
       localStorage.removeItem('currentUser');
       // notify the user that he was signed out
       notify('signed out');
+      // reload the page to render authentication.
+      window.location.reload();
     },
   },
   extraReducers: {
