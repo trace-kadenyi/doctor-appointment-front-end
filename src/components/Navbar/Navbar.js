@@ -24,7 +24,7 @@ const Navbar = () => {
               </NavLink>
             </div>
 
-            <div className="navbar_right"  id={showLinks ? 'showNav' : ''}>
+            <div className="navbar_right" id={showLinks ? 'showNav' : ''}>
               <div className="header__links">
                 <NavLink to="/" className="header__link" onClick={() => setShowlinks(!showLinks)}>
                   Doctors
