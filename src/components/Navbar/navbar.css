@@ -2,7 +2,6 @@
   width: 300px;
   height: 100vh;
   box-shadow: 5px 5px 12px #ddd;
-  position: fixed;
 }
 
 .navbar_main {
@@ -55,14 +54,17 @@
   display: none;
 }
 
-#hideNav {
-  display: none;
+#showNav {
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar #hideshadow {
   box-shadow: none;
 }
-
+#d-none {
+  display: none;
+}
 /* .navbar_main#hideNav {
   display: none;
 } */
@@ -70,5 +72,21 @@
 @media only screen and (max-width: 960px) {
   .menu__button {
     display: flex;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .navbar {
+    width: 100%;
+  }
+  .nav_items {
+    display: none;
+    padding: 5px;
+  }
+  .navbar {
+    height: auto;
+  }
+  .header__links {
+    margin-top: unset;
   }
 }
