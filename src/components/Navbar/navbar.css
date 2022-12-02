@@ -30,6 +30,7 @@
 }
 
 .header__link {
+  cursor: pointer;
   margin-top: 1.5rem;
   text-decoration: none;
   text-transform: uppercase;
