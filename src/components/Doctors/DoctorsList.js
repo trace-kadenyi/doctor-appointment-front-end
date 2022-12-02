@@ -29,7 +29,9 @@ const DoctorsList = () => {
 
   // get user by id
   const { id } = params;
+  // console.log(id);
   // const user = Users.find((user) => user.id === parseInt(id, 10));
+  console.log(Users.id);
 
   // scroll to the right
   const scrollRight = () => {
