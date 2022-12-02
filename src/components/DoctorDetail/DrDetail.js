@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
+import './DrDetail.css';
 
 import { fetchDoctor, doctorSelector } from '../../Redux/doctorSlice';
 
@@ -46,7 +47,7 @@ const DrDetail = () => {
                   </tr>
                   <tr>
                     <th>Appointment</th>
-                    <td className="d-flex justify-content-end"><Link to={`/doctors/${id}/appointments`} className="btn btn-primary">Book Appointment</Link></td>
+                    <td className="d-flex justify-content-end"><Link to={`/doctors/${id}/appointments`} className="btn btn-success">Book Appointment</Link></td>
                   </tr>
                 </tbody>
               </Table>
