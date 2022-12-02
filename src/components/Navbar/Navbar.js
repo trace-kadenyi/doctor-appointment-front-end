@@ -47,9 +47,9 @@ const Navbar = () => {
                 <NavLink to="/delete-doctor" className="header__link">
                   Delete Doctor
                 </NavLink>
-                <button  className="header__link" onClick={() => { dispatch(signOut()); }}>
+                <a  className="header__link" onClick={() => { dispatch(signOut()); }}>
                   Sign Out
-                </button>
+                </a>
               </div>
             </div>
           </div>
