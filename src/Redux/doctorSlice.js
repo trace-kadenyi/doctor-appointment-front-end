@@ -16,7 +16,9 @@ const doctorReducer = createSlice({
     hasErrors: false,
   },
   reducers: {
-
+    deleteDoctor: (state, action) => {
+      console.log(action);
+    },
   },
   extraReducers: {
     [fetchDoctors.pending]: (state) => {

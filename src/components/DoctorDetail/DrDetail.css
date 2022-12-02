@@ -1,7 +1,3 @@
-:root {
-  --bs-btn-bg: #97c010;
-}
-
 .card-img,
 .card-img-top,
 .card-img-bottom {
@@ -12,7 +8,7 @@
 
 .btn,
 .btn-primary {
-  background-color: var(--bs-btn-bg) !important;
+  background-color: #97c010 !important;
   border-color: #97c010 !important;
 }
 
@@ -21,11 +17,11 @@
 }
 
 td {
-  width: 70%;
+  width: 80%;
 }
 
 th {
-  width: 30%;
+  width: 20%;
 }
 
 .d-flex,
