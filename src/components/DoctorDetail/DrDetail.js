@@ -45,7 +45,7 @@ const DrDetail = () => {
                   </tr>
                   <tr>
                     <th>Appointment</th>
-                    <td className="d-flex justify-content-end"><Link to={`/doctors/${id}/appointments`} className="btn btn-primary">Book Appointment</Link></td>
+                    <td className="d-flex justify-content-end"><Link to={`/doctors/${id}/appointments`} className="btn btn-success">Book Appointment</Link></td>
                   </tr>
                 </tbody>
               </Table>

@@ -1,3 +1,7 @@
+:root {
+  --bs-btn-bg: #97c010;
+}
+
 .card-img,
 .card-img-top,
 .card-img-bottom {
@@ -8,7 +12,7 @@
 
 .btn,
 .btn-primary {
-  background-color: #97c010 !important;
+  background-color: var(--bs-btn-bg) !important;
   border-color: #97c010 !important;
 }
 
