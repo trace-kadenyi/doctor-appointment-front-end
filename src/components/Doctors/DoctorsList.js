@@ -2,19 +2,29 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
-import { deleteDoctor } from '../../Redux/doctorSlice';
+import { fetchDoctors, doctorSelector, deleteDoctor } from '../../Redux/doctorSlice';
 import preloader from '../../assets/images/preloader.gif';
 import './doctors.css';
 
 const DoctorsList = () => {
   const dispatch = useDispatch();
   const doctors = useSelector(doctorSelector);
+  const currentUser = useSelector((state) => state.currentUser);
 
   // Fetch doctors on mount
   useEffect(() => {
     dispatch(fetchDoctors());
   }, [dispatch]);
+
+  const handleDelete = (doctorId) => {
+    Promise.resolve(
+      dispatch(
+        deleteDoctor(currentUser.id, doctorId),
+      ),
+    ).then(() => dispatch(
+      fetchDoctors(currentUser.id),
+    ));
+  };
 
   // scroll to the right
   const scrollRight = () => {
@@ -82,9 +92,7 @@ const DoctorsList = () => {
                   </Link>
                   <h2 className="doctors_name">{doctor.name}</h2>
                   <p className="specialization">{doctor.specialization}</p>
-                  <button type="remove-btn" className="delete" onClick={() => dispatch(deleteDoctor(doctor.id))}>Delete</button>
                 </div>
-                
               ))}
             </div>
           </div>
@@ -94,6 +102,7 @@ const DoctorsList = () => {
               <BiRightArrow />
             </button>
           </div>
+          {currentUser.admin_id = 1 && <button type="button" onClick={() => handleDelete(doctors.id)}>Delete Doctor</button>}
         </div>
       )}
 

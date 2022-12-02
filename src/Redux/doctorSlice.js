@@ -17,7 +17,8 @@ const doctorReducer = createSlice({
   },
   reducers: {
     deleteDoctor: (state, action) => {
-      console.log(action);
+      const doctorId = action.payload;
+      state.doctors = state.doctors.filter((doctor) => doctor.id !== doctorId);
     },
   },
   extraReducers: {
@@ -37,5 +38,5 @@ const doctorReducer = createSlice({
 });
 
 export const doctorSelector = (state) => state.doctor;
-
+export const { deleteDoctor } = doctorReducer.actions;
 export default doctorReducer.reducer;
