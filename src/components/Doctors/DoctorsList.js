@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
-
+import { deleteDoctor } from '../../Redux/doctorSlice';
 import preloader from '../../assets/images/preloader.gif';
 import './doctors.css';
 
@@ -82,7 +82,9 @@ const DoctorsList = () => {
                   </Link>
                   <h2 className="doctors_name">{doctor.name}</h2>
                   <p className="specialization">{doctor.specialization}</p>
+                  <button type="remove-btn" className="delete" onClick={() => dispatch(deleteDoctor(doctor.id))}>Delete</button>
                 </div>
+                
               ))}
             </div>
           </div>
