@@ -1,20 +1,35 @@
+/* eslint-disable */
+
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
-import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
+import { useParams, Link } from 'react-router-dom';
 
+import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
+import { fetchUsers, selectCurrentUser } from '../../Redux/UserReducer';
 import preloader from '../../assets/images/preloader.gif';
 import './doctors.css';
 
 const DoctorsList = () => {
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  const params = useParams();
   const doctors = useSelector(doctorSelector);
+  const Users = useSelector(selectCurrentUser)
 
   // Fetch doctors on mount
   useEffect(() => {
     dispatch(fetchDoctors());
   }, [dispatch]);
+
+  // Fetch users on mount
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
+  // get user by id
+  const { id } = params;
+  // const user = Users.find((user) => user.id === parseInt(id, 10));
 
   // scroll to the right
   const scrollRight = () => {
@@ -59,6 +74,13 @@ const DoctorsList = () => {
       {doctors.hasErrors && (
         <div className="error">Unable to display doctors. Please check your server.</div>
       )}
+
+      {/* add doctor button */}
+      <div className="add_doctor">
+        <Link to="/users/:id/doctors" className="add_doctor_btn">
+          Add Doctor
+        </Link>
+      </div>
 
       {/* doctors' list */}
       {!doctors.loading && !doctors.hasErrors && (
