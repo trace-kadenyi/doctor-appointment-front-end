@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import { fetchDoctors, doctorSelector, deleteDoctor } from '../../Redux/doctorSlice';
+import { fetchDoctors, doctorSelector, doctorsDeleteThunk } from '../../Redux/doctorSlice';
 import preloader from '../../assets/images/preloader.gif';
 import './doctors.css';
 
@@ -19,10 +19,10 @@ const DoctorsList = () => {
   const handleDelete = (doctorId) => {
     Promise.resolve(
       dispatch(
-        deleteDoctor(currentUser.id, doctorId),
+        doctorsDeleteThunk({currentUser, doctorId}),
       ),
     ).then(() => dispatch(
-      fetchDoctors(currentUser.id),
+      fetchDoctors(currentUser.doctorId),
     ));
   };
 
@@ -102,10 +102,11 @@ const DoctorsList = () => {
               <BiRightArrow />
             </button>
           </div>
-          <button type="button" onClick={() => handleDelete(doctors.id)}>Delete Doctor</button>
+
         </div>
       )}
-
+      {currentUser.isLoggedIn !== undefined && currentUser.isLoggedIn && currentUser.role === 'admin' && <button id={doctors.id} type="button" onClick={(e) => { handleDelete(e.target.id); }}>Delete Doctor</button>
+      }
     </div>
   );
 };

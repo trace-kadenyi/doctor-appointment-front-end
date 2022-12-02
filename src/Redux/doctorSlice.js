@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const BASE_URL = 'http://localhost:3000/api/v1/doctors';
+const http = axios.create({baseURL: BASE_URL});
 
 export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async () => {
   const response = await axios.get(BASE_URL);
@@ -12,6 +13,18 @@ export const fetchDoctor = createAsyncThunk('doctors/fetchDoctor', async (id) =>
   return response.data;
 });
 
+export const doctorsDeleteThunk = createAsyncThunk(
+  'doctors/deleteDoctor',
+  async (currentUser) => {
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: currentUser.id.doctorId,
+    };
+    const URL = `${BASE_URL}/doctors/${currentUser.id.doctorId}`;
+    await http.delete(URL, { headers });
+  },
+);
+
 const doctorReducer = createSlice({
   name: 'doctors',
   initialState: {
@@ -21,10 +34,6 @@ const doctorReducer = createSlice({
     hasErrors: false,
   },
   reducers: {
-    deleteDoctor: (state, action) => {
-      const doctorId = action.payload;
-      state.doctors = state.doctors.filter((doctor) => doctor.id !== doctorId);
-    },
   },
   extraReducers: {
     [fetchDoctors.pending]: (state) => {
@@ -55,5 +64,5 @@ const doctorReducer = createSlice({
 });
 
 export const doctorSelector = (state) => state.doctor;
-export const { deleteDoctor } = doctorReducer.actions;
+
 export default doctorReducer.reducer;

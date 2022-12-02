@@ -3,8 +3,8 @@
 }
 
 .content_div {
-  width: 90vw;
-  height: 100%;
+  width: auto;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
