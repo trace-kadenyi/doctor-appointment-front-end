@@ -1,19 +1,21 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { signOut } from '../../Redux/UserReducer';
 import logo from '../../assets/images/logo.png';
 import humburgerMenu from '../../assets/images/humburger-menu.svg';
 import './navbar.css';
-import { useDispatch } from 'react-redux';
 
 const Navbar = () => {
   const [showLinks, setShowlinks] = useState(false);
   const dispatch = useDispatch();
 
- const navLinks = document.querySelectorAll('.header__link');
- navLinks.forEach(e => {e.addEventListener('click',() => setShowlinks(!showLinks))});
+  const navLinks = document.querySelectorAll('.header__link');
+  navLinks.forEach((e) => { e.addEventListener('click', () => setShowlinks(!showLinks)); });
 
   return (
     <div>
@@ -47,7 +49,7 @@ const Navbar = () => {
                 <NavLink to="/delete-doctor" className="header__link">
                   Delete Doctor
                 </NavLink>
-                <a  className="header__link" onClick={() => { dispatch(signOut()); }}>
+                <a className="header__link" onClick={() => { dispatch(signOut()); }}>
                   Sign Out
                 </a>
               </div>

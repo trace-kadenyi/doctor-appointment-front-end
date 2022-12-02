@@ -19,7 +19,6 @@ const DrDetail = () => {
 
   useEffect(() => {
     dispatch(fetchDoctor(id));
-    console.log('run');
   }, [dispatch]);
 
   return (
