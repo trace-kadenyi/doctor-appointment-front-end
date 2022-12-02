@@ -14,7 +14,7 @@ export const fetchDoctor = createAsyncThunk('doctors/fetchDoctor', async (id) =>
 });
 
 export const deleteDoctor = createAsyncThunk('doctors/deleteDoctor', async (doctor) => {
-  const response = await axios.post(DELETE_DOCTOR, doctor);
+  const response = await axios.post(DELETE_DOCTOR, doctor.id);
   return response.data;
 });
 

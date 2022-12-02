@@ -83,7 +83,7 @@ const DoctorsList = () => {
                       alt={doctor.name}
                     />
                   </Link>
-                  <button type="button" className="delete" onClick={handleDelete}>Delete</button>
+                  <button type="button" className="delete" onClick={() => handleDelete(doctor.id)}>Delete</button>
                   <h2 className="doctors_name">{doctor.name}</h2>
                   <p className="specialization">{doctor.specialization}</p>
                 </div>
