@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const notify = (e) => toast(e);
@@ -52,6 +53,13 @@ const options = {
       // reload the page to render authentication.
       window.location.reload();
     },
+    setLoginUser(state, action) {
+      const loginUserState = state;
+      loginUserState.currentUser = action.payload;
+      // navigate to the main page.
+        <Navigate to="/" />;
+        notify('user logged in!');
+    },
   },
   extraReducers: {
     [fetchUsers.pending]: (state) => {
@@ -103,7 +111,7 @@ const options = {
 };
 
 export const UserSlice = createSlice(options);
-export const { setCurrentUser, signOut } = UserSlice.actions;
+export const { setCurrentUser, signOut, setLoginUser } = UserSlice.actions;
 export default UserSlice.reducer;
 export const selectUsers = (state) => state.user.users;
 export const selectCurrentUser = (state) => state.user.currentUser;
