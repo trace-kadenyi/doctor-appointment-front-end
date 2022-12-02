@@ -41,6 +41,9 @@ const Navbar = () => {
                 <NavLink to="/delete-doctor" className="header__link" onClick={() => setShowlinks(!showLinks)}>
                   Delete Doctor
                 </NavLink>
+                <NavLink to="/signout" className="header__link" onClick={() => setShowlinks(!showLinks)}>
+                  Sign Out
+                </NavLink>
               </div>
             </div>
           </div>

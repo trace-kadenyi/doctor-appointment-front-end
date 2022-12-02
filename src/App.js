@@ -20,7 +20,7 @@ function App() {
   if (currentUser) { dispatch(setCurrentUser(currentUser)); }
   return (
     <Router>
-      <ToastContainer />
+      <ToastContainer autoClose={1300} />
       <Navbar />
       <Routes>
         <Route path="/authentication" element={<User />} />

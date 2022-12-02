@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { toast } from 'react-toastify';
 import {
   fetchCreateUser, fetchUsers, selectAll, selectUsers, setCurrentUser, selectCurrentUser,
+  setLoginUser,
 } from '../../Redux/UserReducer';
 import './user.css';
 
@@ -14,7 +15,6 @@ function User() {
   const users = useSelector(selectUsers);
   const userSelector = useSelector(selectAll);
   const currentUser = useSelector(selectCurrentUser);
-  const navigate = useNavigate();
   const loading = userSelector.pending;
   // notificaitons
   const notify = (e) => toast(e);
@@ -30,12 +30,11 @@ function User() {
     // find the user by filtering the users array.
     const currentUser = users.find((e) => e.name === name);
     if (currentUser) {
-      notify('user logged in!');
       // user is logged in render the home page, notify the user.
       dispatch(setCurrentUser(currentUser));
+      dispatch(setLoginUser(currentUser));
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
       // navigate to doctors page.
-      navigate('/');
     } else {
       // notify the message
       notify('username does not exists');
