@@ -102,7 +102,7 @@ const DoctorsList = () => {
               <BiRightArrow />
             </button>
           </div>
-          {currentUser.admin_id = 1 && <button type="button" onClick={() => handleDelete(doctors.id)}>Delete Doctor</button>}
+          <button type="button" onClick={() => handleDelete(doctors.id)}>Delete Doctor</button>
         </div>
       )}
 
