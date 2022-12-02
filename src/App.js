@@ -11,6 +11,7 @@ import Navbar from './components/Navbar/Navbar';
 import DrDetail from './components/DoctorDetail/DrDetail';
 import 'react-toastify/dist/ReactToastify.css';
 import ProtectRoutes from './components/ProtectRoutes';
+import NewDoctor from './components/Doctors/NewDoctor';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
         <Route element={<ProtectRoutes />}>
           <Route exact path="/" element={<DoctorsList />} />
           <Route exact path="/doctors/:id" element={<DrDetail />} />
+          <Route path="/users/:id/doctors" element={<NewDoctor />} />
           <Route path="/signout" element={<Home />} />
         </Route>
       </Routes>
