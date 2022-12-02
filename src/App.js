@@ -3,7 +3,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import Home from './components/Home';
 import User from './components/Authentication/User';
 import { setCurrentUser } from './Redux/UserReducer';
 import DoctorsList from './components/Doctors/DoctorsList';
@@ -11,6 +10,7 @@ import Navbar from './components/Navbar/Navbar';
 import DrDetail from './components/DoctorDetail/DrDetail';
 import 'react-toastify/dist/ReactToastify.css';
 import ProtectRoutes from './components/ProtectRoutes';
+import About from './components/About';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ function App() {
         <Route element={<ProtectRoutes />}>
           <Route exact path="/" element={<DoctorsList />} />
           <Route exact path="/doctors/:id" element={<DrDetail />} />
-          <Route path="/signout" element={<Home />} />
+          <Route path="/about" element={<About />} />
         </Route>
       </Routes>
     </Router>
