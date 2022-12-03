@@ -1,5 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
+const notify = (e) => toast(e);
 
 const BASE_URL = 'http://localhost:3000/api/v1/doctors';
 
@@ -66,6 +69,7 @@ const doctorReducer = createSlice({
       state.loading = false;
       state.hasErrors = false;
       state.doctorDeleted = !state.doctorDeleted;
+      notify('doctor deleted!')
     },
     [deleteDoctor.rejected]: (state) => {
       state.loading = false;
