@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const BASE_URL = 'http://localhost:3000/api/v1/doctors';
 
-const DELETE_DOCTOR = `http://localhost:3000/api/v1/users/`;
+const DELETE_DOCTOR = 'http://localhost:3000/api/v1/users/';
 
 export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async () => {
   const response = await axios.get(BASE_URL);
@@ -26,12 +26,12 @@ const doctorReducer = createSlice({
     doctor: {},
     loading: false,
     hasErrors: false,
-    doctorDeleted: false
+    doctorDeleted: false,
   },
   reducers: {
     deleteDoctor: () => {
-      
-    }
+
+    },
   },
   extraReducers: {
     [fetchDoctors.pending]: (state) => {
@@ -67,7 +67,7 @@ const doctorReducer = createSlice({
       state.hasErrors = false;
       state.doctorDeleted = !state.doctorDeleted;
     },
-    [deleteDoctor.rejected]: (state,action) => {
+    [deleteDoctor.rejected]: (state, action) => {
       state.loading = false;
       state.hasErrors = true;
     },
@@ -75,9 +75,9 @@ const doctorReducer = createSlice({
 });
 
 export const doctorSelector = (state) => state.doctor;
-export const selectDoctorDeleted =(state) => state.doctor.doctorDeleted;
-export const selectDoctors=(state) => state.doctor.doctors;
-export const selectDoctorsloading=(state) => state.loading;
+export const selectDoctorDeleted = (state) => state.doctor.doctorDeleted;
+export const selectDoctors = (state) => state.doctor.doctors;
+export const selectDoctorsloading = (state) => state.loading;
 export const selectDoctor = (state) => state.doctor.doctor;
 
 export default doctorReducer.reducer;
