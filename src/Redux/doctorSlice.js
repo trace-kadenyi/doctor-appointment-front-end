@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const BASE_URL = 'http://localhost:3000/api/v1/doctors';
-const DELETE_DOCTOR = 'http//localhost:3000/api/v1/users/:id/doctors/:id';
+const DELETE_DOCTOR = 'http://localhost:3000/api/v1/users/:id/doctors/:id';
 
 export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async () => {
   const response = await axios.get(BASE_URL);
@@ -13,9 +13,8 @@ export const fetchDoctor = createAsyncThunk('doctors/fetchDoctor', async (id) =>
   return response.data;
 });
 
-export const deleteDoctor = createAsyncThunk('doctors/deleteDoctor', async (doctor) => {
-  const response = await axios.post(DELETE_DOCTOR, doctor.id);
-  return response.data;
+export const deleteDoctor = createAsyncThunk('doctors/deleteDoctor', async (dispatch) => {
+  await axios.delete(`${DELETE_DOCTOR}`).then(() => dispatch(fetchDoctors()));
 });
 
 const doctorReducer = createSlice({

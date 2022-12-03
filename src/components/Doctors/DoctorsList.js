@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
+import { fetchDoctors, doctorSelector, deleteDoctor } from '../../Redux/doctorSlice';
+import { fetchUsers, selectCurrentUser } from '../../Redux/UserReducer';
 import preloader from '../../assets/images/preloader.gif';
 import './doctors.css';
 
@@ -14,10 +15,6 @@ const DoctorsList = () => {
   useEffect(() => {
     dispatch(fetchDoctors());
   }, [dispatch]);
-
-  const handleDelete = () => {
-    dispatch({ type: 'DELETE_DOCTOR', id: doctors.id });
-  };
 
   // scroll to the right
   const scrollRight = () => {
@@ -83,7 +80,8 @@ const DoctorsList = () => {
                       alt={doctor.name}
                     />
                   </Link>
-                  <button type="button" className="delete" onClick={() => handleDelete(doctor.id)}>Delete</button>
+                  {/* delete doctor button */}
+                  <button type="button" className="delete" onClick={() => dispatch(deleteDoctor(doctors.id))}>Delete</button>
                   <h2 className="doctors_name">{doctor.name}</h2>
                   <p className="specialization">{doctor.specialization}</p>
                 </div>
