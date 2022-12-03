@@ -90,12 +90,14 @@ const DoctorsList = () => {
                     />
                   </Link>
                   {/* delete doctor button only for owners. */}
-                  {doctor.user_id == currentUser.id
+                  {doctor.user_id === currentUser.id
                     && (
                     <button
                       type="button"
                       className="delete btn btn-danger"
-                      onClick={() => { dispatch(deleteDoctor({ doctorId: doctor.id, userId: currentUser.id })); }}
+                      onClick={() => {
+                        dispatch(deleteDoctor({ doctorId: doctor.id, userId: currentUser.id }));
+                      }}
                     >
                       Delete
                     </button>

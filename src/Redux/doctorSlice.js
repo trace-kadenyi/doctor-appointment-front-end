@@ -67,7 +67,7 @@ const doctorReducer = createSlice({
       state.hasErrors = false;
       state.doctorDeleted = !state.doctorDeleted;
     },
-    [deleteDoctor.rejected]: (state, action) => {
+    [deleteDoctor.rejected]: (state) => {
       state.loading = false;
       state.hasErrors = true;
     },
