@@ -2,20 +2,28 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import { fetchDoctors, doctorSelector, deleteDoctor } from '../../Redux/doctorSlice';
-import { fetchUsers, selectCurrentUser } from '../../Redux/UserReducer';
+import { fetchDoctors, doctorSelector, deleteDoctor, selectDoctorDeleted, selectDoctors } from '../../Redux/doctorSlice';
+//import { fetchUsers, selectCurrentUser } from '../../Redux/UserReducer';
 import preloader from '../../assets/images/preloader.gif';
 import './doctors.css';
 
 const DoctorsList = () => {
   const dispatch = useDispatch();
   const doctors = useSelector(doctorSelector);
+  const doctorsList = useSelector(selectDoctors);
+  const doctorDeleted = useSelector(selectDoctorDeleted)
+  // get the current user from localstorage.
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+  // or from the store uncomment the next line and line 6
+  // const currentUser = dispatch(selectCurrentUser)
+  
 
   // Fetch doctors on mount
   useEffect(() => {
     dispatch(fetchDoctors());
-  }, [dispatch]);
-
+  }, [dispatch,doctorDeleted]);
+  
   // scroll to the right
   const scrollRight = () => {
     const container = document.querySelector('.scroll_content');
@@ -57,7 +65,7 @@ const DoctorsList = () => {
       )}
       {/* error main page */}
       {doctors.hasErrors && (
-        <div className="error">Unable to display doctors. Please check your server.</div>
+       <div className="error">Unable to display doctors. Please check your server.</div>
       )}
 
       {/* doctors' list */}
@@ -71,7 +79,7 @@ const DoctorsList = () => {
           </div>
           <div className="cover_div">
             <div className="scroll_content">
-              {doctors.doctors.map((doctor) => (
+              {doctorsList.map((doctor) => (
                 <div key={doctor.id} className="doctors_div">
                   <Link to={`/doctors/${doctor.id}`}>
                     <img
@@ -80,8 +88,14 @@ const DoctorsList = () => {
                       alt={doctor.name}
                     />
                   </Link>
-                  {/* delete doctor button */}
-                  <button type="button" className="delete" onClick={() => dispatch(deleteDoctor(doctors.id))}>Delete</button>
+                  {/* delete doctor button only for owners. */}
+                  {doctor.user_id == currentUser.id && 
+                    <button type="button" className="delete btn btn-danger"
+                     onClick={() =>{ dispatch(deleteDoctor({doctorId: doctor.id,userId: currentUser.id}));}}
+                    >
+                      Delete
+                    </button>
+                  }
                   <h2 className="doctors_name">{doctor.name}</h2>
                   <p className="specialization">{doctor.specialization}</p>
                 </div>
