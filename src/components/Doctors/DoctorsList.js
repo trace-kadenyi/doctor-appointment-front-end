@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { fetchDoctors, doctorSelector, deleteDoctor } from '../../Redux/doctorSlice';
-import { fetchUsers, selectCurrentUser } from '../../Redux/UserReducer';
 import preloader from '../../assets/images/preloader.gif';
 import './doctors.css';
 
