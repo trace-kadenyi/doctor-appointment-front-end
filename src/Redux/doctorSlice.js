@@ -69,7 +69,7 @@ const doctorReducer = createSlice({
       state.loading = false;
       state.hasErrors = false;
       state.doctorDeleted = !state.doctorDeleted;
-      notify('doctor deleted!')
+      notify('doctor deleted!');
     },
     [deleteDoctor.rejected]: (state) => {
       state.loading = false;
