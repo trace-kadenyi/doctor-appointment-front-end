@@ -32,6 +32,6 @@ const appointmentsReducer = createSlice({
   },
 });
 
-export const appointmentsSelector = (state) => state.appointments;
+export const selectAppointments = (state) => state.appointments.appointments;
 
 export default appointmentsReducer.reducer;
