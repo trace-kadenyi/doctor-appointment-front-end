@@ -3,18 +3,21 @@ import React, { useEffect } from 'react';
 import './Display.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAppointments, selectAppointments } from '../../Redux/AppointmentsSlice';
-import { selectDoctors } from '../../Redux/doctorSlice';
+import { fetchDoctors, selectDoctors, selectDoctorsFulfilled } from '../../Redux/doctorSlice';
 
 const Display = () => {
   const dispatch = useDispatch();
   const appointments = useSelector(selectAppointments);
-  const allDoctors = useSelector(selectDoctors);
+  const doctorsFulfilled  = useSelector(selectDoctorsFulfilled)
   // Fetch the appointments for the curent user:
   // loop through the appointments and render each appointment
-
+  
   useEffect(() => {
     dispatch(fetchAppointments());
+    dispatch(fetchDoctors());
   }, [dispatch]);
+  
+  const allDoctors = useSelector(selectDoctors);
 
   return (
 
@@ -22,7 +25,7 @@ const Display = () => {
       <h1 className="display__header">Booked Appointments</h1>
 
       {
-        appointments && appointments.map((appointment, index) => (
+        (appointments && doctorsFulfilled) && appointments.map((appointment, index) => (
           <div className="appointment__card" key={index}>
             <div className="top">
               <div className="left">
