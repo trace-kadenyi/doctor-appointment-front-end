@@ -32,9 +32,6 @@ const doctorReducer = createSlice({
     doctorDeleted: false,
   },
   reducers: {
-    deleteDoctor: () => {
-
-    },
   },
   extraReducers: {
     [fetchDoctors.pending]: (state) => {
