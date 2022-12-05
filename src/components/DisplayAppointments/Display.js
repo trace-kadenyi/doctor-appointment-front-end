@@ -2,12 +2,13 @@
 import React, { useEffect } from 'react';
 import './Display.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { appointmentsSelector, fetchAppointments } from '../../Redux/AppointmentsSlice';
+import { fetchAppointments, selectAppointments } from '../../Redux/AppointmentsSlice';
+import { selectDoctors } from '../../Redux/doctorSlice';
 
 const Display = () => {
   const dispatch = useDispatch();
-  const appointments = useSelector((state) => state.appointments);
-  const allDoctors = useSelector((state) => state.doctors);
+  const appointments = useSelector(selectAppointments);
+  const allDoctors = useSelector(selectDoctors);
   // Fetch the appointments for the curent user:
   // loop through the appointments and render each appointment
 
