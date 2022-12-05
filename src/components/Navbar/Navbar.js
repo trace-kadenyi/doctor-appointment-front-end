@@ -2,12 +2,16 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import logo from '../../assets/images/logo.png';
 import humburgerMenu from '../../assets/images/humburger-menu.svg';
+import { selectCurrentUser } from '../../Redux/UserReducer';
 import './navbar.css';
 
 const Navbar = () => {
   const [showLinks, setShowlinks] = useState(false);
+  const currentUser = useSelector(selectCurrentUser);
+  const userId = currentUser.id;
 
   return (
     <div>
@@ -35,7 +39,8 @@ const Navbar = () => {
                 <NavLink to="/appointments" className="header__link" onClick={() => setShowlinks(!showLinks)}>
                   Appointments
                 </NavLink>
-                <NavLink to="/add-new-doctor" className="header__link" onClick={() => setShowlinks(!showLinks)}>
+                {/* link to users/userid/doctors */}
+                <NavLink to={`/users/${userId}/doctors`} className="header__link" onClick={() => setShowlinks(!showLinks)}>
                   Add Doctor
                 </NavLink>
                 <NavLink to="/delete-doctor" className="header__link" onClick={() => setShowlinks(!showLinks)}>
