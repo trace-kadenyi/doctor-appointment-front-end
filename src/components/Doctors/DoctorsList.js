@@ -1,21 +1,16 @@
-/* eslint-disable */
-
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
-import { fetchUsers, selectCurrentUser } from '../../Redux/UserReducer';
+import { fetchUsers } from '../../Redux/UserReducer';
 import preloader from '../../assets/images/preloader.gif';
 import './doctors.css';
 
 const DoctorsList = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  const params = useParams();
   const doctors = useSelector(doctorSelector);
-  const Users = useSelector(selectCurrentUser)
 
   // Fetch doctors on mount
   useEffect(() => {
@@ -26,12 +21,6 @@ const DoctorsList = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
-
-  // get user by id
-  const { id } = params;
-  // console.log(id);
-  // const user = Users.find((user) => user.id === parseInt(id, 10));
-  console.log(Users.id);
 
   // scroll to the right
   const scrollRight = () => {
@@ -66,23 +55,20 @@ const DoctorsList = () => {
           <span className="select">Please select a doctor</span>
         </p>
       </div>
+
       {/* loading main page */}
       {doctors.loading && (
-      <div className="loading">
-        <img src={preloader} alt="loading" className="preloader" />
-      </div>
-      )}
-      {/* error main page */}
-      {doctors.hasErrors && (
-        <div className="error">Unable to display doctors. Please check your server.</div>
+        <div className="loading">
+          <img src={preloader} alt="loading" className="preloader" />
+        </div>
       )}
 
-      {/* add doctor button */}
-      <div className="add_doctor">
-        <Link to="/users/:id/doctors" className="add_doctor_btn">
-          Add Doctor
-        </Link>
-      </div>
+      {/* error main page */}
+      {doctors.hasErrors && (
+        <div className="error">
+          Unable to display doctors. Please check your server.
+        </div>
+      )}
 
       {/* doctors' list */}
       {!doctors.loading && !doctors.hasErrors && (
@@ -118,7 +104,6 @@ const DoctorsList = () => {
           </div>
         </div>
       )}
-
     </div>
   );
 };
