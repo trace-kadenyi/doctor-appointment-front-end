@@ -47,7 +47,7 @@ const Navbar = () => {
                   Appointments
                 </NavLink>
                 {/* link to users/userid/doctors */}
-                <NavLink to={`/users/${userId}/doctors`} className="header__link" onClick={() => setShowlinks(!showLinks)}>
+                <NavLink to={`/users/${userId}/doctors`} className="header__link">
                   Add Doctor
                 </NavLink>
                 <a href="/" className="header__link" onClick={() => { dispatch(signOut()); }}>
