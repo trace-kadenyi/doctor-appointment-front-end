@@ -9,7 +9,8 @@ const Appointments = () => {
     const formObject = new FormData(e.target);
     const data = Object.fromEntries(formObject.entries());
     // Form Object wil give a key value pair
-    // dispatch an action to send data 
+    // dispatch an action to send data
+    
   }
 
   return (

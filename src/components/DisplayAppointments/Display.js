@@ -7,7 +7,7 @@ import { appointmentsSelector, fetchAppointments } from '../../Redux/Appointment
 const Display = () => {
   const dispatch = useDispatch();
   const appointments = useSelector(appointmentsSelector);
-
+  const allDoctors = useSelector((state) => state.doctors);
   // Fetch the appointments for the curent user:
   // loop through the appointments and render each appointment
 
