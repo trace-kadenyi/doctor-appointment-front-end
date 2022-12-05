@@ -1,0 +1,42 @@
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  margin: 0 auto;
+  display: block;
+  width: 60% !important;
+}
+
+/* why you need this ifyou use bootstrap? */
+
+/* .btn,
+.btn-primary {
+  background-color: #97c010 !important;
+  border-color: #97c010 !important;
+} */
+
+.container {
+  margin-top: 20px;
+}
+
+td {
+  width: 80%;
+}
+
+th {
+  width: 20%;
+}
+
+.d-flex,
+.justify-content-end {
+  display: flex !important;
+  width: 100%;
+}
+
+.arrow {
+  color: white;
+  font-size: 20px;
+}
+
+.back {
+  color: white;
+}

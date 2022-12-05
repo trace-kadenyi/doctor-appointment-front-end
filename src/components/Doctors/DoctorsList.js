@@ -1,18 +1,34 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
-import { fetchDoctors, doctorSelector } from '../../Redux/doctorSlice';
-
+import { Link } from 'react-router-dom';
+import { fetchUsers } from '../../Redux/UserReducer';
+import {
+  fetchDoctors, doctorSelector, deleteDoctor, selectdoctorEdited, selectDoctors,
+} from '../../Redux/doctorSlice';
+// import { fetchUsers, selectCurrentUser } from '../../Redux/UserReducer';
 import preloader from '../../assets/images/preloader.gif';
 import './doctors.css';
 
 const DoctorsList = () => {
   const dispatch = useDispatch();
   const doctors = useSelector(doctorSelector);
+  const doctorsList = useSelector(selectDoctors);
+  const doctorEdited = useSelector(selectdoctorEdited);
+  // get the current user from localstorage.
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+  // or from the store uncomment the next line and line 6
+  // const currentUser = dispatch(selectCurrentUser)
 
   // Fetch doctors on mount
   useEffect(() => {
     dispatch(fetchDoctors());
+  }, [dispatch, doctorEdited]);
+
+  // Fetch users on mount
+  useEffect(() => {
+    dispatch(fetchUsers());
   }, [dispatch]);
 
   // scroll to the right
@@ -48,15 +64,19 @@ const DoctorsList = () => {
           <span className="select">Please select a doctor</span>
         </p>
       </div>
+
       {/* loading main page */}
       {doctors.loading && (
-      <div className="loading">
-        <img src={preloader} alt="loading" className="preloader" />
-      </div>
+        <div className="loading">
+          <img src={preloader} alt="loading" className="preloader" />
+        </div>
       )}
+
       {/* error main page */}
       {doctors.hasErrors && (
-        <div className="error">Unable to display doctors. Please check your server.</div>
+        <div className="error">
+          Unable to display doctors. Please check your server.
+        </div>
       )}
 
       {/* doctors' list */}
@@ -70,13 +90,29 @@ const DoctorsList = () => {
           </div>
           <div className="cover_div">
             <div className="scroll_content">
-              {doctors.doctors.map((doctor) => (
+              {doctorsList.map((doctor) => (
                 <div key={doctor.id} className="doctors_div">
-                  <img
-                    className="doctors_img"
-                    src={doctor.photo}
-                    alt={doctor.name}
-                  />
+                  {/* link to DrDetails */}
+                  <Link to={`/doctors/${doctor.id}`}>
+                    <img
+                      className="doctors_img"
+                      src={doctor.photo}
+                      alt={doctor.name}
+                    />
+                  </Link>
+                  {/* delete doctor button only for owners. */}
+                  {doctor.user_id === currentUser.id
+                    && (
+                    <button
+                      type="button"
+                      className="delete btn btn-danger"
+                      onClick={() => {
+                        dispatch(deleteDoctor({ doctorId: doctor.id, userId: currentUser.id }));
+                      }}
+                    >
+                      Delete
+                    </button>
+                    )}
                   <h2 className="doctors_name">{doctor.name}</h2>
                   <p className="specialization">{doctor.specialization}</p>
                 </div>
@@ -91,7 +127,6 @@ const DoctorsList = () => {
           </div>
         </div>
       )}
-
     </div>
   );
 };
