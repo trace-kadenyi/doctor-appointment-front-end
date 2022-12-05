@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const notify = (e) => toast(e);
 
-const UserApi = 'http://localhost:3000/api/v1/users';
+const UserApi = 'https://book-doctors-appointment.onrender.com/api/v1/users';
 
 // fetch all users for smoother login
 export const fetchUsers = createAsyncThunk('user/getUsers', async () => {

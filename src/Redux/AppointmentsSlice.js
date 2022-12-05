@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3000/api/v1/appointments';
+const BASE_URL = 'https://book-doctors-appointment.onrender.com/api/v1/appointments';
 
 export const fetchAppointments = createAsyncThunk('appointments/fetchAppointments', async () => {
   const response = await axios.get(BASE_URL);
