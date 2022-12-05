@@ -1,21 +1,18 @@
-/* eslint-disable */
-
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addDoctor, doctorSelector } from '../../Redux/doctorSlice';
+import { addDoctor } from '../../Redux/doctorSlice';
 import { fetchUsers, selectCurrentUser } from '../../Redux/UserReducer';
 
 const NewDoctor = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const doctors = useSelector(doctorSelector);
   const currentUser = useSelector(selectCurrentUser);
   const [doctor, setDoctor] = useState({
     name: '',
     specialization: '',
     photo: '',
-    user_id: currentUser.id,
+    userId: currentUser.id,
   });
 
   const handleChange = (e) => {
