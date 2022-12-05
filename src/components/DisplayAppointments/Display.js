@@ -17,6 +17,8 @@ const Display = () => {
   return (
     <div className="display">
       <h1 className="display__header">Booked Appointments</h1>
+
+
       <div className="appointment__card">
         <div className="top">
           <div className="left">
@@ -35,6 +37,8 @@ const Display = () => {
             Opthamologist
           </p>
         </div>
+
+        
       </div>
     </div>
   );
