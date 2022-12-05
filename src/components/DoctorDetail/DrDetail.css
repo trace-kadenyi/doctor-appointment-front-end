@@ -24,6 +24,10 @@
   border-radius: 15px;
 }
 
+.btn-success:hover {
+  background-color: #86be73 !important;
+}
+
 .container {
   margin: 20px;
   padding-top: 20px;
