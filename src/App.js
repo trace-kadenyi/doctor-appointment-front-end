@@ -9,7 +9,7 @@ import { setCurrentUser } from './Redux/UserReducer';
 import DoctorsList from './components/Doctors/DoctorsList';
 import 'react-toastify/dist/ReactToastify.css';
 import ProtectRoutes from './components/ProtectRoutes';
-import Appointments from './components/Appointments/Appointments';
+import Appointments from './components/BookAppointments/Appointments';
 
 function App() {
   const dispatch = useDispatch();
