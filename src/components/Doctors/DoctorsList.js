@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { fetchDoctors, doctorSelector, deleteDoctor } from '../../Redux/doctorSlice';
 import preloader from '../../assets/images/preloader.gif';
 import './doctors.css';
@@ -39,6 +39,15 @@ const DoctorsList = () => {
     }
   };
 
+  const onDeleteDoctorClicked = () => {
+    try {
+      dispatch(deleteDoctor(doctors.doctor.id));
+      Navigate('/doctors');
+    } catch (error) {
+      return error;
+    }
+  };
+
   return (
     <div className="doctors_sect">
       {/* page title */}
@@ -72,6 +81,7 @@ const DoctorsList = () => {
             <div className="scroll_content">
               {doctors.doctors.map((doctor) => (
                 <div key={doctor.id} className="doctors_div">
+                  {/* link to DrDetails */}
                   <Link to={`/doctors/${doctor.id}`}>
                     <img
                       className="doctors_img"
@@ -80,7 +90,9 @@ const DoctorsList = () => {
                     />
                   </Link>
                   {/* delete doctor button */}
-                  <button type="button" className="delete" onClick={() => dispatch(deleteDoctor(doctors.id))}>Delete</button>
+                  <div>
+                    <button className="deleteButton" type="button" onClick={onDeleteDoctorClicked}>Delete Doctor</button>
+                  </div>
                   <h2 className="doctors_name">{doctor.name}</h2>
                   <p className="specialization">{doctor.specialization}</p>
                 </div>
