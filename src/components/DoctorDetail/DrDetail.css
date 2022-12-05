@@ -21,7 +21,11 @@
   justify-content: center;
   align-items: center;
   height: 20px;
-  border-radius: 15px;
+}
+
+.btn-success,
+.delete {
+  border-radius: 55px;
 }
 
 .btn-success:hover {
@@ -32,6 +36,7 @@
   margin: 20px;
   padding-top: 20px;
   background-color: #86be73;
+  color: white;
 }
 
 td {
