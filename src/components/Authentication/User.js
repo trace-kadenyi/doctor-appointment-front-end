@@ -69,7 +69,7 @@ function User() {
       </form>
       )}
       { userSelector.rejected && (
-      <div className="error">
+      <div className="alert alert-danger">
         {userSelector.error}
         {' '}
       </div>

@@ -49,7 +49,7 @@ const Navbar = () => {
                 <NavLink to="/delete-doctor" className="header__link">
                   Delete Doctor
                 </NavLink>
-                <a className="header__link" onClick={() => { dispatch(signOut()); }}>
+                <a href="/" className="header__link" onClick={() => { dispatch(signOut()); }}>
                   Sign Out
                 </a>
               </div>

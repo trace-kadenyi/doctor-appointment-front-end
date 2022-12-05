@@ -1,8 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
+const notify = (e) => toast(e);
 
 const BASE_URL = 'http://localhost:3000/api/v1/doctors';
-const DELETE = 'http://localhost:3000/api/v1/users/:id/doctors/:id';
+
+const DELETE_DOCTOR = 'http://localhost:3000/api/v1/users/';
 
 export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async () => {
   const response = await axios.get(BASE_URL);
@@ -13,15 +17,9 @@ export const fetchDoctor = createAsyncThunk('doctors/fetchDoctor', async (id) =>
   return response.data;
 });
 
-export const deleteDoctor = createAsyncThunk('doctors/deleteDoctor', async (doctorId) => {
-  const { id } = doctorId;
-  try {
-    const response = await axios.delete(`${DELETE}/${id}`);
-    if (response?.status === 200) return doctorId;
-    return `${response?.status} ${response?.statusText}`;
-  } catch (error) {
-    return error;
-  }
+export const deleteDoctor = createAsyncThunk('doctors/deleteDoctor', async (ids) => {
+  const { userId, doctorId } = ids;
+  await axios.delete(`${DELETE_DOCTOR}${userId}/doctors/${doctorId}`);
 });
 
 const doctorReducer = createSlice({
@@ -31,8 +29,12 @@ const doctorReducer = createSlice({
     doctor: {},
     loading: false,
     hasErrors: false,
+    doctorDeleted: false,
   },
   reducers: {
+    deleteDoctor: () => {
+
+    },
   },
   extraReducers: {
     [fetchDoctors.pending]: (state) => {
@@ -59,9 +61,27 @@ const doctorReducer = createSlice({
       state.loading = false;
       state.hasErrors = true;
     },
+    [deleteDoctor.pending]: (state) => {
+      state.loading = true;
+    },
+    [deleteDoctor.fulfilled]: (state, { payload }) => {
+      state.doctor = payload;
+      state.loading = false;
+      state.hasErrors = false;
+      state.doctorDeleted = !state.doctorDeleted;
+      notify('doctor deleted!');
+    },
+    [deleteDoctor.rejected]: (state) => {
+      state.loading = false;
+      state.hasErrors = true;
+    },
   },
 });
 
 export const doctorSelector = (state) => state.doctor;
+export const selectDoctorDeleted = (state) => state.doctor.doctorDeleted;
+export const selectDoctors = (state) => state.doctor.doctors;
+export const selectDoctorsloading = (state) => state.loading;
+export const selectDoctor = (state) => state.doctor.doctor;
 
 export default doctorReducer.reducer;
