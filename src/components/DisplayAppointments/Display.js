@@ -12,6 +12,7 @@ const Display = () => {
         <div className="top">
           <div className="left">
             <p>Appointment Date:</p>
+            {/* should destroy the appointment */}
             <p>Delete</p>
           </div>
           <div className="time">
