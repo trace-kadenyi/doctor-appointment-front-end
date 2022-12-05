@@ -1,6 +1,7 @@
 import React from 'react';
 import './Display.css';
 import { useSelector, useDispatch } from 'react-redux';
+import { appointmentsSelector } from '../../Redux/AppointmentsSlice';
 
 const Display = () => {
   const dispatch = useDispatch();
