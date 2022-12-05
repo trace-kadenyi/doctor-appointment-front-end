@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import { fetchUsers } from '../../Redux/UserReducer';
 import {
   fetchDoctors, doctorSelector, deleteDoctor, selectdoctorEdited, selectDoctors,
 } from '../../Redux/doctorSlice';

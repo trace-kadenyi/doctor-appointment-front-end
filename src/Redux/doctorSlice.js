@@ -92,7 +92,7 @@ const doctorReducer = createSlice({
       state.doctorEdited = !state.doctorEdited;
       notify('doctor Added!');
     },
-    [addDoctor.rejected]: (state,action) => {
+    [addDoctor.rejected]: (state) => {
       state.loading = false;
       state.hasErrors = true;
     },
