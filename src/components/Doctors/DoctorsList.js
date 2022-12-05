@@ -4,7 +4,7 @@ import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { fetchUsers } from '../../Redux/UserReducer';
 import {
-  fetchDoctors, doctorSelector, deleteDoctor, selectDoctorDeleted, selectDoctors,
+  fetchDoctors, doctorSelector, deleteDoctor, selectdoctorEdited, selectDoctors,
 } from '../../Redux/doctorSlice';
 // import { fetchUsers, selectCurrentUser } from '../../Redux/UserReducer';
 import preloader from '../../assets/images/preloader.gif';
@@ -14,7 +14,7 @@ const DoctorsList = () => {
   const dispatch = useDispatch();
   const doctors = useSelector(doctorSelector);
   const doctorsList = useSelector(selectDoctors);
-  const doctorDeleted = useSelector(selectDoctorDeleted);
+  const doctorEdited = useSelector(selectdoctorEdited);
   // get the current user from localstorage.
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
@@ -24,7 +24,7 @@ const DoctorsList = () => {
   // Fetch doctors on mount
   useEffect(() => {
     dispatch(fetchDoctors());
-  }, [dispatch, doctorDeleted]);
+  }, [dispatch, doctorEdited]);
 
   // Fetch users on mount
   useEffect(() => {

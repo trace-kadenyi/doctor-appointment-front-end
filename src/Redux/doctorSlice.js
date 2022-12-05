@@ -37,7 +37,7 @@ const doctorReducer = createSlice({
     doctor: {},
     loading: false,
     hasErrors: false,
-    doctorDeleted: false,
+    doctorEdited: false,
   },
   reducers: {},
   extraReducers: {
@@ -79,11 +79,25 @@ const doctorReducer = createSlice({
       state.loading = false;
       state.hasErrors = true;
     },
+    [addDoctor.pending]: (state) => {
+      state.loading = true;
+    },
+    [addDoctor.fulfilled]: (state, { payload }) => {
+      state.doctor = payload;
+      state.loading = false;
+      state.hasErrors = false;
+      state.doctorEdited = !state.doctorEdited;
+      notify('doctor Added!');
+    },
+    [addDoctor.rejected]: (state) => {
+      state.loading = false;
+      state.hasErrors = true;
+    },
   },
 });
 
 export const doctorSelector = (state) => state.doctor;
-export const selectDoctorDeleted = (state) => state.doctor.doctorDeleted;
+export const selectdoctorEdited = (state) => state.doctor.doctorEdited;
 export const selectDoctors = (state) => state.doctor.doctors;
 export const selectDoctorsloading = (state) => state.loading;
 export const selectDoctor = (state) => state.doctor.doctor;
