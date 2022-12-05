@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useEffect } from 'react';
 import './Display.css';
 import { useSelector, useDispatch } from 'react-redux';
@@ -18,25 +19,34 @@ const Display = () => {
 
     <div className="display">
       <h1 className="display__header">Booked Appointments</h1>
-      <div className="appointment__card">
-        <div className="top">
-          <div className="left">
-            <p>Appointment Date:</p>
-            {/* should destroy the appointment */}
-            <p>Delete</p>
+
+      {
+        appointments && appointments.map((appointment, index) => (
+          <div className="appointment__card" key={index}>
+            <div className="top">
+              <div className="left">
+                <p>Appointment Date:</p>
+                {/* should destroy the appointment */}
+                <p>Delete</p>
+              </div>
+              <div className="time">
+                {appointment.date_of_appointment}
+                {' '}
+                at
+                {' '}
+                {appointment.time_of_appointment}
+              </div>
+            </div>
+            <div className="bottom">
+              <p>
+                Dr Kadenyi
+                <br />
+                Opthamologist
+              </p>
+            </div>
           </div>
-          <div className="time">
-            Monday Dec 05, 2022 at 8.30am
-          </div>
-        </div>
-        <div className="bottom">
-          <p>
-            Dr Kadenyi
-            <br />
-            Opthamologist
-          </p>
-        </div>
-      </div>
+        ))
+      }
     </div>
   );
 };
