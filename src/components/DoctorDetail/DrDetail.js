@@ -69,7 +69,7 @@ const DrDetail = () => {
             </button>
           </div>
         </Container>
-      ) : <div className="alert alert-danger">something went wrond</div>}
+      ) : <div className="alert alert-danger">something went wrong</div>}
     </>
   );
 };

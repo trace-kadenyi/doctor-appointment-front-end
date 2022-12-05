@@ -97,20 +97,18 @@ const DoctorsList = () => {
                   <h2 className="doctors_name">{doctor.name}</h2>
                   <p className="specialization">{doctor.specialization}</p>
                   {/* delete doctor button only for owners. */}
-                  <div className="button__D">
-                    {doctor.user_id === currentUser.id
-                      && (
-                      <button
-                        type="button"
-                        className="delete btn btn-danger"
-                        onClick={() => {
-                          dispatch(deleteDoctor({ doctorId: doctor.id, userId: currentUser.id }));
-                        }}
-                      >
-                        Delete
-                      </button>
-                      )}
-                  </div>
+                  {doctor.user_id === currentUser.id
+                    && (
+                    <button
+                      type="button"
+                      className="delete btn btn-danger"
+                      onClick={() => {
+                        dispatch(deleteDoctor({ doctorId: doctor.id, userId: currentUser.id }));
+                      }}
+                    >
+                      Delete
+                    </button>
+                    )}
                 </div>
               ))}
             </div>
