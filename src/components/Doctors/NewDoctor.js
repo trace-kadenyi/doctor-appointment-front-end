@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addDoctor } from '../../Redux/doctorSlice';
-import { fetchUsers, selectCurrentUser } from '../../Redux/UserReducer';
+import { selectCurrentUser } from '../../Redux/UserReducer';
 
 const NewDoctor = () => {
   const dispatch = useDispatch();
@@ -24,11 +24,6 @@ const NewDoctor = () => {
     dispatch(addDoctor(doctor));
     navigate('/');
   };
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  },
-  [dispatch]);
 
   return (
     <div className="new_doctor">
