@@ -1,0 +1,57 @@
+.appointments {
+  background-image: url('../assets/images/doctor-background.png');
+  min-height: 100vh;
+  background-color: rgb(134, 190, 115);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.book__doctor {
+  display: grid;
+}
+
+.appointments .book__doctor input, 
+label,
+select {
+  width: 100%;
+}
+
+.appointments .book__doctor input {
+  width: 30vw;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.doctor__selector {
+  margin-bottom: 2rem;
+}
+
+.doctor__selector select {
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.doctor__selector select option {
+  padding: 5px;
+}
+
+.date__selector {
+  display: grid;
+  padding-bottom: 1.2rem;
+}
+
+.book_button {
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
