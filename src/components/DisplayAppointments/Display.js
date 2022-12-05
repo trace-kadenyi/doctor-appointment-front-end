@@ -8,15 +8,15 @@ import { fetchDoctors, selectDoctors, selectDoctorsFulfilled } from '../../Redux
 const Display = () => {
   const dispatch = useDispatch();
   const appointments = useSelector(selectAppointments);
-  const doctorsFulfilled  = useSelector(selectDoctorsFulfilled)
+  const doctorsFulfilled = useSelector(selectDoctorsFulfilled);
   // Fetch the appointments for the curent user:
   // loop through the appointments and render each appointment
-  
+
   useEffect(() => {
     dispatch(fetchAppointments());
     dispatch(fetchDoctors());
   }, [dispatch]);
-  
+
   const allDoctors = useSelector(selectDoctors);
 
   return (

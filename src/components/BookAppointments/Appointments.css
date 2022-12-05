@@ -14,7 +14,7 @@
   display: grid;
 }
 
-.appointments .book__doctor input, 
+.appointments .book__doctor input,
 label,
 select {
   width: 100%;
