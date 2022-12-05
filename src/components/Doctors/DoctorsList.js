@@ -26,11 +26,6 @@ const DoctorsList = () => {
     dispatch(fetchDoctors());
   }, [dispatch, doctorEdited]);
 
-  // Fetch users on mount
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
-
   // scroll to the right
   const scrollRight = () => {
     const container = document.querySelector('.scroll_content');
