@@ -40,6 +40,7 @@ const Display = () => {
             <div className="bottom">
               <p>
                 Dr Kadenyi
+                {allDoctors[appointment.doctor_id].name}
                 <br />
                 Opthamologist
               </p>
