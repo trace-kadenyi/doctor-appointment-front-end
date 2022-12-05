@@ -16,11 +16,18 @@
   line-height: 1rem;
 }
 
+.button__D {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  border-radius: 15px;
+}
+
 .container {
   margin: 20px;
   padding-top: 20px;
   background-color: #86be73;
-  display: block;
 }
 
 td {
@@ -42,20 +49,20 @@ th {
 .arrow__back {
   color: white;
   font-size: 20px;
-  width: 50px;
-  height: 80px;
   outline: none;
   border: none;
   background-color: rgb(147, 236, 12);
-  padding: 25px;
+  padding: 10px 20px;
   cursor: pointer;
   border-radius: 0 50% 50% 0;
-  margin-right: 5px;
 }
 
 .back {
   color: white;
-  align-self: center;
+}
+
+.back:hover {
+  color: #86be73;
 }
 
 .d-flex,

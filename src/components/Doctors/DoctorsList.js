@@ -97,7 +97,7 @@ const DoctorsList = () => {
                   <h2 className="doctors_name">{doctor.name}</h2>
                   <p className="specialization">{doctor.specialization}</p>
                   {/* delete doctor button only for owners. */}
-                  <div>
+                  <div className="button__D">
                     {doctor.user_id === currentUser.id
                       && (
                       <button
