@@ -10,6 +10,7 @@ import DrDetail from './components/DoctorDetail/DrDetail';
 import 'react-toastify/dist/ReactToastify.css';
 import ProtectRoutes from './components/ProtectRoutes';
 import Appointments from './components/BookAppointments/Appointments';
+import Display from './components/DisplayAppointments/Display'
 import NewDoctor from './components/Doctors/NewDoctor';
 import Navbar from './components/Navbar/Navbar';
 import About from './components/About';
@@ -27,8 +28,8 @@ function App() {
         <Route path="/authentication" element={<User />} />
         <Route element={<ProtectRoutes />}>
           <Route exact path="/" element={<DoctorsList />} />
-          <Route path="/signout" element={<Home />} />
-          <Route path="/appointments" element={<Appointments />} />
+          <Route path="/book-appointments" element={<Appointments />} />
+          <Route path="/appointments" element={<Display />} />
           <Route exact path="/doctors/:id" element={<DrDetail />} />
           <Route path="/users/:id/doctors" element={<NewDoctor />} />
           <Route path="/about" element={<About />} />
