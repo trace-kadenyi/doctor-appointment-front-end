@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Display.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { appointmentsSelector } from '../../Redux/AppointmentsSlice';
+import { appointmentsSelector, fetchAppointments } from '../../Redux/AppointmentsSlice';
 
 const Display = () => {
   const dispatch = useDispatch();
+  const appointments = useSelector(appointmentsSelector);
+
+  // Fetch the appointments for the curent user:
+  useEffect(() => {
+    dispatch(fetchAppointments());
+  }, [dispatch]);
 
   return (
     <div className="display">
@@ -29,7 +35,7 @@ const Display = () => {
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default Display;
