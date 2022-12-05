@@ -29,8 +29,6 @@
 }
 
 .appointment__card .top {
-  /* display: flex;
-  justify-content: space-between; */
   color: #000;
   padding: 1rem;
   border-bottom: 1px solid #ddd;
