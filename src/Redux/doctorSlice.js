@@ -36,6 +36,7 @@ const doctorReducer = createSlice({
     doctors: [],
     doctor: {},
     loading: false,
+    fulfilled: false,
     hasErrors: false,
     doctorEdited: false,
   },
@@ -47,6 +48,7 @@ const doctorReducer = createSlice({
     [fetchDoctors.fulfilled]: (state, { payload }) => {
       state.doctors = payload;
       state.loading = false;
+      state.fulfilled = true;
       state.hasErrors = false;
     },
     [fetchDoctors.rejected]: (state) => {
@@ -101,5 +103,6 @@ export const selectdoctorEdited = (state) => state.doctor.doctorEdited;
 export const selectDoctors = (state) => state.doctor.doctors;
 export const selectDoctorsloading = (state) => state.loading;
 export const selectDoctor = (state) => state.doctor.doctor;
+export const selectDoctorsFulfilled = (state) => state.doctor.fulfilled;
 
 export default doctorReducer.reducer;
