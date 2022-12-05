@@ -1,5 +1,6 @@
 import React from 'react';
 import './Display.css';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Display = () => {
   return (
