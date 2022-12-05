@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 const notify = (e) => toast(e);
 
@@ -8,10 +9,8 @@ const UserApi = 'http://localhost:3000/api/v1/users';
 
 // fetch all users for smoother login
 export const fetchUsers = createAsyncThunk('user/getUsers', async () => {
-  const res = await fetch(UserApi);
-  const data = res.json();
-  const users = await data;
-  return users;
+  const response = await axios.get(UserApi);
+  return response.data;
 });
 
 // Create user on sign up params {name: ''}
@@ -51,7 +50,7 @@ const options = {
       // notify the user that he was signed out
       notify('signed out');
       // reload the page to render authentication.
-      window.location.reload();
+      // window.location.reload();
     },
     setLoginUser(state, action) {
       const loginUserState = state;

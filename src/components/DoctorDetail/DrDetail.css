@@ -6,22 +6,24 @@
   width: 60% !important;
 }
 
-.btn,
+/* why you need this ifyou use bootstrap? */
+
+/* .btn,
 .btn-primary {
   background-color: #97c010 !important;
   border-color: #97c010 !important;
-}
+} */
 
 .container {
   margin-top: 20px;
 }
 
 td {
-  width: 70%;
+  width: 80%;
 }
 
 th {
-  width: 30%;
+  width: 20%;
 }
 
 .d-flex,
@@ -35,6 +37,6 @@ th {
   font-size: 20px;
 }
 
-a {
+.back {
   color: white;
 }
