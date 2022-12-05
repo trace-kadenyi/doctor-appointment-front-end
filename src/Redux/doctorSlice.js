@@ -2,14 +2,17 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const BASE_URL = 'http://localhost:3000/api/v1/doctors';
-const ADD_DOCTOR = 'http//localhost:3000/api/v1/users/:id/doctors';
 
+// fetch doctors
 export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async () => {
   const response = await axios.get(BASE_URL);
   return response.data;
 });
 
+// add doctor
 export const addDoctor = createAsyncThunk('doctors/addDoctor', async (doctor) => {
+  const { userId } = doctor;
+  const ADD_DOCTOR = `http://localhost:3000/api/v1/users/${userId}/doctors`;
   const response = await axios.post(ADD_DOCTOR, doctor);
   return response.data;
 });
@@ -21,11 +24,7 @@ const doctorReducer = createSlice({
     loading: false,
     hasErrors: false,
   },
-  reducers: {
-    addDoctor: (state, action) => {
-      state.doctors.push(action.payload);
-    },
-  },
+  reducers: {},
   extraReducers: {
     [fetchDoctors.pending]: (state) => {
       state.loading = true;
