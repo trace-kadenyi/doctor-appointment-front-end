@@ -5,10 +5,10 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { signOut } from '../../Redux/UserReducer';
+import { signOut, selectCurrentUser } from '../../Redux/UserReducer';
 import logo from '../../assets/images/logo.png';
 import humburgerMenu from '../../assets/images/humburger-menu.svg';
-import { selectCurrentUser } from '../../Redux/UserReducer';
+
 import './navbar.css';
 
 const Navbar = () => {
