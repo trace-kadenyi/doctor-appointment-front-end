@@ -65,11 +65,13 @@ const DrDetail = () => {
               </Card.Body>
             </Col>
           </Row>
-          <button type="button" className="arrow left">
-            <Link className="back" to="/">
-              <BiLeftArrow />
-            </Link>
-          </button>
+          <div>
+            <button type="button" className="arrow__back">
+              <Link className="back" to="/">
+                <BiLeftArrow />
+              </Link>
+            </button>
+          </div>
         </Container>
       ) : <div className="alert alert-danger">something went wrond</div>}
     </>

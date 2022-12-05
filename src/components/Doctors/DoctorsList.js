@@ -94,21 +94,23 @@ const DoctorsList = () => {
                       alt={doctor.name}
                     />
                   </Link>
-                  {/* delete doctor button only for owners. */}
-                  {doctor.user_id === currentUser.id
-                    && (
-                    <button
-                      type="button"
-                      className="delete btn btn-danger"
-                      onClick={() => {
-                        dispatch(deleteDoctor({ doctorId: doctor.id, userId: currentUser.id }));
-                      }}
-                    >
-                      Delete
-                    </button>
-                    )}
                   <h2 className="doctors_name">{doctor.name}</h2>
                   <p className="specialization">{doctor.specialization}</p>
+                  {/* delete doctor button only for owners. */}
+                  <div>
+                    {doctor.user_id === currentUser.id
+                      && (
+                      <button
+                        type="button"
+                        className="delete btn btn-danger"
+                        onClick={() => {
+                          dispatch(deleteDoctor({ doctorId: doctor.id, userId: currentUser.id }));
+                        }}
+                      >
+                        Delete
+                      </button>
+                      )}
+                  </div>
                 </div>
               ))}
             </div>
