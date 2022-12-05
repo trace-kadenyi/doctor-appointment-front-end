@@ -8,6 +8,8 @@ const Display = () => {
   const appointments = useSelector(appointmentsSelector);
 
   // Fetch the appointments for the curent user:
+  // loop through the appointments and render each appointment
+
   useEffect(() => {
     dispatch(fetchAppointments());
   }, [dispatch]);
