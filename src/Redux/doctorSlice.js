@@ -22,6 +22,14 @@ export const deleteDoctor = createAsyncThunk('doctors/deleteDoctor', async (ids)
   await axios.delete(`${DELETE_DOCTOR}${userId}/doctors/${doctorId}`);
 });
 
+// add doctor
+export const addDoctor = createAsyncThunk('doctors/addDoctor', async (doctor) => {
+  const { userId } = doctor;
+  const ADD_DOCTOR = `http://localhost:3000/api/v1/users/${userId}/doctors`;
+  const response = await axios.post(ADD_DOCTOR, doctor);
+  return response.data;
+});
+
 const doctorReducer = createSlice({
   name: 'doctors',
   initialState: {
@@ -29,10 +37,9 @@ const doctorReducer = createSlice({
     doctor: {},
     loading: false,
     hasErrors: false,
-    doctorDeleted: false,
+    doctorEdited: false,
   },
-  reducers: {
-  },
+  reducers: {},
   extraReducers: {
     [fetchDoctors.pending]: (state) => {
       state.loading = true;
@@ -72,11 +79,25 @@ const doctorReducer = createSlice({
       state.loading = false;
       state.hasErrors = true;
     },
+    [addDoctor.pending]: (state) => {
+      state.loading = true;
+    },
+    [addDoctor.fulfilled]: (state, { payload }) => {
+      state.doctor = payload;
+      state.loading = false;
+      state.hasErrors = false;
+      state.doctorEdited = !state.doctorEdited;
+      notify('doctor Added!');
+    },
+    [addDoctor.rejected]: (state) => {
+      state.loading = false;
+      state.hasErrors = true;
+    },
   },
 });
 
 export const doctorSelector = (state) => state.doctor;
-export const selectDoctorDeleted = (state) => state.doctor.doctorDeleted;
+export const selectdoctorEdited = (state) => state.doctor.doctorEdited;
 export const selectDoctors = (state) => state.doctor.doctors;
 export const selectDoctorsloading = (state) => state.loading;
 export const selectDoctor = (state) => state.doctor.doctor;

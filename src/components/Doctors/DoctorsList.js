@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import { fetchUsers } from '../../Redux/UserReducer';
 import {
-  fetchDoctors, doctorSelector, deleteDoctor, selectDoctorDeleted, selectDoctors,
+  fetchDoctors, doctorSelector, deleteDoctor, selectdoctorEdited, selectDoctors,
 } from '../../Redux/doctorSlice';
 // import { fetchUsers, selectCurrentUser } from '../../Redux/UserReducer';
 import preloader from '../../assets/images/preloader.gif';
@@ -13,7 +14,7 @@ const DoctorsList = () => {
   const dispatch = useDispatch();
   const doctors = useSelector(doctorSelector);
   const doctorsList = useSelector(selectDoctors);
-  const doctorDeleted = useSelector(selectDoctorDeleted);
+  const doctorEdited = useSelector(selectdoctorEdited);
   // get the current user from localstorage.
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
@@ -23,7 +24,12 @@ const DoctorsList = () => {
   // Fetch doctors on mount
   useEffect(() => {
     dispatch(fetchDoctors());
-  }, [dispatch, doctorDeleted]);
+  }, [dispatch, doctorEdited]);
+
+  // Fetch users on mount
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   // scroll to the right
   const scrollRight = () => {
@@ -58,15 +64,19 @@ const DoctorsList = () => {
           <span className="select">Please select a doctor</span>
         </p>
       </div>
+
       {/* loading main page */}
       {doctors.loading && (
-      <div className="loading">
-        <img src={preloader} alt="loading" className="preloader" />
-      </div>
+        <div className="loading">
+          <img src={preloader} alt="loading" className="preloader" />
+        </div>
       )}
+
       {/* error main page */}
       {doctors.hasErrors && (
-      <div className="error">Unable to display doctors. Please check your server.</div>
+        <div className="error">
+          Unable to display doctors. Please check your server.
+        </div>
       )}
 
       {/* doctors' list */}

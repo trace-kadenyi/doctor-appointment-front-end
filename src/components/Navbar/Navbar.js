@@ -4,14 +4,17 @@
 
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { signOut } from '../../Redux/UserReducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { signOut, selectCurrentUser } from '../../Redux/UserReducer';
 import logo from '../../assets/images/logo.png';
 import humburgerMenu from '../../assets/images/humburger-menu.svg';
+
 import './navbar.css';
 
 const Navbar = () => {
   const [showLinks, setShowlinks] = useState(false);
+  const currentUser = useSelector(selectCurrentUser);
+  const userId = currentUser.id;
   const dispatch = useDispatch();
 
   const navLinks = document.querySelectorAll('.header__link');
@@ -43,7 +46,8 @@ const Navbar = () => {
                 <NavLink to="/appointments" className="header__link">
                   Appointments
                 </NavLink>
-                <NavLink to="/add-new-doctor" className="header__link">
+                {/* link to users/userid/doctors */}
+                <NavLink to={`/users/${userId}/doctors`} className="header__link">
                   Add Doctor
                 </NavLink>
                 <a href="/" className="header__link" onClick={() => { dispatch(signOut()); }}>
