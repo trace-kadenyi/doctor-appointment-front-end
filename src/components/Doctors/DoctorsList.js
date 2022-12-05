@@ -49,15 +49,6 @@ const DoctorsList = () => {
     }
   };
 
-  const onDeleteDoctorClicked = () => {
-    try {
-      dispatch(deleteDoctor(doctors.doctor.id));
-      Navigate('/doctors');
-    } catch (error) {
-      return error;
-    }
-  };
-
   return (
     <div className="doctors_sect">
       {/* page title */}
