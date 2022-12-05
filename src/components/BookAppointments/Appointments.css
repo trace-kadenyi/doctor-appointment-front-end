@@ -1,5 +1,5 @@
 .appointments {
-  background-image: url('../assets/images/doctor-background.png');
+  /* background-image: url('../assets/images/doctor-background.png'); */
   min-height: 100vh;
   background-color: rgb(134, 190, 115);
   display: flex;

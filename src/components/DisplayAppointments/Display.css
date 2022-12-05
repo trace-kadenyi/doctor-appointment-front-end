@@ -12,6 +12,7 @@
 }
 
 .appointment__card {
+  max-width: 300px;
   /* display: grid;
   grid-template-columns: repeat(3, 1fr); */
   margin-top: 50px;
@@ -20,13 +21,15 @@
   height: 150px;
   font-size: 0.8rem;
   box-shadow: 5px 5px 12px 2px rgb(95, 89, 89);
+  overflow: unset;
+  height: auto;
 }
 
 .appointment__card .top .left {
   display: flex;
   justify-content: space-between;
   padding-bottom: 1rem;
-  
+  overflow-x: unset;
 }
 
 .appointment__card .top {
