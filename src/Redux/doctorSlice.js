@@ -4,9 +4,9 @@ import { toast } from 'react-toastify';
 
 const notify = (e) => toast(e);
 
-const BASE_URL = 'http://localhost:3000/api/v1/doctors';
+const BASE_URL = 'https://book-doctors-appointment.onrender.com/api/v1/doctors/';
 
-const DELETE_DOCTOR = 'http://localhost:3000/api/v1/users/';
+const BASE_USERS_URL = 'https://book-doctors-appointment.onrender.com/api/v1/users/';
 
 export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async () => {
   const response = await axios.get(BASE_URL);
@@ -19,13 +19,13 @@ export const fetchDoctor = createAsyncThunk('doctors/fetchDoctor', async (id) =>
 
 export const deleteDoctor = createAsyncThunk('doctors/deleteDoctor', async (ids) => {
   const { userId, doctorId } = ids;
-  await axios.delete(`${DELETE_DOCTOR}${userId}/doctors/${doctorId}`);
+  await axios.delete(`${BASE_USERS_URL}${userId}/doctors/${doctorId}`);
 });
 
 // add doctor
 export const addDoctor = createAsyncThunk('doctors/addDoctor', async (doctor) => {
   const { userId } = doctor;
-  const ADD_DOCTOR = `http://localhost:3000/api/v1/users/${userId}/doctors`;
+  const ADD_DOCTOR = `${BASE_USERS_URL}${userId}/doctors`;
   const response = await axios.post(ADD_DOCTOR, doctor);
   return response.data;
 });
@@ -74,7 +74,7 @@ const doctorReducer = createSlice({
       state.doctor = payload;
       state.loading = false;
       state.hasErrors = false;
-      state.doctorDeleted = !state.doctorDeleted;
+      state.doctorEdited = !state.doctorEdited;
       notify('doctor deleted!');
     },
     [deleteDoctor.rejected]: (state) => {
@@ -88,10 +88,11 @@ const doctorReducer = createSlice({
       state.doctor = payload;
       state.loading = false;
       state.hasErrors = false;
+      state.fulfilled = true;
       state.doctorEdited = !state.doctorEdited;
       notify('doctor Added!');
     },
-    [addDoctor.rejected]: (state) => {
+    [addDoctor.rejected]: (state,action) => {
       state.loading = false;
       state.hasErrors = true;
     },
