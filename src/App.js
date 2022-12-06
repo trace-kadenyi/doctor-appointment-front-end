@@ -24,7 +24,8 @@ function App() {
     <Router>
       <ToastContainer autoClose={1300} />
       <Navbar />
-      <Routes>
+      <div className='app-container'>
+        <Routes>
         <Route path="/authentication" element={<User />} />
         <Route element={<ProtectRoutes />}>
           <Route exact path="/" element={<DoctorsList />} />
@@ -34,7 +35,9 @@ function App() {
           <Route path="/users/:id/doctors" element={<NewDoctor />} />
           <Route path="/about" element={<About />} />
         </Route>
-      </Routes>
+        </Routes>
+      </div>
+      
     </Router>
   );
 }
