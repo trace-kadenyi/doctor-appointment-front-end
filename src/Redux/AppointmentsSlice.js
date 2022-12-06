@@ -1,27 +1,27 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+const BASE_URL = 'https://book-doctors-appointment.onrender.com/api/v1/';
 
 const notify = (e) => toast(e);
 
-const BASE_URL = 'https://book-doctors-appointment.onrender.com/api/v1/users/';
 
 export const fetchAppointments = createAsyncThunk('appointments/fetchAppointments', async (id) => {
   const { userId } = id;
-  const response = await axios.get(`${BASE_URL}${userId}/appointments`);
+  const response = await axios.get(`${BASE_URL}users/${userId}/appointments`);
   return response.data;
 });
 
 // add appointments
 export const addAppointment = createAsyncThunk('appointments/addAppointment', async (appointment) => {
   const { userId } = appointment;
-  const response = await axios.post(`${BASE_URL}${userId}/appointments`, appointment);
+  const response = await axios.post(`${BASE_URL}users/${userId}/appointments`, appointment);
   return response.data;
 });
 
-export const deleteAppointment = createAsyncThunk('appointments/deleteAppointment', async (ids) => {
-  const { userId, doctorId } = ids;
-  await axios.delete(`${BASE_USERS_URL}${userId}/appointments/${doctorId}`);
+export const deleteAppointment = createAsyncThunk('appointments/deleteAppointment', async (data) => {
+  const { appointmentId, userId } = data;
+  await axios.delete(`${BASE_URL}users/${userId}/appointments/${appointmentId}`);
 });
 
 const appointmentsReducer = createSlice({
@@ -55,7 +55,7 @@ const appointmentsReducer = createSlice({
       state.appointments.push(payload);
       state.loading = false;
       state.hasErrors = false;
-      state.appointmentEdited = true;
+      state.appointmentEdited = !state.appointmentEdited;
       notify('Appointment added successfully!');
     },
     [addAppointment.rejected]: (state) => {
@@ -63,17 +63,19 @@ const appointmentsReducer = createSlice({
       state.hasErrors = true;
       notify('Error while booking appointment!');
     },
-    [deleteAppointment.fulfilled]: (state, { payload }) => {
-      state.appointments.push(payload);
+    [deleteAppointment.pending]: (state) => {
+      state.loading = true;
+    },
+    [deleteAppointment.fulfilled]: (state) => {
       state.loading = false;
       state.hasErrors = false;
-      state.appointmentEdited = true;
-      notify('Appointment deleted successfully!');
+      state.appointmentEdited = !state.appointmentEdited;
+      notify('Appointment canceled successfully!');
     },
     [deleteAppointment.rejected]: (state) => {
       state.loading = false;
       state.hasErrors = true;
-      notify('Error while deleting appointment!');
+      notify('Error while canceling appointment!');
     },
   },
 });
@@ -82,5 +84,6 @@ export const selectAppointments = (state) => state.appointments.appointments;
 export const selectAppointmentsLoading = (state) => state.appointments.loading;
 export const selectApppointmentsFulfilled = (state) => state.appointments.fulfilled;
 export const selectApppointmentsRejected = (state) => state.appointments.hasErrors;
+export const selectApppointmentsEdited = (state) => state.appointments.appointmentEdited;
 
 export default appointmentsReducer.reducer;
