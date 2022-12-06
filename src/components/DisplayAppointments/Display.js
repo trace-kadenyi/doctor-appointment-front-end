@@ -3,7 +3,8 @@ import './Display.css';
 import { useSelector, useDispatch } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
 import {
-  deleteAppointment, fetchAppointments, selectAppointments, selectAppointmentsLoading, selectApppointmentsEdited,
+  deleteAppointment, fetchAppointments, selectAppointments,
+  selectAppointmentsLoading, selectApppointmentsEdited,
 } from '../../Redux/AppointmentsSlice';
 import { fetchDoctors, selectDoctors, selectDoctorsFulfilled } from '../../Redux/doctorSlice';
 import { selectCurrentUser } from '../../Redux/UserReducer';
