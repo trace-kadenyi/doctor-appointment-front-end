@@ -1,18 +1,19 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import './Appointments.css';
 import { selectCurrentUser } from '../../Redux/UserReducer';
-import { doctorSelector } from '../../Redux/doctorSlice';
-import { addAppointment } from '../../Redux/AppointmentsSlice';
+import { doctorSelector, selectDoctorsFulfilled } from '../../Redux/doctorSlice';
+import { addAppointment, fetchAppointments } from '../../Redux/AppointmentsSlice';
 
 const Appointments = () => {
   const { doctors } = useSelector(doctorSelector);
   const currentUser = useSelector(selectCurrentUser);
+  const fulfilledDoctors = useSelector(selectDoctorsFulfilled);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [appointment, setAppointment] = useState({
@@ -22,6 +23,11 @@ const Appointments = () => {
     description: '',
     userId: currentUser.id,
   });
+
+  // fetch appointments on page load
+  useEffect(() => {
+    dispatch(fetchAppointments({ userId: currentUser.id }));
+  }, []);
 
   // handle the change of the input fields
   const handleChange = (e) => {
@@ -55,7 +61,7 @@ const Appointments = () => {
             <select name="doctor_select" onChange={handleChange}>
               <option value="no-value">Doctor</option>
               {/* map through doctors */}
-              {doctors.map((doctor) => (
+              { fulfilledDoctors && doctors.map((doctor) => (
                 <option key={doctor.id} value={doctor.id} name="doctorId">
                   {doctor.name}
                 </option>
