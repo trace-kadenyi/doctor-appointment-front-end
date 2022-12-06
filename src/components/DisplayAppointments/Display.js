@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './Display.css';
 import { useSelector, useDispatch } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { fetchAppointments, selectAppointments, selectAppointmentsLoading } from '../../Redux/AppointmentsSlice';
+import { deleteAppointment, fetchAppointments, selectAppointments, selectAppointmentsLoading, selectApppointmentsEdited } from '../../Redux/AppointmentsSlice';
 import { fetchDoctors, selectDoctors, selectDoctorsFulfilled } from '../../Redux/doctorSlice';
 import { selectCurrentUser } from '../../Redux/UserReducer';
 
@@ -12,6 +12,7 @@ const Display = () => {
   const doctorsFulfilled = useSelector(selectDoctorsFulfilled);
   const loading = useSelector(selectAppointmentsLoading);
   const currentUser = useSelector(selectCurrentUser);
+  const appointmentEdited = useSelector(selectApppointmentsEdited);
 
   // Fetch the appointments for the curent user:
   // loop through the appointments and render each appointment
@@ -19,7 +20,7 @@ const Display = () => {
   useEffect(() => {
     dispatch(fetchAppointments({ userId: currentUser.id }));
     dispatch(fetchDoctors());
-  }, [dispatch, currentUser.id]);
+  }, [appointmentEdited]);
 
   const allDoctors = useSelector(selectDoctors);
   const findDoctorName = (id) => allDoctors.find((e) => e.id === id).name;
@@ -37,7 +38,9 @@ const Display = () => {
                 <div className="left">
                   <p>Appointment Date:</p>
                   {/* should destroy the appointment */}
-                  <p>Delete</p>
+                  <button className='btn btn-outline-primary' 
+                  onClick={ () => dispatch(deleteAppointment({appointmentId: appointment.id,userId: currentUser.id}))}>
+                    cancel appointment</button>
                 </div>
                 <div className="time">
                   {appointment.date_of_appointment}
