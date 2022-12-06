@@ -55,14 +55,6 @@ const DrDetail = () => {
                         <th>Appointment</th>
                         <td className="d-flex justify-content-end"><Link to="/book-appointment" className="btn btn-success">Book Appointment</Link></td>
                       </tr>
-                      <tr>
-                        <th>Bio</th>
-                        <td>Very good doctor!</td>
-                      </tr>
-                      <tr>
-                        <th>Consultations</th>
-                        <td> 10$ </td>
-                      </tr>
                     </tbody>
                   </Table>
                 </div>
