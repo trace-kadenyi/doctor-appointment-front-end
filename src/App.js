@@ -24,17 +24,21 @@ function App() {
     <Router>
       <ToastContainer autoClose={1300} />
       <Navbar />
-      <Routes>
-        <Route path="/authentication" element={<User />} />
-        <Route element={<ProtectRoutes />}>
-          <Route exact path="/" element={<DoctorsList />} />
-          <Route path="/book-appointment" element={<Appointments />} />
-          <Route path="/appointments" element={<Display />} />
-          <Route exact path="/doctors/:id" element={<DrDetail />} />
-          <Route path="/users/:id/doctors" element={<NewDoctor />} />
-          <Route path="/about" element={<About />} />
-        </Route>
-      </Routes>
+      <div className="app-container">
+        <Routes>
+          <Route path="/authentication" element={<User />} />
+          <Route element={<ProtectRoutes />}>
+            <Route exact path="/" element={<DoctorsList />} />
+            <Route path="/book-appointment" element={<Appointments />} />
+            <Route path="/doctors/:id/appointment" element={<Appointments />} />
+            <Route path="/appointments" element={<Display />} />
+            <Route exact path="/doctors/:id" element={<DrDetail />} />
+            <Route path="/users/:id/doctors" element={<NewDoctor />} />
+            <Route path="/about" element={<About />} />
+          </Route>
+        </Routes>
+      </div>
+
     </Router>
   );
 }
