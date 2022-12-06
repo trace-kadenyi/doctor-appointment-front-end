@@ -51,15 +51,20 @@ const appointmentsReducer = createSlice({
       state.loading = false;
       state.hasErrors = false;
       state.appointmentEdited = true;
-      notify('Appointment added successfully');
+      notify('Appointment added successfully!');
     },
     [addAppointment.rejected]: (state) => {
       state.loading = false;
       state.hasErrors = true;
+      notify('Error while booking appointment!');
     },
   },
 });
 
 export const selectAppointments = (state) => state.appointments.appointments;
+export const selectAppointmentsLoading = (state) => state.appointments.loading;
+export const selectApppointmentsFulfilled = (state) => state.appointments.fulfilled;
+export const selectApppointmentsRejected = (state) => state.appointments.hasErrors;
+
 
 export default appointmentsReducer.reducer;
