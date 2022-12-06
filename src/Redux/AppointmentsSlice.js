@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
+const notify = (e) => toast(e);
+
 
 const BASE_URL = 'https://book-doctors-appointment.onrender.com/api/v1/users/';
 
@@ -44,7 +48,21 @@ const appointmentsReducer = createSlice({
       state.loading = false;
       state.hasErrors = true;
     },
-  },
+    [addAppointment.pending]: (state) => {
+      state.loading = true;
+    },
+    [addAppointment.fulfilled]: (state, { payload }) => {
+      state.appointments.push(payload);
+      state.loading = false;
+      state.hasErrors = false;
+      state.appointmentEdited = true;
+      notify('Appointment added successfully');
+    },
+    [addAppointment.rejected]: (state) => {
+      state.loading = false;
+      state.hasErrors = true;
+    },
+  }
 });
 
 export const selectAppointments = (state) => state.appointments.appointments;
