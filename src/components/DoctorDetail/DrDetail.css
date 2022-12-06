@@ -1,10 +1,10 @@
 .card {
   min-height: 90% !important;
-  border: 2px solid rgb(134, 190, 115);
+  border: 2px solid  #97bf10;
 }
 
 .table {
-  border: 2px solid rgb(134, 190, 115);
+  border: 2px solid  #97bf10;
 }
 
 .card-img,
@@ -17,8 +17,8 @@
 
 .btn,
 .btn-primary {
-  background-color: #97c010 !important;
-  border-color: #97c010 !important;
+  background-color: #97bf10 !important;
+  border-color: #97bf10 !important;
   height: 35px;
   font-size: 1rem;
   line-height: 1rem;
@@ -37,7 +37,7 @@
 }
 
 .btn-success:hover {
-  background-color: #86be73 !important;
+  background-color: white !important;
 }
 
 .container {
@@ -66,7 +66,7 @@ th {
   font-size: 20px;
   outline: none;
   border: none;
-  background-color: rgb(147, 236, 12);
+  background-color: #97bf10;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 0 50% 50% 0;
@@ -77,7 +77,7 @@ th {
 }
 
 .back:hover {
-  color: #86be73;
+  color: white;
 }
 
 .d-flex,
