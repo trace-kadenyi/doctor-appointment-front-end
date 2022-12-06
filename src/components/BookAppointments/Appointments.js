@@ -7,26 +7,29 @@ import { useNavigate } from 'react-router-dom';
 
 import './Appointments.css';
 import { selectCurrentUser } from '../../Redux/UserReducer';
-import { doctorSelector, selectDoctorsFulfilled } from '../../Redux/doctorSlice';
-import { addAppointment, fetchAppointments } from '../../Redux/AppointmentsSlice';
+import { fetchDoctors, selectDoctors, selectDoctorsFulfilled } from '../../Redux/doctorSlice';
+import { addAppointment } from '../../Redux/AppointmentsSlice';
 
 const Appointments = () => {
-  const { doctors } = useSelector(doctorSelector);
+  const doctors  = useSelector(selectDoctors);
   const currentUser = useSelector(selectCurrentUser);
   const fulfilledDoctors = useSelector(selectDoctorsFulfilled);
+  // const fulfilledAppointments = useSelector(selectApppointmentsFulfilled);
+  // const rejectedAppointments = useSelector(selectApppointmentsRejected);
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [appointment, setAppointment] = useState({
-    doctorId: '',
-    dateOfAppointment: '',
-    timeOfAppointment: '',
+    doctor_id: '',
+    date_of_appointment: '',
+    time_of_appointment: '',
     description: '',
     userId: currentUser.id,
   });
 
-  // fetch appointments on page load
+  // fetch doctors on page load
   useEffect(() => {
-    dispatch(fetchAppointments({ userId: currentUser.id }));
+    dispatch(fetchDoctors());
   }, []);
 
   // handle the change of the input fields
@@ -49,16 +52,16 @@ const Appointments = () => {
           {/* date and time */}
           <div className="date__selector">
             <label htmlFor="date">Date of Appointment</label>
-            <input type="date" name="dateOfAppointment" className="date" onChange={handleChange} />
+            <input type="date" name="date_of_appointment" className="date" onChange={handleChange} />
           </div>
           <div className="date__selector">
             <label htmlFor="time">Time of Appointment</label>
-            <input type="time" name="timeOfAppointment" className="time" onChange={handleChange} />
+            <input type="time" name="time_of_appointment" className="time" onChange={handleChange} />
           </div>
           {/* doctor */}
           <div className="doctor__selector">
             <label htmlFor="Doctor">Select a Doctor</label>
-            <select name="doctor_select" onChange={handleChange}>
+            <select name="doctor_id" onChange={handleChange}>
               <option value="no-value">Doctor</option>
               {/* map through doctors */}
               { fulfilledDoctors && doctors.map((doctor) => (
