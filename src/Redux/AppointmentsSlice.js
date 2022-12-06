@@ -9,6 +9,17 @@ export const fetchAppointments = createAsyncThunk('appointments/fetchAppointment
   return response.data;
 });
 
+// add appointments
+export const addAppointment = createAsyncThunk('appointments/addAppointment', async (appointment) => {
+  const { userId, doctorId, date_of_appointment, time_of_appointment } = appointment;
+  const response = await axios.post(`${BASE_URL}${userId}/appointments`, {
+    doctor_id: doctorId,
+    date_of_appointment,
+    time_of_appointment,
+  });
+  return response.data;
+});
+
 const appointmentsReducer = createSlice({
   name: 'appointments',
   initialState: {
@@ -16,6 +27,7 @@ const appointmentsReducer = createSlice({
     loading: false,
     fulfilled: false,
     hasErrors: false,
+    appointmentEdited: false,
   },
   reducers: {},
   extraReducers: {
