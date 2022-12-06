@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 
 const notify = (e) => toast(e);
 
-
 const BASE_URL = 'https://book-doctors-appointment.onrender.com/api/v1/users/';
 
 export const fetchAppointments = createAsyncThunk('appointments/fetchAppointments', async (id) => {
@@ -15,12 +14,8 @@ export const fetchAppointments = createAsyncThunk('appointments/fetchAppointment
 
 // add appointments
 export const addAppointment = createAsyncThunk('appointments/addAppointment', async (appointment) => {
-  const { userId, doctorId, date_of_appointment, time_of_appointment } = appointment;
-  const response = await axios.post(`${BASE_URL}${userId}/appointments`, {
-    doctor_id: doctorId,
-    date_of_appointment,
-    time_of_appointment,
-  });
+  const { userId } = appointment;
+  const response = await axios.post(`${BASE_URL}${userId}/appointments`, appointment);
   return response.data;
 });
 
@@ -62,7 +57,7 @@ const appointmentsReducer = createSlice({
       state.loading = false;
       state.hasErrors = true;
     },
-  }
+  },
 });
 
 export const selectAppointments = (state) => state.appointments.appointments;
