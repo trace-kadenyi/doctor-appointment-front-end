@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+
 const BASE_URL = 'https://book-doctors-appointment.onrender.com/api/v1/';
 
 const notify = (e) => toast(e);
-
 
 export const fetchAppointments = createAsyncThunk('appointments/fetchAppointments', async (id) => {
   const { userId } = id;

@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+
 const BASE_URL = 'https://book-doctors-appointment.onrender.com/api/v1/';
 
 const notify = (e) => toast(e);
