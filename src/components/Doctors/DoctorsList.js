@@ -102,7 +102,7 @@ const DoctorsList = () => {
                     && (
                     <button
                       type="button"
-                      className="delete btn btn-danger"
+                      className="delete btn btn-outline-danger"
                       onClick={() => {
                         dispatch(deleteDoctor({ doctorId: doctor.id, userId: currentUser.id }));
                       }}
