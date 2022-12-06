@@ -1,15 +1,16 @@
-/* eslint-disable react/no-array-index-key */
 import React, { useEffect } from 'react';
 import './Display.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAppointments, selectAppointments } from '../../Redux/AppointmentsSlice';
+import { fetchAppointments, selectAppointments, selectAppointmentsLoading } from '../../Redux/AppointmentsSlice';
 import { fetchDoctors, selectDoctors, selectDoctorsFulfilled } from '../../Redux/doctorSlice';
 import { selectCurrentUser } from '../../Redux/UserReducer';
+import  ClipLoader  from 'react-spinners/ClipLoader';
 
 const Display = () => {
   const dispatch = useDispatch();
   const appointments = useSelector(selectAppointments);
   const doctorsFulfilled = useSelector(selectDoctorsFulfilled);
+  const loading = useSelector(selectAppointmentsLoading);
   const currentUser = useSelector(selectCurrentUser);
 
   // Fetch the appointments for the curent user:
@@ -28,7 +29,8 @@ const Display = () => {
     <div className="display">
       <h1 className="display__header">Booked Appointments</h1>
 
-      {
+      {loading ? <ClipLoader  size={250}/>
+      :
         (appointments && doctorsFulfilled) && appointments.map((appointment) => (
           <>
             <div className="appointment__card" key={appointment.id}>

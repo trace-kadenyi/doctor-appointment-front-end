@@ -8,6 +8,11 @@
 .display > * {
   overflow: unset;
 }
+/* this applis to the loader that shows when loading data  */
+.display > span {
+  margin-left: calc(70% / 2);
+  margin-top: calc(20% / 2);;
+}
 
 .display__header {
   text-align: center;
@@ -43,4 +48,11 @@
 .appointment__card .bottom {
   color: #000;
   padding: 1rem;
+}
+
+@media screen and (max-width:700px) {
+  .display > span {
+    margin-left: calc(45% / 2);
+  }
+  
 }
