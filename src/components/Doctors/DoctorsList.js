@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import { fetchUsers } from '../../Redux/UserReducer';
 import {
   fetchDoctors, doctorSelector, deleteDoctor, selectdoctorEdited, selectDoctors,
 } from '../../Redux/doctorSlice';
@@ -25,11 +24,6 @@ const DoctorsList = () => {
   useEffect(() => {
     dispatch(fetchDoctors());
   }, [dispatch, doctorEdited]);
-
-  // Fetch users on mount
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
 
   // scroll to the right
   const scrollRight = () => {
