@@ -41,10 +41,9 @@ const Display = () => {
       
       <div className='appointment-doctors-container'>
       {  
-      (appointments && doctorsFulfilled) && appointments.map((appointment) => (
+      (appointments && doctorsFulfilled && !loading) && appointments.map((appointment) => (
           <>
             <div className="appointment__card" key={appointment.id}>
-              {console.log(randomId())}
               <div className="top">
                 <div className="left">
                   <p>Appointment Date:</p>
