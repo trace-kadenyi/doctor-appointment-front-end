@@ -1,5 +1,10 @@
 .card {
   min-height: 90% !important;
+  border: 2px solid rgb(134, 190, 115);
+}
+
+.table {
+  border: 2px solid rgb(134, 190, 115);
 }
 
 .card-img,
