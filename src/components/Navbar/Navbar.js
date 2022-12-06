@@ -44,7 +44,7 @@ const Navbar = () => {
                   Book Appointment
                 </NavLink>
                 <NavLink to="/appointments" className="header__link">
-                  Appointments
+                  My Appointments
                 </NavLink>
                 {/* link to users/userid/doctors */}
                 <NavLink to={`/users/${userId}/doctors`} className="header__link">
