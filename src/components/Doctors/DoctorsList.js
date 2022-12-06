@@ -94,8 +94,11 @@ const DoctorsList = () => {
                       alt={doctor.name}
                     />
                   </Link>
-                  {/* delete doctor button only for owners. */}
-                  {doctor.user_id === currentUser.id
+                  <h2 className="doctors_name">{doctor.name}</h2>
+                  <p className="specialization">{doctor.specialization}</p>
+                  <div className="button__D">
+                    {/* delete doctor button only for owners. */}
+                    {doctor.user_id === currentUser.id
                     && (
                     <button
                       type="button"
@@ -107,8 +110,7 @@ const DoctorsList = () => {
                       Delete
                     </button>
                     )}
-                  <h2 className="doctors_name">{doctor.name}</h2>
-                  <p className="specialization">{doctor.specialization}</p>
+                  </div>
                 </div>
               ))}
             </div>
