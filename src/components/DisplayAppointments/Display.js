@@ -16,13 +16,13 @@ const Display = () => {
   // loop through the appointments and render each appointment
 
   useEffect(() => {
-    dispatch(fetchAppointments({userId: currentUser.id}));
+    dispatch(fetchAppointments({ userId: currentUser.id }));
     dispatch(fetchDoctors());
   }, [dispatch]);
 
   const allDoctors = useSelector(selectDoctors);
-  let findDoctorName  = (id) => { return allDoctors.find(e => e.id == id).name; };
-  let findDoctorSpecialization  = (id) => { allDoctors.find(e => e.id == id).specialization; };
+  const findDoctorName = (id) => allDoctors.find((e) => e.id === id).name;
+  const findDoctorSpecialization = (id) => allDoctors.find((e) => e.id === id).specialization;
   return (
 
     <div className="display">
@@ -31,29 +31,29 @@ const Display = () => {
       {
         (appointments && doctorsFulfilled) && appointments.map((appointment) => (
           <>
-          <div className="appointment__card" key={appointment.id}>
-            <div className="top">
-              <div className="left">
-                <p>Appointment Date:</p>
-                {/* should destroy the appointment */}
-                <p>Delete</p>
+            <div className="appointment__card" key={appointment.id}>
+              <div className="top">
+                <div className="left">
+                  <p>Appointment Date:</p>
+                  {/* should destroy the appointment */}
+                  <p>Delete</p>
+                </div>
+                <div className="time">
+                  {appointment.date_of_appointment}
+                  {' '}
+                  at
+                  {' '}
+                  {appointment.time_of_appointment}
+                </div>
               </div>
-              <div className="time">
-                {appointment.date_of_appointment}
-                {' '}
-                at
-                {' '}
-                {appointment.time_of_appointment}
+              <div className="bottom">
+                <p>
+                  {findDoctorName(appointment.doctor_id)}
+                  <br />
+                  {findDoctorSpecialization(appointment.doctor_id)}
+                </p>
               </div>
             </div>
-            <div className="bottom">
-              <p>
-                {findDoctorName(appointment.doctor_id)}
-                <br />
-                {findDoctorSpecialization(appointment.doctor_id)}
-              </p>
-            </div>
-          </div>
           </>
         ))
       }

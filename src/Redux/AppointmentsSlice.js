@@ -4,11 +4,10 @@ import axios from 'axios';
 const BASE_URL = 'https://book-doctors-appointment.onrender.com/api/v1/users/';
 
 export const fetchAppointments = createAsyncThunk('appointments/fetchAppointments', async (id) => {
-  const {userId} = id
+  const { userId } = id;
   const response = await axios.get(`${BASE_URL}${userId}/appointments`);
   return response.data;
 });
-
 
 const appointmentsReducer = createSlice({
   name: 'appointments',

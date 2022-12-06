@@ -42,7 +42,7 @@ const Navbar = () => {
                 </NavLink>
                 <NavLink to="/book-appointment" className="header__link">
                   Book Appointment
-                </NavLink>  
+                </NavLink>
                 <NavLink to="/appointments" className="header__link">
                   My Appointments
                 </NavLink>
