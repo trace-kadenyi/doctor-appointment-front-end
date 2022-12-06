@@ -19,6 +19,11 @@ export const addAppointment = createAsyncThunk('appointments/addAppointment', as
   return response.data;
 });
 
+export const deleteAppointment = createAsyncThunk('appointments/deleteAppointment', async (ids) => {
+  const { userId, doctorId } = ids;
+  await axios.delete(`${BASE_USERS_URL}${userId}/appointments/${doctorId}`);
+});
+
 const appointmentsReducer = createSlice({
   name: 'appointments',
   initialState: {
@@ -57,6 +62,18 @@ const appointmentsReducer = createSlice({
       state.loading = false;
       state.hasErrors = true;
       notify('Error while booking appointment!');
+    },
+    [deleteAppointment.fulfilled]: (state, { payload }) => {
+      state.appointments.push(payload);
+      state.loading = false;
+      state.hasErrors = false;
+      state.appointmentEdited = true;
+      notify('Appointment deleted successfully!');
+    },
+    [deleteAppointment.rejected]: (state) => {
+      state.loading = false;
+      state.hasErrors = true;
+      notify('Error while deleting appointment!');
     },
   },
 });
