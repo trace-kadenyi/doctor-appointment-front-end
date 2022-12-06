@@ -11,12 +11,12 @@ import { fetchDoctors, selectDoctors, selectDoctorsFulfilled } from '../../Redux
 import { addAppointment } from '../../Redux/AppointmentsSlice';
 
 const Appointments = () => {
-  const doctors  = useSelector(selectDoctors);
+  const doctors = useSelector(selectDoctors);
   const currentUser = useSelector(selectCurrentUser);
   const fulfilledDoctors = useSelector(selectDoctorsFulfilled);
   // const fulfilledAppointments = useSelector(selectApppointmentsFulfilled);
   // const rejectedAppointments = useSelector(selectApppointmentsRejected);
-  
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [appointment, setAppointment] = useState({
@@ -30,7 +30,7 @@ const Appointments = () => {
   // fetch doctors on page load
   useEffect(() => {
     dispatch(fetchDoctors());
-  }, []);
+  }, [dispatch]);
 
   // handle the change of the input fields
   const handleChange = (e) => {

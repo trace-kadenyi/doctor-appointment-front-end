@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import './Display.css';
 import { useSelector, useDispatch } from 'react-redux';
+import ClipLoader from 'react-spinners/ClipLoader';
 import { fetchAppointments, selectAppointments, selectAppointmentsLoading } from '../../Redux/AppointmentsSlice';
 import { fetchDoctors, selectDoctors, selectDoctorsFulfilled } from '../../Redux/doctorSlice';
 import { selectCurrentUser } from '../../Redux/UserReducer';
-import  ClipLoader  from 'react-spinners/ClipLoader';
 
 const Display = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Display = () => {
   useEffect(() => {
     dispatch(fetchAppointments({ userId: currentUser.id }));
     dispatch(fetchDoctors());
-  }, [dispatch]);
+  }, [dispatch, currentUser.id]);
 
   const allDoctors = useSelector(selectDoctors);
   const findDoctorName = (id) => allDoctors.find((e) => e.id === id).name;
@@ -29,9 +29,8 @@ const Display = () => {
     <div className="display">
       <h1 className="display__header">Booked Appointments</h1>
 
-      {loading ? <ClipLoader  size={250}/>
-      :
-        (appointments && doctorsFulfilled) && appointments.map((appointment) => (
+      {loading ? <ClipLoader size={250} />
+        : (appointments && doctorsFulfilled) && appointments.map((appointment) => (
           <>
             <div className="appointment__card" key={appointment.id}>
               <div className="top">
@@ -57,8 +56,7 @@ const Display = () => {
               </div>
             </div>
           </>
-        ))
-      }
+        ))}
     </div>
   );
 };

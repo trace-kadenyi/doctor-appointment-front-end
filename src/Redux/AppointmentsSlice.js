@@ -66,5 +66,4 @@ export const selectAppointmentsLoading = (state) => state.appointments.loading;
 export const selectApppointmentsFulfilled = (state) => state.appointments.fulfilled;
 export const selectApppointmentsRejected = (state) => state.appointments.hasErrors;
 
-
 export default appointmentsReducer.reducer;

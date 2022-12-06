@@ -6,6 +6,7 @@
 #root {
   display: flex;
 }
+
 .app-container {
   margin-left: 20px;
   width: 100%;
@@ -16,11 +17,13 @@
   #root {
     flex-direction: column;
   }
+
   .app-container {
     margin: unset;
     height: auto;
     min-height: 80vh;
   }
+
   .appointments {
     min-height: 70vh;
   }
