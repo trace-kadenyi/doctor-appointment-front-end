@@ -17,6 +17,9 @@ const Display = () => {
   const currentUser = useSelector(selectCurrentUser);
   const appointmentEdited = useSelector(selectApppointmentsEdited);
 
+  // get random key
+  // const randomId = () => { return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 10);}
+
   // Fetch the appointments for the curent user:
   // loop through the appointments and render each appointment
 
@@ -26,31 +29,25 @@ const Display = () => {
   }, [appointmentEdited]);
 
   const allDoctors = useSelector(selectDoctors);
-  const findDoctorName = (id) => allDoctors.find((e) => e.id === id).name;
-  const findDoctorSpecialization = (id) => allDoctors.find((e) => e.id === id).specialization;
+  const findDoctorName = (id) => allDoctors.find((e) => e.id === id).name || 'unkown'
+  const findDoctorSpecialization = (id) => allDoctors.find((e) => e.id === id).specialization || 'unkown';
+
   return (
 
     <div className="display">
       <h1 className="display__header">Booked Appointments</h1>
 
-      {loading ? <ClipLoader size={250} />
-        : (appointments && doctorsFulfilled) && appointments.map((appointment) => (
+      {loading && <ClipLoader size={250} /> }
+      
+      <div className='appointment-doctors-container'>
+      {  
+      (appointments && doctorsFulfilled) && appointments.map((appointment) => (
           <>
             <div className="appointment__card" key={appointment.id}>
+              {console.log(randomId())}
               <div className="top">
                 <div className="left">
                   <p>Appointment Date:</p>
-                  {/* should destroy the appointment */}
-                  <button
-                    type="button"
-                    className="btn btn-outline-primary"
-                    onClick={() => dispatch(deleteAppointment({
-                      appointmentId: appointment.id,
-                      userId: currentUser.id,
-                    }))}
-                  >
-                    cancel appointment
-                  </button>
                 </div>
                 <div className="time">
                   {appointment.date_of_appointment}
@@ -67,9 +64,23 @@ const Display = () => {
                   {findDoctorSpecialization(appointment.doctor_id)}
                 </p>
               </div>
+              {/* should destroy the appointment */}
+                 <button
+                    type="button"
+                    className="btn btn-outline-danger w-100"
+                    onClick={() => dispatch(deleteAppointment({
+                      appointmentId: appointment.id,
+                      userId: currentUser.id,
+                    }))}
+                  >
+                    Cancel Appointment
+                  </button>
             </div>
           </>
         ))}
+      </div>
+        
+      
     </div>
   );
 };
