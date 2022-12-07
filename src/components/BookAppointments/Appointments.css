@@ -47,14 +47,15 @@ select {
 }
 
 .book_button {
-  background-color: #97bf10 !important;
-  border-color: #97bf10 !important;
+  border-radius: 55px;
   height: 35px;
   font-size: 1.1rem;
   line-height: 1rem;
+  width: 150px;
+  border: none;
 }
 
 .book_button:hover {
-  background-color: white !important;
-  color: #000;
+  background-color: #435607 !important;
+  color: white;
 }
