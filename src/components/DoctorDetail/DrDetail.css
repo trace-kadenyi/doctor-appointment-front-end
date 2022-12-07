@@ -15,7 +15,7 @@
   width: 70% !important;
 }
 
-.btn-primary {
+.btn-success {
   background-color: #97bf10 !important;
   border-color: #97bf10 !important;
   height: 35px;
@@ -37,6 +37,7 @@
 
 .btn-success:hover {
   background-color: white !important;
+  color: #000;
 }
 
 .container {
