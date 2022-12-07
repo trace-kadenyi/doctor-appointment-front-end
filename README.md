@@ -25,7 +25,7 @@
   - [Usage](#usage)
   - [Link to Backend](#link-to-backend)
   - [Link to kanban board](#link-to-kanban-board)
-  - [Deployment](#triangular_flag_on_post-deployment)
+  - [Deployment](#deployment)
 - [👥 Authors](#authors)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
