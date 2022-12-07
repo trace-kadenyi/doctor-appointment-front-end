@@ -177,11 +177,13 @@ form input {
   color: white;
   border-radius: 20px;
 }
+
 .delete-div {
   display: flex;
   justify-content: flex-end;
   margin-right: 10px;
 }
+
 .delete-doctor {
   font-size: 12px !important;
   padding: 3px;

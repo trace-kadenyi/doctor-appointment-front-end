@@ -60,6 +60,7 @@ select {
   background-color: #435607 !important;
   color: white;
 }
+
 .description-text-area {
   width: 100%;
   border-radius: 10px;
@@ -70,8 +71,7 @@ select {
   max-width: unset;
 }
 
-
-@media screen and (max-width:700px)  {
+@media screen and (max-width: 700px) {
   .appointments {
     min-height: unset;
   }
