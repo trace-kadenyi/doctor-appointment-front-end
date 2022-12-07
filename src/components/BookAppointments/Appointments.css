@@ -7,7 +7,6 @@
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 1.1rem;
 }
 
 .book__doctor {
@@ -21,7 +20,6 @@ select {
 }
 
 .appointments .book__doctor input {
-  width: 30vw;
   padding: 10px;
   border: none;
   outline: none;
@@ -49,9 +47,14 @@ select {
 }
 
 .book_button {
-  padding: 10px;
-  border: none;
-  outline: none;
-  border-radius: 5px;
+  background-color: #97bf10 !important;
+  border-color: #97bf10 !important;
+  height: 35px;
   font-size: 1.1rem;
+  line-height: 1rem;
+}
+
+.book_button:hover {
+  background-color: white !important;
+  color: #000;
 }

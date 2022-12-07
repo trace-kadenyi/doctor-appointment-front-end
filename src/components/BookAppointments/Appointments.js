@@ -74,7 +74,7 @@ const Appointments = () => {
           {/* description */}
           <div className="description">
             <label htmlFor="description">Description</label>
-            <input name="description" id="" cols="30" rows="10" onChange={handleChange} />
+            <textarea className="textarea" name="description" id="" cols="30" rows="5" onChange={handleChange} />
           </div>
           <button type="submit" className="book_button">
             Book Now
