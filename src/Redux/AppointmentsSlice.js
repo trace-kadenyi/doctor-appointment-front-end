@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const BASE_URL = 'http://localhost:3000/api/v1/';
+const BASE_URL = 'https://book-doctors-appointment.onrender.com/api/v1/';
 
 const notify = (e) => toast(e);
 
