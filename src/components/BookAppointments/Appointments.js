@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import './Appointments.css';
 import { selectCurrentUser } from '../../Redux/UserReducer';
@@ -14,8 +14,6 @@ const Appointments = () => {
   const doctors = useSelector(selectDoctors);
   const currentUser = useSelector(selectCurrentUser);
   const fulfilledDoctors = useSelector(selectDoctorsFulfilled);
-  // const fulfilledAppointments = useSelector(selectApppointmentsFulfilled);
-  // const rejectedAppointments = useSelector(selectApppointmentsRejected);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,13 +22,20 @@ const Appointments = () => {
     date_of_appointment: '',
     time_of_appointment: '',
     description: '',
-    userId: currentUser.id,
+    user_id: currentUser.id,
   });
+  const [onDoctors, setOnDoctors]  = useState(false);
+
+  // get the id from url , set onDoctors to be true
+  const { id } = useParams();
+
 
   // fetch doctors on page load
   useEffect(() => {
     dispatch(fetchDoctors());
+    if (id ){ setOnDoctors(true)}
   }, [dispatch]);
+  console.log(onDoctors)
 
   // handle the change of the input fields
   const handleChange = (e) => {
@@ -40,7 +45,8 @@ const Appointments = () => {
   // handle the submission of the form
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addAppointment(appointment));
+    if (id)  { appointment.doctor_id = id;}
+    dispatch(addAppointment({appointment,onDoctors}));
     navigate('/appointments');
   };
 
@@ -58,10 +64,11 @@ const Appointments = () => {
             <label htmlFor="time">Time of Appointment</label>
             <input type="time" name="time_of_appointment" className="time" onChange={handleChange} />
           </div>
-          {/* doctor */}
-          <div className="doctor__selector">
+
+          { !id &&
+          (<div className="doctor__selector">
             <label htmlFor="Doctor">Select a Doctor</label>
-            <select name="doctor_id" onChange={handleChange}>
+            <select name="doctor_id" onChange={handleChange} >
               <option value="no-value">Doctor</option>
               {/* map through doctors */}
               { fulfilledDoctors && doctors.map((doctor) => (
@@ -70,11 +77,14 @@ const Appointments = () => {
                 </option>
               ))}
             </select>
-          </div>
+          </div>)
+          }
+          {(id && fulfilledDoctors) && <input value={doctors.find(e => e.id == id).name}  readOnly />}
+
           {/* description */}
           <div className="description">
             <label htmlFor="description">Description</label>
-            <textarea className="textarea" name="description" id="" cols="30" rows="5" onChange={handleChange} />
+            <textarea placeholder='Briefly describe your condition'  className="textarea description-text-area" name="description" id="" cols="30" rows="5" onChange={handleChange} />
           </div>
           <button type="submit" className="book_button">
             Book Now
