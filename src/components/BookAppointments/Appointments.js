@@ -34,8 +34,8 @@ const Appointments = () => {
   const getDoctorName = (id) => {
     const doctor = doctors.find((e) => e.id === parseInt(id));
     return doctor.name;
-  }
- 
+  };
+
   // fetch doctors on page load
   useEffect(() => {
     dispatch(fetchDoctors());
