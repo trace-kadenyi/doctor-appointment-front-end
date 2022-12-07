@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const BASE_URL = 'https://book-doctors-appointment.onrender.com/api/v1/';
+const BASE_URL = 'http://localhost:3000/api/v1/';
 
 const notify = (e) => toast(e);
 
@@ -13,10 +13,18 @@ export const fetchAppointments = createAsyncThunk('appointments/fetchAppointment
 });
 
 // add appointments
-export const addAppointment = createAsyncThunk('appointments/addAppointment', async (appointment) => {
-  const { userId } = appointment;
-  const response = await axios.post(`${BASE_URL}users/${userId}/appointments`, appointment);
-  return response.data;
+export const addAppointment = createAsyncThunk('appointments/addAppointment', async (data) => {
+  const {onDoctors} =  data;
+  const {newAppointment} = data;
+  if(onDoctors) {
+    const { doctor_id } = newAppointment;
+    const response = await axios.post(`${BASE_URL}doctors/${doctor_id}/appointments`, newAppointment);
+    return response.data;
+  } else {
+    const { user_id } = newAppointment;
+    const response = await axios.post(`${BASE_URL}users/${user_id}/appointments`, newAppointment);
+    return response.data;
+  }
 });
 
 export const deleteAppointment = createAsyncThunk('appointments/deleteAppointment', async (data) => {
