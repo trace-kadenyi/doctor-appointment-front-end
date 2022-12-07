@@ -16,14 +16,16 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+    - [Preview](#preview)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
+  - [Link to Backend](#link-to-backend)
+  - [Link to kanban board](#link-to-kanban-board)
+  - [Deployment](#deployment)
 - [👥 Authors](#authors)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
@@ -69,19 +71,26 @@
 
 - **[Logs in the User using the username]**
 - **[Presents a list of available doctors]**
+- **[Lets the user view the details of a doctor]**
 - **[Lets the user book doctors' appointments]**
 - **[Lets the user view all appointments]**
 
+<!-- Preview -->
+
+### Preview <a name="preview"></a>
+
+<div align="center">
+  <img src="doc_appointments_preview.png" alt="screenshot" width="100%"  height="auto" />
+</div>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Preview
-- COMING SOON
 
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- COMING SOON
+- [Live Demo Link](https://doc-appointments.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -96,8 +105,8 @@ To get a local copy up and running, follow these steps.
 In order to run this project you need:
 
 ```sh
-git
-node
+- git
+- node
 ```
 
 ### Setup
@@ -126,6 +135,25 @@ To run the project, execute the following command:
   npm run start
 ```
 
+### Link to Backend
+
+- [Link to Backend (API)](https://github.com/TracK92/doctor-appointment-api.git)
+
+### Link to kanban board
+
+- [Link to kanban board](https://github.com/users/TracK92/projects/9)
+
+### Deployment
+
+You can deploy the project to Netlify by following these steps:
+
+- Create a new site on Netlify
+- Select your repository
+- Select the branch to deploy
+- Set the build command to `npm run build`
+- Set the publish directory to `build`
+- Click on deploy
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -136,11 +164,12 @@ To run the project, execute the following command:
 
 - GitHub: [@TracK92](https://github.com/TracK92)
 - LinkedIn: [@Tracey Kadenyi](https://www.linkedin.com/in/Tracey-Kadenyi/)
+- Twitter: [@traci_K7](https://twitter.com/traci_k7)
 
 👤 **Aleksandra Ujvari**
 
 - GitHub: [@digia3d](https://github.com/digia3d)
-- LinkedIn: [Aleksandra (Digital Marketing A3D) Ujvari](https://www.linkedin.com/in/aleksandra-ujvari-85235a210/) 
+- LinkedIn: [Aleksandra (Alex) Ujvari](https://www.linkedin.com/in/aleksandraujvari/) 
 - Twitter: [@ujvari65](https://twitter.com/ujvari65)
 
 👤 **Abby Nyakara**
@@ -182,6 +211,21 @@ Give a ⭐️ if you like this project!
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FAQ (optional) -->
+
+## 📝 FAQ <a name="faq"></a>
+
+- **How can I contact you?** <br />
+  You can contact any of the authors of this project via their LinkedIn or Twitter accounts as listed above.
+
+- **How can I contribute?** <br />
+  You can contribute by opening issues or pull requests.
+
+- **How can I report a bug?** <br />
+  You can report bugs by opening an issue.
+
+- **How can I request a feature?** <br />
+  You can request a feature by opening an issue.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

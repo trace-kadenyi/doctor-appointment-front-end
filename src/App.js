@@ -15,7 +15,7 @@ import NewDoctor from './components/Doctors/NewDoctor';
 import Navbar from './components/Navbar/Navbar';
 import About from './components/About';
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   // if the user is logged in copy users data from the local storage to redux state.
@@ -41,6 +41,6 @@ function App() {
 
     </Router>
   );
-}
+};
 
 export default App;

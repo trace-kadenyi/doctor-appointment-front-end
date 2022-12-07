@@ -10,7 +10,7 @@ import {
 } from '../../Redux/UserReducer';
 import './user.css';
 
-function User() {
+const User = () => {
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
   const userSelector = useSelector(selectAll);
@@ -77,5 +77,5 @@ function User() {
       { (currentUser.id) && <Navigate to="/" /> }
     </section>
   );
-}
+};
 export default User;
