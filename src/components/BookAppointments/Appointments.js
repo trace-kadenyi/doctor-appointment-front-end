@@ -29,7 +29,13 @@ const Appointments = () => {
 
   // get the id from url , set onDoctors to be true
   const { id } = useParams();
+  // get the doctor selected name;
 
+  const getDoctorName = (id) => {
+    const doctor = doctors.find((e) => e.id == id);
+    return doctor.name;
+  }
+ 
   // fetch doctors on page load
   useEffect(() => {
     dispatch(fetchDoctors());
@@ -79,7 +85,7 @@ const Appointments = () => {
             </select>
           </div>
           )}
-          {(id && fulfilledDoctors) && <input value={doctors.find((e) => e.id === id).name} readOnly />}
+          {(id && fulfilledDoctors) && <input value={getDoctorName(id)} readOnly />}
 
           {/* description */}
           <div className="description">
