@@ -22,7 +22,7 @@
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
+  - [Link to Backend](#link-to-backend)
   - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🤝 Contributing](#contributing)
@@ -69,19 +69,24 @@
 
 - **[Logs in the User using the username]**
 - **[Presents a list of available doctors]**
+- **[Lets the user view the details of a doctor]**
 - **[Lets the user book doctors' appointments]**
 - **[Lets the user view all appointments]**
 
+#### Preview
+
+<div align="center">
+  <img src="doc_appointments_preview.png" alt="screenshot" width="100%"  height="auto" />
+</div>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Preview
-- COMING SOON
 
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- COMING SOON
+- [Live Demo Link](https://doc-appointments.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -126,6 +131,10 @@ To run the project, execute the following command:
   npm run start
 ```
 
+### Link to Backend
+
+- [Link to Backend (API)](https://github.com/TracK92/doctor-appointment-api.git)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -140,7 +149,7 @@ To run the project, execute the following command:
 👤 **Aleksandra Ujvari**
 
 - GitHub: [@digia3d](https://github.com/digia3d)
-- LinkedIn: [Aleksandra (Digital Marketing A3D) Ujvari](https://www.linkedin.com/in/aleksandra-ujvari-85235a210/) 
+- LinkedIn: [Aleksandra (Alex) Ujvari](https://www.linkedin.com/in/aleksandraujvari/) 
 - Twitter: [@ujvari65](https://twitter.com/ujvari65)
 
 👤 **Abby Nyakara**
