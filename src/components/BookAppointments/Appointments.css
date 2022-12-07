@@ -52,10 +52,27 @@ select {
   font-size: 1.1rem;
   line-height: 1rem;
   width: 150px;
+  justify-self: center;
   border: none;
 }
 
 .book_button:hover {
   background-color: #435607 !important;
   color: white;
+}
+.description-text-area {
+  width: 100%;
+  border-radius: 10px;
+  padding-inline-start: 6px;
+}
+
+.book__form {
+  max-width: unset;
+}
+
+
+@media screen and (max-width:700px)  {
+  .appointments {
+    min-height: unset;
+  }
 }

@@ -43,8 +43,8 @@
 
 .doctors_img {
   border-radius: 50%;
-  width: 90%;
   height: 70%;
+  max-width: max-content;
   cursor: pointer;
 }
 
@@ -57,6 +57,7 @@
 .specialization {
   text-align: center;
   font-style: italic;
+  margin-bottom: 0.5rem;
 }
 
 .arrow {
@@ -175,6 +176,16 @@ form input {
   font-weight: bold;
   color: white;
   border-radius: 20px;
+}
+.delete-div {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+.delete-doctor {
+  font-size: 12px !important;
+  padding: 3px;
+  color: red;
 }
 
 @media screen and (max-width: 700px) {

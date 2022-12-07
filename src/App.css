@@ -6,7 +6,9 @@
 #root {
   display: flex;
 }
-
+h1, h2 {
+  text-transform: capitalize;
+}
 .app-container {
   margin-left: 20px;
   width: 100%;
