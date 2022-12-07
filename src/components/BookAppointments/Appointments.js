@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -24,18 +25,16 @@ const Appointments = () => {
     description: '',
     user_id: currentUser.id,
   });
-  const [onDoctors, setOnDoctors]  = useState(false);
+  const [onDoctors, setOnDoctors] = useState(false);
 
   // get the id from url , set onDoctors to be true
   const { id } = useParams();
 
-
   // fetch doctors on page load
   useEffect(() => {
     dispatch(fetchDoctors());
-    if (id ){ setOnDoctors(true)}
+    if (id) { setOnDoctors(true); }
   }, [dispatch]);
-  console.log(onDoctors)
 
   // handle the change of the input fields
   const handleChange = (e) => {
@@ -45,8 +44,8 @@ const Appointments = () => {
   // handle the submission of the form
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (id)  { appointment.doctor_id = id;}
-    dispatch(addAppointment({appointment,onDoctors}));
+    if (id) { appointment.doctor_id = id; }
+    dispatch(addAppointment({ appointment, onDoctors }));
     navigate('/appointments');
   };
 
@@ -65,10 +64,11 @@ const Appointments = () => {
             <input type="time" name="time_of_appointment" className="time" onChange={handleChange} />
           </div>
 
-          { !id &&
-          (<div className="doctor__selector">
+          { !id
+          && (
+          <div className="doctor__selector">
             <label htmlFor="Doctor">Select a Doctor</label>
-            <select name="doctor_id" onChange={handleChange} >
+            <select name="doctor_id" onChange={handleChange}>
               <option value="no-value">Doctor</option>
               {/* map through doctors */}
               { fulfilledDoctors && doctors.map((doctor) => (
@@ -77,14 +77,14 @@ const Appointments = () => {
                 </option>
               ))}
             </select>
-          </div>)
-          }
-          {(id && fulfilledDoctors) && <input value={doctors.find(e => e.id == id).name}  readOnly />}
+          </div>
+          )}
+          {(id && fulfilledDoctors) && <input value={doctors.find((e) => e.id === id).name} readOnly />}
 
           {/* description */}
           <div className="description">
             <label htmlFor="description">Description</label>
-            <textarea placeholder='Briefly describe your condition'  className="textarea description-text-area" name="description" id="" cols="30" rows="5" onChange={handleChange} />
+            <textarea placeholder="Briefly describe your condition" className="textarea description-text-area" name="description" id="" cols="30" rows="5" onChange={handleChange} />
           </div>
           <button type="submit" className="book_button">
             Book Now

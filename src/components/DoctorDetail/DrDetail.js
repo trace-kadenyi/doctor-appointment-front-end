@@ -67,7 +67,7 @@ const DrDetail = () => {
             </Link>
           </button>
         </Container>
-      ) : <div className="error"></div>}
+      ) : <div className="error" />}
     </>
   );
 };

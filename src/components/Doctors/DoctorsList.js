@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
-import {  IoIosTrash } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import {
   fetchDoctors, doctorSelector, deleteDoctor, selectdoctorEdited, selectDoctors,
@@ -97,24 +96,27 @@ const DoctorsList = () => {
                   </Link>
                   <h2 className="doctors_name">{doctor.name}</h2>
                   <p className="specialization">{doctor.specialization}</p>
-                  
-                    {/* delete doctor button only for owners. */}
-                    {doctor.user_id === currentUser.id
-                    &&
 
-                    (
-                    <div className='delete-div'>
-                     ` < button
-                      className='btn btn-outline-danger delete-doctor'
-                      onClick={() => {
-                        dispatch(deleteDoctor({ doctorId: doctor.id, userId: currentUser.id }));
-                      }}  
-                     > delete
+                  {/* delete doctor button only for owners. */}
+                  {doctor.user_id === currentUser.id
+                    && (
+                    <div className="delete-div">
+                      `
+                      {' '}
+                      <button
+                        type="button"
+                        className="btn btn-outline-danger delete-doctor"
+                        onClick={() => {
+                          dispatch(deleteDoctor({ doctorId: doctor.id, userId: currentUser.id }));
+                        }}
+                      >
+                        {' '}
+                        delete
                       </button>
-                      </div>
-                    
+                    </div>
+
                     )}
-                  
+
                 </div>
               ))}
             </div>

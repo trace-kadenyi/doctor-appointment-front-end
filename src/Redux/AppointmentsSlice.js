@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -14,17 +15,16 @@ export const fetchAppointments = createAsyncThunk('appointments/fetchAppointment
 
 // add appointments
 export const addAppointment = createAsyncThunk('appointments/addAppointment', async (data) => {
-  const {onDoctors} =  data;
-  const {newAppointment} = data;
-  if(onDoctors) {
+  const { onDoctors } = data;
+  const { newAppointment } = data;
+  if (onDoctors) {
     const { doctor_id } = newAppointment;
     const response = await axios.post(`${BASE_URL}doctors/${doctor_id}/appointments`, newAppointment);
     return response.data;
-  } else {
-    const { user_id } = newAppointment;
-    const response = await axios.post(`${BASE_URL}users/${user_id}/appointments`, newAppointment);
-    return response.data;
   }
+  const { user_id } = newAppointment;
+  const response = await axios.post(`${BASE_URL}users/${user_id}/appointments`, newAppointment);
+  return response.data;
 });
 
 export const deleteAppointment = createAsyncThunk('appointments/deleteAppointment', async (data) => {
