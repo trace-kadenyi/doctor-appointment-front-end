@@ -32,7 +32,7 @@ const Appointments = () => {
   // get the doctor selected name;
 
   const getDoctorName = (id) => {
-    const doctor = doctors.find((e) => e.id === parseInt(id));
+    const doctor = doctors.find((e) => e.id === Number(id));
     return doctor.name;
   };
 
