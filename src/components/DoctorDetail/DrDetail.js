@@ -53,7 +53,7 @@ const DrDetail = () => {
                       </tr>
                       <tr>
                         <th>Appointment</th>
-                        <td className="d-flex justify-content-end"><Link to="/book-appointment" className="btn btn-success">Book Appointment</Link></td>
+                        <td className="d-flex justify-content-end"><Link to={`/doctors/${id}/appointment`} className="btn btn-success">Book Appointment</Link></td>
                       </tr>
                     </tbody>
                   </Table>
@@ -67,7 +67,7 @@ const DrDetail = () => {
             </Link>
           </button>
         </Container>
-      ) : <div className="alert alert-danger">something went wrond</div>}
+      ) : <div className="error"></div>}
     </>
   );
 };
