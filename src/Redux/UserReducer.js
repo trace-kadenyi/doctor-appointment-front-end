@@ -59,7 +59,7 @@ const options = {
       loginUserState.currentUser = action.payload;
       // navigate to the main page.
         <Navigate to="/" />;
-        notify('user logged in!');
+        notify(`logged in as ${action.payload.name}`);
     },
   },
   extraReducers: {
