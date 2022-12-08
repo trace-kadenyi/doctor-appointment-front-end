@@ -58,15 +58,25 @@ const User = () => {
       { loading && <ClipLoader size={150} /> }
       { (userSelector.fulfilled && !currentUser.id)
       && (
-      <form className="login-form">
-        <h1>Welcome, Either log in or sign up.</h1>
-        <input maxLength={15} minLength={3} id="username-input" placeholder="enter your username" onChange={(e) => setUsername(e.target.value)} />
-        <br />
-        <div className="login-form-buttons">
-          <button type="submit" onClick={(e) => { e.preventDefault(); loginUser(username); }}>log in</button>
-          <button type="submit" onClick={(e) => { e.preventDefault(); signUp(username); }}>sign up</button>
-        </div>
-      </form>
+        <>
+        <h1>
+          Docs Appointments
+        </h1>
+        <form className="login-form">
+          <h4>
+            Welcome.
+            <br />
+            Log in or sign up
+
+          </h4>
+          <input maxLength={15} minLength={3} id="username-input" placeholder="enter your username" onChange={(e) => setUsername(e.target.value)} />
+          <br />
+          <div className="login-form-buttons">
+            <button type="submit" onClick={(e) => { e.preventDefault(); loginUser(username); }}>log in</button>
+            <button type="submit" onClick={(e) => { e.preventDefault(); signUp(username); }}>sign up</button>
+          </div>
+        </form>
+      </>
       )}
       { userSelector.rejected && (
       <div className="alert alert-danger">
