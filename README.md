@@ -105,7 +105,7 @@
 
 ### Link to screenshots of the kanban board
 
-- [Screenshots](https://github.com/TracK92/doctor-appointment-api/issues/9)
+-  [Screenshots](https://github.com/TracK92/doctor-appointment-api/issues/9)
 
 <!-- GETTING STARTED -->
 
