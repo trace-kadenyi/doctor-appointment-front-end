@@ -25,7 +25,6 @@
   - [Install](#install)
   - [Usage](#usage)
   - [Link to Backend](#link-to-backend)
-  - [Link to kanban board](#link-to-kanban-board)
   - [Deployment](#deployment)
 - [👥 Authors](#authors)
 - [🤝 Contributing](#contributing)
