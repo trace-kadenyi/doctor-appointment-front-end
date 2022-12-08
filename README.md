@@ -139,9 +139,19 @@ To run the project, execute the following command:
 
 - [Link to Backend (API)](https://github.com/TracK92/doctor-appointment-api.git)
 
-### Link to kanban board
+# KANBAN BOARD
+
+### Link to front/end kanban board
 
 - [Link to kanban board](https://github.com/users/TracK92/projects/9)
+
+### Link to back/end kanban board
+
+- [Link to kanban board](https://github.com/users/TracK92/projects/8/views/1)
+
+### Link to screenshots of the kanban board
+
+[Screenshots](https://github.com/TracK92/doctor-appointment-api/issues/9)
 
 ### Deployment
 
