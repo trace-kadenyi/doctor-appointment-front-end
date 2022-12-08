@@ -42,40 +42,38 @@ const Display = () => {
       <div className="appointment-doctors-container">
         {
       (appointments && doctorsFulfilled && !loading) && appointments.map((appointment) => (
-        <>
-          <div className="appointment__card" key={appointment.id}>
-            <div className="top">
-              <div className="left">
-                <p>Appointment Date:</p>
-              </div>
-              <div className="time">
-                {appointment.date_of_appointment}
-                {' '}
-                at
-                {' '}
-                {appointment.time_of_appointment}
-              </div>
+        <div className="appointment__card" key={appointment.id}>
+          <div className="top">
+            <div className="left">
+              <p>Appointment Date:</p>
             </div>
-            <div className="bottom">
-              <p>
-                {findDoctorName(appointment.doctor_id)}
-                <br />
-                {findDoctorspec(appointment.doctor_id)}
-              </p>
+            <div className="time">
+              {appointment.date_of_appointment}
+              {' '}
+              at
+              {' '}
+              {appointment.time_of_appointment}
             </div>
-            {/* should destroy the appointment */}
-            <button
-              type="button"
-              className="btn btn-outline-danger w-100"
-              onClick={() => dispatch(deleteAppointment({
-                appointmentId: appointment.id,
-                userId: currentUser.id,
-              }))}
-            >
-              Cancel Appointment
-            </button>
           </div>
-        </>
+          <div className="bottom">
+            <p>
+              {findDoctorName(appointment.doctor_id)}
+              <br />
+              {findDoctorspec(appointment.doctor_id)}
+            </p>
+          </div>
+          {/* should destroy the appointment */}
+          <button
+            type="button"
+            className="btn btn-outline-danger w-100"
+            onClick={() => dispatch(deleteAppointment({
+              appointmentId: appointment.id,
+              userId: currentUser.id,
+            }))}
+          >
+            Cancel Appointment
+          </button>
+        </div>
       ))
 }
       </div>
