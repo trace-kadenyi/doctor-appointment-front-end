@@ -85,12 +85,13 @@ const Appointments = () => {
             </select>
           </div>
           )}
-          {(id && fulfilledDoctors) &&
-          <div className='doctor__selector'>
+          {(id && fulfilledDoctors)
+          && (
+          <div className="doctor__selector">
             <label htmlFor="doctor">Doctor</label>
             <input value={getDoctorName(id)} readOnly />
           </div>
-          }
+          )}
 
           {/* description */}
           <div className="description">

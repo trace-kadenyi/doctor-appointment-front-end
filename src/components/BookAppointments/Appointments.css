@@ -64,7 +64,8 @@ select {
 .description-text-area {
   width: 100%;
   border-radius: 10px;
-  padding-inline-start: 6px;
+  padding-inline-start: 10px;
+  padding: 5px;
 }
 
 .book__form {
