@@ -18,7 +18,7 @@
     - [Key Features](#key-features)
     - [Preview](#preview)
   - [🚀 Live Demo](#live-demo)
-- [Kanban Board](#kanban-board)
+- [💻 Kanban Board](#kanban-board)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
