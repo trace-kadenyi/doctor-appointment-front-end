@@ -18,6 +18,7 @@
     - [Key Features](#key-features)
     - [Preview](#preview)
   - [🚀 Live Demo](#live-demo)
+- [Kanban Board](#kanban-board)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -93,6 +94,18 @@
 - [Live Demo Link](https://doc-appointments.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Link to front-end kanban board
+
+- [Link to kanban board](https://github.com/users/TracK92/projects/9)
+
+### Link to back-end kanban board
+
+- [Link to kanban board](https://github.com/users/TracK92/projects/8/views/1)
+
+### Link to screenshots of the kanban board
+
+- [Screenshots](https://github.com/TracK92/doctor-appointment-api/issues/9)
 
 <!-- GETTING STARTED -->
 
