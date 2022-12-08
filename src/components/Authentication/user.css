@@ -3,12 +3,15 @@
 }
 
 .login-section {
+  background-image: url("../../assets/images/doctorBackground.png"), 
+  linear-gradient( #d6d8cd, #96bf01);
+  background-repeat: no-repeat;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--green);
+  /* background: var(--green); */
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -23,11 +26,25 @@
   flex-direction: column;
   margin-top: 70px;
   gap: 5px;
+  margin-top: 35vh;
+}
+.login-section > h1 {
+  overflow: unset;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: bold;
+  color: white;
 }
 
-.login-form > h1 {
+.login-form > h4 {
   text-align: center;
   padding: 12px;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+  text-transform: unset;
 }
 
 .login-form > input {
