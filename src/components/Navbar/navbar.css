@@ -1,0 +1,98 @@
+.navbar {
+  width: 300px;
+  height: 100vh;
+  box-shadow: 5px 5px 12px #ddd;
+}
+
+.navbar_main {
+  padding: 0.7rem;
+}
+
+.header__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.header__links a {
+  text-decoration: none;
+  color: #000 !important;
+}
+
+.nav__logo {
+  width: 200px;
+  height: 200px;
+}
+
+.nav__logo img {
+  width: 100%;
+  height: 100%;
+  background-color: #97bf10;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.header__link {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bolder;
+  width: 100%;
+  padding: 10px;
+}
+
+.active {
+  background-color: #97bf10;
+  border: none;
+  border-radius: 5px;
+}
+
+.nav_items {
+  padding-left: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+/* Humbuger menu */
+.menu__button {
+  display: none;
+}
+
+#showNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar #hideshadow {
+  box-shadow: none;
+}
+
+#d-none {
+  display: none;
+}
+
+/* .navbar_main#hideNav {
+  display: none;
+} */
+
+@media screen and (max-width: 700px) {
+  .menu__button {
+    display: flex;
+  }
+
+  .navbar {
+    width: 100%;
+    height: auto;
+  }
+
+  .nav_items {
+    display: none;
+    padding: 5px;
+  }
+
+  .header__links {
+    margin-top: unset;
+  }
+}

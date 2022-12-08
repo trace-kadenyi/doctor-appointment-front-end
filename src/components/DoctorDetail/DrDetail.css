@@ -1,0 +1,89 @@
+.card {
+  min-height: 90% !important;
+  border: 2px solid  #97bf10;
+}
+
+.table {
+  border: 2px solid  #97bf10;
+}
+
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  margin: 5px auto;
+  display: block;
+  width: 70% !important;
+}
+
+.btn-success {
+  background-color: #97bf10 !important;
+  border-color: #97bf10 !important;
+  height: 35px;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.button__D {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+}
+
+.btn-success,
+.delete {
+  border-radius: 55px;
+}
+
+.btn-success:hover {
+  background-color: white !important;
+  color: #000;
+}
+
+.container {
+  margin: 20px;
+  padding-top: 20px;
+}
+
+td {
+  width: 80%;
+}
+
+th {
+  width: 20%;
+}
+
+.d-flex,
+.justify-content-end {
+  display: flex !important;
+  width: 100%;
+  justify-content: center !important;
+  gap: 30px;
+}
+
+.arrow__back {
+  color: white;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  background-color: #97bf10;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 0 50% 50% 0;
+}
+
+.back {
+  color: white;
+}
+
+.back:hover {
+  color: white;
+}
+
+.d-flex,
+.row {
+  display: flex !important;
+  width: 100%;
+  justify-content: center !important;
+  gap: 30px;
+}

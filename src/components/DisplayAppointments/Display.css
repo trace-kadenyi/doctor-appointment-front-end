@@ -1,0 +1,73 @@
+.display {
+  min-height: 100vh;
+  background-color: #97bf10;
+  color: #fff;
+  width: 100%;
+  padding: 2rem;
+}
+
+.display > * {
+  overflow: unset;
+}
+
+/* this applis to the loader that shows when loading data  */
+.display > span {
+  margin-left: calc(70% / 2);
+  margin-top: calc(20% / 2);
+}
+
+.display__header {
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.appointment__card {
+  width: 300px;
+
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr); */
+  margin-top: 50px;
+  background-color: #fff;
+  font-size: 0.8rem;
+  box-shadow: 5px 5px 12px 2px rgb(95, 89, 89);
+  overflow: unset;
+  height: auto;
+  padding: 10px;
+}
+
+.appointment__card .top .left {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  overflow-x: unset;
+}
+
+.appointment-doctors-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.appointment__card .top {
+  color: #000;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.appointment__card .bottom {
+  color: #000;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .display > span {
+    margin-left: calc(45% / 2);
+  }
+
+  .appointment-doctors-container {
+    justify-content: center;
+    gap: unset;
+  }
+}
